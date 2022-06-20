@@ -1,0 +1,14 @@
+/* подключение шрифтов */
+
+@include font-face(Roboto, "../fonts/Roboto-100",100);
+@include font-face(Roboto, "../fonts/Roboto-100Italic",100,italic);
+@include font-face(Roboto, "../fonts/Roboto-300",300);
+@include font-face(Roboto, "../fonts/Roboto-300Italic",300,italic);
+@include font-face(Roboto, "../fonts/Roboto-400",400);
+@include font-face(Roboto, "../fonts/Roboto-400Italic",400,italic);
+@include font-face(Roboto, "../fonts/Roboto-500",500);
+@include font-face(Roboto, "../fonts/Roboto-500Italic",500,italic);
+@include font-face(Roboto, "../fonts/Roboto-700",700);
+@include font-face(Roboto, "../fonts/Roboto-700Italic",700,italic);
+
+

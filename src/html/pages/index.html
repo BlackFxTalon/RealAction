@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Главная"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+			@@include('../parts/button.html', {
+				"className": "button"
+			})
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus quae eius recusandae est accusamus ab. Sint laborum voluptates voluptatum quis, id quod hic nobis eaque facere consectetur odio aliquid!
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>

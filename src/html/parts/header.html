@@ -1,0 +1,164 @@
+<header class="header" :class="{'active': mobileMenu === true}" @mouseover.outside="headerMegaMenu = false">
+    <div class="container header__container">
+        <div class="header__left">
+        <button type="button" class="header__hamb-btn" @click="mobileMenu = !mobileMenu" :class="{'active': mobileMenu === true}">
+            <span></span>
+        </button><button type="button" class="header__search-btn" @click="headerSearch = !headerSearch" :class="{'active': headerSearch === true}">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.3595 12.4204L13.2595 12.5204L11.7995 11.0604C12.6595 10.0404 13.1795 8.72039 13.1795 7.28039C13.1795 5.74039 12.5595 4.24039 11.4595 3.14039C10.3595 2.02039 8.83945 1.40039 7.29945 1.40039C4.05945 1.40039 1.43945 4.04039 1.43945 7.28039C1.43945 8.86039 2.05945 10.3404 3.17945 11.4604C4.27945 12.5604 5.73945 13.1604 7.27945 13.1604C7.29945 13.1604 7.29945 13.1604 7.31945 13.1604C8.75945 13.1604 10.0795 12.6404 11.0995 11.7804L12.5595 13.2404L12.3995 13.3804C12.1995 13.5804 12.1995 13.9004 12.3995 14.0804L16.5595 18.2404C17.0195 18.7004 17.7795 18.7004 18.2395 18.2404C18.6995 17.7804 18.6995 17.0204 18.2395 16.5604L14.0595 12.4204C13.8595 12.2204 13.5595 12.2204 13.3595 12.4204ZM7.29945 12.1404H7.27945C5.99945 12.1404 4.77945 11.6404 3.87945 10.7404C2.95945 9.82039 2.43945 8.58039 2.43945 7.28039C2.43945 4.58039 4.61945 2.40039 7.29945 2.40039C8.57945 2.40039 9.81945 2.92039 10.7395 3.84039C11.6595 4.76039 12.1795 6.00039 12.1795 7.28039C12.1795 9.96039 9.99945 12.1404 7.29945 12.1404Z" fill="white"/>
+                <path d="M3.35938 7.28012C3.35938 7.70012 3.41938 8.10012 3.53938 8.50012C3.63938 8.78012 3.95938 8.92012 4.23938 8.80012C4.45938 8.70012 4.57938 8.44012 4.49938 8.20012C4.39938 7.90012 4.35937 7.60012 4.35937 7.28012C4.35937 6.54012 4.63938 5.84012 5.13938 5.30012C5.29938 5.12012 5.29937 4.84012 5.15937 4.66012C4.95937 4.42012 4.61938 4.42012 4.39938 4.64012C3.73938 5.34012 3.35938 6.28012 3.35938 7.28012Z" fill="white"/>
+                </svg>     
+        </button>
+    </div>
+    <div class="header__logo">
+        <svg width="162" height="16">
+            <use href="../resources/svgSprites/svgSprite.svg#header-logo"></use>
+        </svg>
+    </div>
+    <nav class="header__menu">
+        <ul role="list">
+            <li @mouseover="headerMegaMenu = true"><a href="#"><span>Новинки</span></a></li>
+            <li @mouseover="headerMegaMenu = true"><a href="#"><span>Мужчинам</span></a></li>
+            <li @mouseover="headerMegaMenu = true"><a href="#"><span>женщинам</span></a></li>
+            <li @mouseover="headerMegaMenu = true"><a href="#"><span>Аксессуары</span></a></li>
+            <li @mouseover="headerMegaMenu = true"><a href="#"><span>SALE</span></a></li>
+        </ul>
+    </nav>
+    <div class="header__right">
+        <button type="button" class="header__search-btn" @click="headerSearch = !headerSearch" :class="{'active': headerSearch === true}">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.3595 12.4204L13.2595 12.5204L11.7995 11.0604C12.6595 10.0404 13.1795 8.72039 13.1795 7.28039C13.1795 5.74039 12.5595 4.24039 11.4595 3.14039C10.3595 2.02039 8.83945 1.40039 7.29945 1.40039C4.05945 1.40039 1.43945 4.04039 1.43945 7.28039C1.43945 8.86039 2.05945 10.3404 3.17945 11.4604C4.27945 12.5604 5.73945 13.1604 7.27945 13.1604C7.29945 13.1604 7.29945 13.1604 7.31945 13.1604C8.75945 13.1604 10.0795 12.6404 11.0995 11.7804L12.5595 13.2404L12.3995 13.3804C12.1995 13.5804 12.1995 13.9004 12.3995 14.0804L16.5595 18.2404C17.0195 18.7004 17.7795 18.7004 18.2395 18.2404C18.6995 17.7804 18.6995 17.0204 18.2395 16.5604L14.0595 12.4204C13.8595 12.2204 13.5595 12.2204 13.3595 12.4204ZM7.29945 12.1404H7.27945C5.99945 12.1404 4.77945 11.6404 3.87945 10.7404C2.95945 9.82039 2.43945 8.58039 2.43945 7.28039C2.43945 4.58039 4.61945 2.40039 7.29945 2.40039C8.57945 2.40039 9.81945 2.92039 10.7395 3.84039C11.6595 4.76039 12.1795 6.00039 12.1795 7.28039C12.1795 9.96039 9.99945 12.1404 7.29945 12.1404Z" fill="white"/>
+                <path d="M3.35938 7.28012C3.35938 7.70012 3.41938 8.10012 3.53938 8.50012C3.63938 8.78012 3.95938 8.92012 4.23938 8.80012C4.45938 8.70012 4.57938 8.44012 4.49938 8.20012C4.39938 7.90012 4.35937 7.60012 4.35937 7.28012C4.35937 6.54012 4.63938 5.84012 5.13938 5.30012C5.29938 5.12012 5.29937 4.84012 5.15937 4.66012C4.95937 4.42012 4.61938 4.42012 4.39938 4.64012C3.73938 5.34012 3.35938 6.28012 3.35938 7.28012Z" fill="white"/>
+                </svg>     
+        </button>
+        <button type="button" aria-label="button" class="chosen-btn">
+            <svg width="20" height="20">
+                <use href="../resources/svgSprites/svgSprite.svg#chosen-icon"></use>
+            </svg>
+            <div class="badge badge--header"><span>3</span></div>
+        </button>
+        <button type="button" aria-label="button" class="basket-btn">
+            <svg width="20" height="20">
+                <use href="../resources/svgSprites/svgSprite.svg#basket-icon"></use>
+            </svg>
+            <div class="badge badge--header"><span>3</span></div>
+        </button>
+        <button type="button" class="header__auth-btn">
+            <svg width="16" height="20">
+                <use href="../resources/svgSprites/svgSprite.svg#profile-icon--white"></use>
+            </svg>   
+        </button>
+    </div>
+    </div>
+    <nav class="mobile-menu" :class="{'active': mobileMenu === true}" x-data="{mobileMenuSubList:''}">
+        <div class="container">
+        <div class="mobile-menu__top">
+            <div class="mobile-menu__phone"><a href="tel:+8(800)7009988">8 (800) 700-9988</a><p>Звонок по России бесплатный</p></div>
+        </div>
+        <ul class="mobile-menu__list" role="list">
+            <li class="mobile-menu__item mobile-menu__item--pt-0"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubList !== 1 ?mobileMenuSubList = 1 : mobileMenuSubList = ''"><span>Новинки</span><svg width="14" height="8" :class="{'active': mobileMenuSubList === 1}">
+                <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+            </svg></div></li>
+            <li class="mobile-menu__item"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubList !== 2 ?mobileMenuSubList = 2 : mobileMenuSubList = ''"><span>мужчинам</span><svg width="14" height="8" :class="{'active': mobileMenuSubList === 2}">
+                <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+            </svg></div>
+            <ul class="mobile-menu__sub-list" role="list" x-data="{mobileMenuSubSubList:''}" x-ref="subList" x-bind:style="mobileMenuSubList === 2 ? 'height: ' + $refs.subList.scrollHeight + 'px' : ''" :class="{'active': mobileMenuSubList === 2}">
+                <li class="mobile-menu__item mobile-menu__item--pt-0"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubSubList !== 1 ?mobileMenuSubSubList = 1 : mobileMenuSubSubList = ''"><span>одежда</span><svg width="14" height="8" :class="{'active': mobileMenuSubSubList === 1}">
+                    <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                </svg></div></li>
+                <li class="mobile-menu__item"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubSubList !== 2 ?mobileMenuSubSubList = 2 : mobileMenuSubSubList = ''"><span>одежда для мальчиков</span><svg width="14" height="8" :class="{'active': mobileMenuSubSubList === 2}">
+                    <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                </svg></div></li>
+                <li class="mobile-menu__item"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubSubList !== 3 ?mobileMenuSubSubList = 3 : mobileMenuSubSubList = ''"><span>аксессуары</span><svg width="14" height="8" :class="{'active': mobileMenuSubSubList === 3}">
+                    <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                </svg></div></li>
+                <li class="mobile-menu__link mobile-menu__link--mt"><a href="#">вся одежда</a></li>
+                <li class="mobile-menu__link"><a href="#">базовые вещи</a></li>
+                <li class="mobile-menu__link"><a href="#">Рубашки поло</a></li>
+                <li class="mobile-menu__link mobile-menu__link--pb-0"><a href="#">Футболки</a></li>
+            </ul>  
+            </li>
+            <li class="mobile-menu__item"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubList !== 3 ?mobileMenuSubList = 3 : mobileMenuSubList = ''"><span>женщинам</span><svg width="14" height="8" :class="{'active': mobileMenuSubList === 3}">
+                <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+            </svg></div></li>
+            <li class="mobile-menu__item"><div class="mobile-menu__item-wrapper" @click="mobileMenuSubList !== 4 ?mobileMenuSubList = 4 : mobileMenuSubList = ''"><span>аксессуары</span><svg width="14" height="8" :class="{'active': mobileMenuSubList === 4}">
+                <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+            </svg></div></li>
+            <li class="mobile-menu__item mobile-menu__item--sale"><div class="mobile-menu__item-wrapper"><span>SALE</span></div></li>
+            <li class="mobile-menu__item mobile-menu__item--no-border-bottom"><div class="mobile-menu__item-wrapper"><span>вход в профиль</span><svg width="16" height="20">
+                <use href="../resources/svgSprites/svgSprite.svg#profile-icon"></use>
+            </svg></div></li>
+        </ul>
+        </div>
+    </nav>
+    <form class="header__search" :class="{'active': headerSearch === true}" action="#" method="post" x-data="{search: ''}">
+       <div class="container header__search-container">
+       <div class="header__search-wrapper" :class="{'active': search.length > 0}">
+      <input type="text" name="headerSearch" id="headerSearch" x-model.debounce.300ms="search" placeholder="Поиск, например : Джинсы, футболка или артикул">
+      <svg width="15" height="15" @click="search = ''" :class="{'active': search.length > 0}">
+        <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+      </svg>
+     </div>
+     <ul role="list" class="header__search-autocomplete-list" x-show="search" x-transition.origin.top.left.duration.300ms>
+        <li><a href="#"><span>Футб</span>олка</a></li>
+        <li><a href="#"><span>Футб</span>олка женская</a></li>
+        <li><a href="#"><span>Футб</span>олки</a></li>
+        <li><a href="#"><span>Футб</span>олка мужская</a></li>
+        <li><a href="#"><span>Футб</span>олки женские</a></li>
+     </ul>
+    </div>
+    </form>
+    <nav class="header-mega-menu" x-show="headerMegaMenu === true" @mouseover="headerMegaMenu = true">
+        <div class="header-mega-menu__top">
+            <div class="header-mega-menu__top-lists">
+            <nav>
+                <h2>Одежда</h2>
+                <ul role="list">
+                    <li><a href="#">Куртки и жилеты</a></li>
+                    <li><a href="#">Футболки и майки</a></li>
+                    <li><a href="#">Брюки</a></li>
+                    <li><a href="#">Спортивные костюмы</a></li>
+                    <li><a href="#">Худи</a></li>
+                    <li><a href="#">Свитшоты</a></li>
+                    <li><a href="#">Шорты и велосипедки</a></li>
+                    <li><a href="#">Толстовки</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h2>Одежда для девочек</h2>
+                <ul role="list">
+                    <li><a href="#">Куртки и жилеты</a></li>
+                    <li><a href="#">Футболки и майки</a></li>
+                    <li><a href="#">Брюки</a></li>
+                    <li><a href="#">Спортивные костюмы</a></li>
+                    <li><a href="#">Худи</a></li>
+                    <li><a href="#">Свитшоты</a></li>
+                    <li><a href="#">Шорты и велосипедки</a></li>
+                    <li><a href="#">Толстовки</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <h2>Аксессуары</h2>
+                <ul role="list">
+                    <li><a href="#">Рюкзаки и сумки</a></li>
+                    <li><a href="#">Носки</a></li>
+                    <li><a href="#">Головные уборы</a></li>
+                    <li><a href="#">Бутылки для воды</a></li>
+                    <li><a href="#">Аксессуары для плавания</a></li>
+                    <li><a href="#">Мячи</a></li>
+                </ul>
+            </nav>
+        </div>
+        <img class="header-mega-menu__discount-img" loading="lazy" decoding="async" src="resources/images/header-mega-menu-img.jpg" alt="image" width="630" height="180">
+        </div>
+        <div class="header-mega-menu__bottom">
+        <ul role="list">
+            <li><a href="#">Вся одежда для женщин</a></li>
+            <li><a href="#">Вся одежда для девочек</a></li>
+            <li><a href="#">Все аксессуары</a></li>
+        </ul>
+    </div>
+    </nav>
+</header>
+<!-- <div class="overlay" x-show="headerSearch === true" @click="headerSearch = false">
+</div> -->
