@@ -250,6 +250,13 @@ color: white;
     gap: 15px;
     align-items: center;
 
+    @include media-custom(1440px) {
+      gap: 20px;
+    }
+    @include media-custom(1920px) {
+      gap: 40px;
+    }
+
     
     .header__search-btn,
     .header__auth-btn {
