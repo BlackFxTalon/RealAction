@@ -18,9 +18,7 @@ import Swiper from 'swiper/bundle';
 // init Swiper:
 const ctaSlider = new Swiper('.cta-slider', {
   slidesPerView:'auto',
-  loop:true,
   effect: "fade",
-  grabCursor: true,
   pagination: {
     el: '.cta-slider__pagination',
     clickable: true,
