@@ -7,10 +7,83 @@
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>
-			@@include('../parts/button.html', {
-				"className": "button"
-			})
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae repellendus quae eius recusandae est accusamus ab. Sint laborum voluptates voluptatum quis, id quod hic nobis eaque facere consectetur odio aliquid!
+<div class="swiper cta-slider">
+	<div class="swiper-wrapper cta-slider__wrapper">
+	  <div class="swiper-slide cta-slider__slide">
+		<picture>
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop-xl.jpg" media="(min-width:1920px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop.jpg" media="(min-width:1440px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--tablet.jpg" media="(min-width:768px)">
+		  <img src="/resources/images/cta-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="500">
+		</picture>
+		<div class="cta-slider__overlay"></div>
+		<div class="cta-slider__slide-info">
+			<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
+			<h3>Более экологичные модели Less Water</h3>
+			<a href="#" class="variant-1-btn cta-slider__btn">посмотреть сейчас</a>
+		</div>
+	  </div>
+	  <div class="swiper-slide cta-slider__slide">
+		<picture>
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop-xl.jpg" media="(min-width:1920px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop.jpg" media="(min-width:1440px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--tablet.jpg" media="(min-width:768px)">
+		  <img src="/resources/images/cta-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="500">
+		</picture>
+		<div class="cta-slider__overlay"></div>
+		<div class="cta-slider__slide-info">
+			<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
+			<h3>Более экологичные модели Less Water</h3>
+			<a href="#" class="variant-1-btn cta-slider__btn">посмотреть сейчас</a>
+		</div>
+	  </div>
+	  <div class="swiper-slide cta-slider__slide">
+		<picture>
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop.jpg" media="(min-width:1440px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--tablet.jpg" media="(min-width:768px)">
+		  <img src="/resources/images/cta-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="500">
+		</picture>
+		<div class="cta-slider__overlay"></div>
+		<div class="cta-slider__slide-info">
+			<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
+			<h3>Более экологичные модели Less Water</h3>
+			<a href="#" class="variant-1-btn cta-slider__btn">посмотреть сейчас</a>
+		</div>
+	  </div>
+	  <div class="swiper-slide cta-slider__slide">
+		<picture>
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop-xl.jpg" media="(min-width:1920px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop.jpg" media="(min-width:1440px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--tablet.jpg" media="(min-width:768px)">
+		  <img src="/resources/images/cta-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="500">
+		</picture>
+		<div class="cta-slider__overlay"></div>
+		<div class="cta-slider__slide-info">
+			<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
+			<h3>Более экологичные модели Less Water</h3>
+			<a href="#" class="variant-1-btn cta-slider__btn">посмотреть сейчас</a>
+		</div>
+	  </div>
+	  <div class="swiper-slide cta-slider__slide">
+		<picture>
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop-xl.jpg" media="(min-width:1920px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--desktop.jpg" media="(min-width:1440px)">
+			<source type="image/jpg" srcset="/resources/images/cta-slider-img--tablet.jpg" media="(min-width:768px)">
+		  <img src="/resources/images/cta-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="500">
+		</picture>
+		<div class="cta-slider__overlay"></div>
+		<div class="cta-slider__slide-info">
+			<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
+			<h3>Более экологичные модели Less Water</h3>
+			<a href="#" class="variant-1-btn cta-slider__btn">посмотреть сейчас</a>
+		</div>
+	  </div>
+	</div>
+	<div class="cta-slider__pagination-wrapper">
+		<div class="swiper-pagination cta-slider__pagination"></div>
+		<span class="cta-slider__pagination-current" data-index="0"></span>
+		</div>
+  </div>
 		</main>
 		@@include('../parts/footer.html')
 	</body>

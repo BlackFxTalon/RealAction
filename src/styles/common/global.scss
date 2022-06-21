@@ -132,6 +132,34 @@ z-index: 1;
 button {
   cursor: pointer;
 }
+main {
+  margin-top: 5rem;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.variant-1-btn {
+ border: 1px solid white;
+ background-color: transparent;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-transform: uppercase;
+ text-decoration: none;
+ width: 100%;
+ transition: .3s ease-in-out;
+ color: white;
+}
+.variant-1-btn:hover,
+.variant-1-btn:active,
+.variant-1-btn:focus {
+  background-color: white;
+  color: black;
+}
+.variant-1-btn.disable {
+  opacity: .5;
+}
 // header styles
 .header {
   background-color: black;
@@ -295,13 +323,21 @@ color: white;
     }
   }
 
+  &__hamb-btn {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__search-btn {
+    width: 25px;
+    height: 25px;
+  }
+
   &__hamb-btn,
   &__search-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
     background-color: transparent;
     border-color: transparent;
     padding: 0;

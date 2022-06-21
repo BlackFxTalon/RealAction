@@ -11,12 +11,31 @@ Alpine.start()
 /* swiper.js */
 
 // core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper/bundle';
 
 // custom scripts
 
 // init Swiper:
-const swiper = new Swiper('.swiper', {
-  // configure Swiper to use modules
-  modules: [Navigation, Pagination],
+const ctaSlider = new Swiper('.cta-slider', {
+  slidesPerView:'auto',
+  loop:true,
+  grabCursor: true,
+  pagination: {
+    el: '.cta-slider__pagination',
+    clickable: true,
+  },
+});
+const ctaSliderPaginationCurrent = document.querySelector('.cta-slider__pagination-current');
+
+ctaSlider.on('slideChange', () => {
+  const ctaSliderIndex = ctaSlider.realIndex;
+  ctaSliderPaginationCurrent.dataset.index = ctaSliderIndex;
+});
+
+ctaSlider.on('slideChangeTransitionStart', () => {
+  ctaSliderPaginationCurrent.classList.add(`cta-slider__pagination-current--index`);
+});
+
+ctaSlider.on('slideChangeTransitionEnd', () => {
+  ctaSliderPaginationCurrent.classList.remove(`cta-slider__pagination-current--index`);
 });
