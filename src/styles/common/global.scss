@@ -156,6 +156,7 @@ main {
 .variant-1-btn:focus {
   background-color: white;
   color: black;
+  transition: .3s ease-in-out;
 }
 .variant-1-btn.disable {
   opacity: .5;
