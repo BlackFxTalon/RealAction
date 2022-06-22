@@ -212,6 +212,96 @@
 		  </div>
 	</div>
 </section>
+<div class="container collection-gallery__container">
+<div class="collection-gallery collection-gallery--m-b" x-data="{ activeImage: 1}">
+	<div class="collection-gallery__left">
+		<ul class="collection-gallery__img-gallery" role="list">
+			<template x-for="i in 4">
+			<li :class="{'active': activeImage === i}"><picture>
+				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+			</picture>
+		    <a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		</li>
+		    </template>
+		</ul>
+	</div>
+	<div class="collection-gallery__right">
+		<div class="collection-gallery__right-text">
+		<p>коллекция копченая нога</p>
+		<span>изысканный вкус и устойчивый запах</span>
+	   </div>
+		<a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		<div class="collection-gallery__thumbnail-gallery">
+			<ul class="collection-gallery__detail-thumbnail-gallery" role="list">
+				<template x-for="i in 4">
+				<li :class="{'active': activeImage === i}"><picture>
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+				</picture>
+			</li>
+				</template>
+			</ul>
+			<ul class="collection-gallery__small-thumbnail-gallery" role="list">
+				<template x-for="i in 4">
+				<li :class="{'active': activeImage === i}" @click="activeImage = i"><picture>
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+				</picture>
+			</li>
+				</template>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="collection-gallery collection-gallery--reversed" x-data="{ activeImage: 1}">
+	<div class="collection-gallery__left">
+		<ul class="collection-gallery__img-gallery" role="list">
+			<template x-for="i in 4">
+			<li :class="{'active': activeImage === i}"><picture>
+				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+			</picture>
+		    <a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		</li>
+		    </template>
+		</ul>
+	</div>
+	<div class="collection-gallery__right">
+		<div class="collection-gallery__right-text">
+			<p>коллекция копченая нога</p>
+			<span>изысканный вкус и устойчивый запах</span>
+		   </div>
+		<a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		<div class="collection-gallery__thumbnail-gallery">
+			<ul class="collection-gallery__detail-thumbnail-gallery" role="list">
+				<template x-for="i in 4">
+				<li :class="{'active': activeImage === i}"><picture>
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+				</picture>
+			</li>
+				</template>
+			</ul>
+			<ul class="collection-gallery__small-thumbnail-gallery" role="list">
+				<template x-for="i in 4">
+				<li :class="{'active': activeImage === i}" @click="activeImage = i"><picture>
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+				</picture>
+			</li>
+				</template>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
 		</main>
 		@@include('../parts/footer.html')
 	</body>
