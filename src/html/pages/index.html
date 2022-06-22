@@ -84,17 +84,134 @@
 		<span class="cta-slider__pagination-current" data-index="0"></span>
 		</div>
   </div>
-<div class="video" id="video">
-<div class="video__overlay"></div>
-<div class="video__info">
-	<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
-			<h3>Более экологичные модели Less Water</h3>
-			<a href="#" class="variant-1-btn video__btn">посмотреть сейчас</a>
+<div class="index-video">
+	<div class="index-video__overlay"></div>
+	<div class="index-video__info">
+		<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
+				<h3>Более экологичные модели Less Water</h3>
+				<a href="#" class="variant-1-btn index-video__btn">посмотреть сейчас</a>
+	</div>
+	<iframe width="375" height="500" src="https://www.youtube.com/embed/cDxv-y1XuaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<iframe width="375" height="500"
-src="https://www.youtube.com/embed/cDxv-y1XuaA?autoplay=1&controls=0&disablekb=1&enablejsapi=1&end=50&loop=1&modestbranding=1&start=2"
-frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-</div>
+<section class="new-collections">
+	<div class="container new-collections__container">
+		<h2 class="section-title">Новинки коллекции<span class="section-title__circle"></span></h2>
+		<div class="new-collections__btn-group">
+		<a href="#" class="variant-1-btn new-collections__link">посмотреть коллекцию</a>
+		<a href="#" class="variant-1-btn new-collections__link-2">посмотреть все коллекции</a>
+	   </div>
+	</div>
+	<div class="container new-collections-slider__container">
+		<div class="swiper new-collections-slider" x-data="{ sliderCounts: [1,2,3,4,5,6] }">
+			<ul class="swiper-wrapper new-collections-slider__wrapper" role="list">
+			<template x-for="sliderCount in sliderCounts">
+			  <li class="swiper-slide new-collections-slider__slide" data-count="sliderCount">
+				<figure class="clothes-card" x-data="{toggleHeart:false}">
+					<div class="clothes-card__img">
+					<div class="clothes-card__top">
+						<div class="clothes-card__badges">
+                         <div class="clothes-card__badges-left">
+							<p class="clothes-card__badge-new"><span>NEW</span></p>
+							<p class="clothes-card__badge-discount"><span>-25%</span></p>
+						 </div>
+						 <span class="clothes-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+							<svg width="20" height="18">
+								<use class="clothes-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+								<use class="clothes-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+							  </svg>
+					  </span>
+						</div>
+						<a href="#" class="variant-2-btn clothes-card__link">посмотреть сейчас</a>
+				    </div>
+					<picture>
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop-xl.jpg" media="(min-width:1920px)">
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+					  <source type="image/jpg" srcset="resources/images/new-collections-card-img--tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/new-collections-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="170" height="260">
+					</picture>
+				    </div>
+					<figcaption>
+						<h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+					</figcaption>
+				</figure>
+			  </li>
+			</template>
+			  <li class="swiper-slide new-collections-slider__slide">
+				<figure class="clothes-card" x-data="{toggleHeart:false}">
+					<div class="clothes-card__img">
+					<div class="clothes-card__top">
+						<div class="clothes-card__badges">
+                         <div class="clothes-card__badges-left">
+							<p class="clothes-card__badge-sale"><span>Sale</span></p>
+							<p class="clothes-card__badge-discount"><span>-25%</span></p>
+						 </div>
+						 <span class="clothes-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+							<svg width="20" height="18">
+								<use class="clothes-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+								<use class="clothes-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+							  </svg>
+					  </span>
+						</div>
+						<a href="#" class="variant-2-btn clothes-card__link">посмотреть сейчас</a>
+				    </div>
+					<picture>
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop-xl.jpg" media="(min-width:1920px)">
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+					  <source type="image/jpg" srcset="resources/images/new-collections-card-img--tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/new-collections-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="170" height="260">
+					</picture>
+				    </div>
+					<figcaption>
+						<h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+					</figcaption>
+				</figure>
+			  </li>
+			  <li class="swiper-slide new-collections-slider__slide">
+				<figure class="clothes-card" x-data="{toggleHeart:false}">
+					<div class="clothes-card__img">
+					<div class="clothes-card__top">
+						<div class="clothes-card__badges">
+                         <div class="clothes-card__badges-left">
+							<p class="clothes-card__badge-new"><span>NEW</span></p>
+						 </div>
+						 <span class="clothes-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+							<svg width="20" height="18">
+								<use class="clothes-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+								<use class="clothes-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+							  </svg>
+					  </span>
+						</div>
+						<a href="#" class="variant-2-btn clothes-card__link">посмотреть сейчас</a>
+				    </div>
+					<picture>
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop-xl.jpg" media="(min-width:1920px)">
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+						<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+					  <source type="image/jpg" srcset="resources/images/new-collections-card-img--tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/new-collections-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="170" height="260">
+					</picture>
+				    </div>
+					<figcaption>
+						<h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+					</figcaption>
+				</figure>
+			  </li>
+			</ul>
+			<a href="#" class="variant-2-btn new-collections-slider__link">смотреть коллекцию</a>
+			<div class="swiper-pagination new-collections-slider__pagination"></div>
+			<div class="swiper-button-prev new-collections-slider__button-prev"><span><svg width="20" height="20" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15.2078 1.62519C14.2629 2.57009 14.2629 4.0974 15.2078 5.0423L20.7492 10.5836L2.41663 10.5836C1.08265 10.5836 0 11.6639 0 13.0002C0 14.3366 1.08265 15.4169 2.41663 15.4169L20.7492 15.4169L15.2078 20.9582C14.2629 21.9031 14.2629 23.4304 15.2078 24.3753C16.1527 25.3202 17.68 25.3202 18.6249 24.3753L30 13.0002L18.6249 1.62519C17.68 0.680287 16.1527 0.680287 15.2078 1.62519Z" fill="#030104"/>
+				</svg>
+				</span></div>
+          <div class="swiper-button-next new-collections-slider__button-next"><span><svg width="20" height="20" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M15.2078 1.62519C14.2629 2.57009 14.2629 4.0974 15.2078 5.0423L20.7492 10.5836L2.41663 10.5836C1.08265 10.5836 0 11.6639 0 13.0002C0 14.3366 1.08265 15.4169 2.41663 15.4169L20.7492 15.4169L15.2078 20.9582C14.2629 21.9031 14.2629 23.4304 15.2078 24.3753C16.1527 25.3202 17.68 25.3202 18.6249 24.3753L30 13.0002L18.6249 1.62519C17.68 0.680287 16.1527 0.680287 15.2078 1.62519Z" fill="#030104"/>
+			</svg>
+			</span></div>
+		  </div>
+	</div>
+</section>
 		</main>
 		@@include('../parts/footer.html')
 	</body>
