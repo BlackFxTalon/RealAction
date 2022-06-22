@@ -256,7 +256,7 @@ align-self: center;
     }
     @include media-custom(1920px) {
         height: 700px;
-        padding-bottom: 55px;
+        margin-bottom: 55px;
     }
     iframe {
         width: 100%;
