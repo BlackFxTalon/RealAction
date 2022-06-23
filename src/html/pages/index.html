@@ -199,7 +199,7 @@
 				</figure>
 			  </li>
 			</ul>
-			<a href="#" class="variant-2-btn new-collections-slider__link">смотреть коллекцию</a>
+			<a href="#" class="variant-1-btn new-collections-slider__link">смотреть коллекцию</a>
 			<div class="swiper-pagination new-collections-slider__pagination"></div>
 			<div class="swiper-button-prev new-collections-slider__button-prev"><span><svg width="20" height="20" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M15.2078 1.62519C14.2629 2.57009 14.2629 4.0974 15.2078 5.0423L20.7492 10.5836L2.41663 10.5836C1.08265 10.5836 0 11.6639 0 13.0002C0 14.3366 1.08265 15.4169 2.41663 15.4169L20.7492 15.4169L15.2078 20.9582C14.2629 21.9031 14.2629 23.4304 15.2078 24.3753C16.1527 25.3202 17.68 25.3202 18.6249 24.3753L30 13.0002L18.6249 1.62519C17.68 0.680287 16.1527 0.680287 15.2078 1.62519Z" fill="#030104"/>
@@ -222,7 +222,7 @@
 				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
 			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
 			</picture>
-		    <a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
 		</li>
 		    </template>
 		</ul>
@@ -232,7 +232,7 @@
 		<p>коллекция копченая нога</p>
 		<span>изысканный вкус и устойчивый запах</span>
 	   </div>
-		<a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		<a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
 		<div class="collection-gallery__thumbnail-gallery">
 			<ul class="collection-gallery__detail-thumbnail-gallery" role="list">
 				<template x-for="i in 4">
@@ -266,7 +266,7 @@
 				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
 			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
 			</picture>
-		    <a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
 		</li>
 		    </template>
 		</ul>
@@ -306,16 +306,16 @@
 	<div class="container season-popular__container">
 		<ul role="list" class="season-popular-slider__tabs season-popular-slider__tabs--tablet">
 			<li>
-				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 4" :class="{'active': activeSlider === 4}">Лето</button>
+				<button type="button" aria-label="button" class="season-popular-slider__tabs-btn" @click="activeSlider = 4" :class="{'active': activeSlider === 4}">Лето</button>
 			</li>
 			<li>
-				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 1" :class="{'active': activeSlider === 1}">Осень</button>
+				<button type="button" aria-label="button" class=" season-popular-slider__tabs-btn" @click="activeSlider = 1" :class="{'active': activeSlider === 1}">Осень</button>
 			</li>
 			<li>
-				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 2" :class="{'active': activeSlider === 2}">Зима</button>
+				<button type="button" aria-label="button" class="season-popular-slider__tabs-btn" @click="activeSlider = 2" :class="{'active': activeSlider === 2}">Зима</button>
 			</li>
 			<li>
-				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 3" :class="{'active': activeSlider === 3}">Весна</button>
+				<button type="button" aria-label="button" class="season-popular-slider__tabs-btn" @click="activeSlider = 3" :class="{'active': activeSlider === 3}">Весна</button>
 			</li>
 		</ul>
 		<h2 class="section-title section-title--reversed"><span class="section-title__text">Популярное сезона</span><span class="section-title__circle"></span></h2>
@@ -401,7 +401,7 @@
 </picture>
 </div>
 <figcaption>
-	<a href="#">перейти к выбору</a>
+	<a href="#" class="variant-1-btn">перейти к выбору</a>
 </figcaption>
 </figure>
 <figure class="discount discount--reversed">
@@ -420,7 +420,7 @@
 </picture>
 </div>
 <figcaption>
-	<a href="#">перейти к выбору</a>
+	<a href="#" class="variant-1-btn">перейти к выбору</a>
 </figcaption>
 </figure>
 </div>
