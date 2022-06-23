@@ -302,6 +302,200 @@
 	</div>
 </div>
 </div>
+<section class="season-popular" x-data="{activeSlider: 4}">
+	<div class="container season-popular__container">
+		<ul role="list" class="season-popular-slider__tabs season-popular-slider__tabs--tablet">
+			<li>
+				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 4" :class="{'active': activeSlider === 4}">Лето</button>
+			</li>
+			<li>
+				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 1" :class="{'active': activeSlider === 1}">Осень</button>
+			</li>
+			<li>
+				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 2" :class="{'active': activeSlider === 2}">Зима</button>
+			</li>
+			<li>
+				<button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 3" :class="{'active': activeSlider === 3}">Весна</button>
+			</li>
+		</ul>
+		<h2 class="section-title section-title--reversed"><span class="section-title__text">Популярное сезона</span><span class="section-title__circle"></span></h2>
+	</div>
+	<div class="container season-popular-slider__container">
+		<template x-for="i in 4">
+		<div class="swiper season-popular-slider" x-data="{ sliderCounts: [1,2,3,4,5,6] }" x-show="activeSlider === i">
+			<ul class="swiper-wrapper season-popular-slider__wrapper" role="list">
+			<template x-for="sliderCount in sliderCounts">
+			  <li class="swiper-slide season-popular-slider__slide" data-count="sliderCount">
+				<figure class="clothes-card" x-data="{toggleHeart:false}">
+					<div class="clothes-card__img">
+					<div class="clothes-card__top">
+						<div class="clothes-card__badges">
+                         <div class="clothes-card__badges-left">
+							<p class="clothes-card__badge-new"><span>NEW</span></p>
+							<p class="clothes-card__badge-discount"><span>-25%</span></p>
+						 </div>
+						 <span class="clothes-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+							<svg width="20" height="18">
+								<use class="clothes-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+								<use class="clothes-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+							  </svg>
+					  </span>
+						</div>
+						<a href="#" class="variant-2-btn clothes-card__link">посмотреть сейчас</a>
+				    </div>
+					<picture>
+						<source src="resources/images/season-popular-card-img--desktop-2.jpg" media="(min-width:1920px)">
+						<source src="resources/images/season-popular-card-img--desktop.jpg" media="(min-width:1440px)">
+					  <source src="resources/images/season-popular-card-img-tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/season-popular-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="170" height="275">
+					</picture>
+				    </div>
+					<figcaption>
+						<h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+					</figcaption>
+				</figure>
+			  </li>
+			</template>
+			</ul>
+			<ul role="list" class="season-popular-slider__tabs season-popular-slider__tabs--mobile">
+                <li>
+                    <button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 1" :class="{'active': activeSlider === 1}">Осень</button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 2" :class="{'active': activeSlider === 2}">Зима</button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 3" :class="{'active': activeSlider === 3}">Весна</button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="variant-1-btn season-popular-slider__tabs-btn" @click="activeSlider = 4" :class="{'active': activeSlider === 4}">Лето</button>
+                </li>
+            </ul>
+			<div class="swiper-pagination season-popular-slider__pagination"></div>
+			<div class="swiper-button-prev season-popular-slider__button-prev"><span><svg width="20" height="20" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15.2078 1.62519C14.2629 2.57009 14.2629 4.0974 15.2078 5.0423L20.7492 10.5836L2.41663 10.5836C1.08265 10.5836 0 11.6639 0 13.0002C0 14.3366 1.08265 15.4169 2.41663 15.4169L20.7492 15.4169L15.2078 20.9582C14.2629 21.9031 14.2629 23.4304 15.2078 24.3753C16.1527 25.3202 17.68 25.3202 18.6249 24.3753L30 13.0002L18.6249 1.62519C17.68 0.680287 16.1527 0.680287 15.2078 1.62519Z" fill="#030104"/>
+				</svg>
+				</span></div>
+          <div class="swiper-button-next season-popular-slider__button-next"><span><svg width="20" height="20" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M15.2078 1.62519C14.2629 2.57009 14.2629 4.0974 15.2078 5.0423L20.7492 10.5836L2.41663 10.5836C1.08265 10.5836 0 11.6639 0 13.0002C0 14.3366 1.08265 15.4169 2.41663 15.4169L20.7492 15.4169L15.2078 20.9582C14.2629 21.9031 14.2629 23.4304 15.2078 24.3753C16.1527 25.3202 17.68 25.3202 18.6249 24.3753L30 13.0002L18.6249 1.62519C17.68 0.680287 16.1527 0.680287 15.2078 1.62519Z" fill="#030104"/>
+			</svg>
+			</span></div>
+		  </div>
+	   </template>
+	</div>
+</section>
+<div class="container discount__container">
+<figure class="discount discount--m-b">
+	<div class="discount__img">
+	<div class="discount__top">
+		<div class="discount__info">
+			<h2>Спортивные костюмы</h2>
+			<p>скидка до <span>-30%</span></p>
+		</div>
+	</div>
+<picture>
+	<source type="image/jpg" srcset="resources/images/discount-img--desktop-2.jpg" media="(min-width:1920px)">
+	<source type="image/jpg" srcset="resources/images/discount-img--desktop.jpg" media="(min-width:1440px)">
+	<source type="image/jpg" srcset="resources/images/discount-img--tablet.jpg" media="(min-width:768px)">
+  <img src="resources/images/discount-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="440">
+</picture>
+</div>
+<figcaption>
+	<a href="#">перейти к выбору</a>
+</figcaption>
+</figure>
+<figure class="discount discount--reversed">
+	<div class="discount__img">
+	<div class="discount__top">
+		<div class="discount__info">
+			<h2>Спортивные костюмы</h2>
+			<p>скидка до <span>-30%</span></p>
+		</div>
+	</div>
+<picture>
+	<source type="image/jpg" srcset="resources/images/discount-img--desktop-2.jpg" media="(min-width:1920px)">
+	<source type="image/jpg" srcset="resources/images/discount-img--desktop.jpg" media="(min-width:1440px)">
+  <source type="image/jpg" srcset="resources/images/discount-img--tablet.jpg" media="(min-width:768px)">
+  <img src="resources/images/discount-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="440">
+</picture>
+</div>
+<figcaption>
+	<a href="#">перейти к выбору</a>
+</figcaption>
+</figure>
+</div>
+<section class="accesories-collection">
+	<div class="container accesories-collection__container">
+	<div class="accesories-collection__title">
+	<h2>Весенняя коллекция аксессуаров 2022</h2>
+	<p>Базовые вещи на каждый день</p>
+	<img loading="lazy" decoding="async" src="resources/images/accesories-collection-title-img.jpg" alt="image" width="390" height="600">
+	<a href="#" class="variant-2-btn accesories-collection__title-btn">смотреть коллекцию</a>
+    </div>
+	<ul class="accesories-collection__list" role="list">
+		<li>
+			<figure class="accesories-collection__card">
+				<div class="accesories-collection__card-img">
+					<div class="accesories-collection__card-top">
+						<h3>фирменные сумки и рюкзаки</h3>
+						<a href="#" class="variant-1-btn accesories-collection__link">смотреть</a>
+					</div>
+					<picture>
+						<source type="image/jpg" srcset="resources/images/accesories-collection-img--desktop-2.jpg" media="(min-width:1920px)">
+						<source type="image/jpg" srcset="resources/images/accesories-collection-img--desktop.jpg" media="(min-width:1440px)">
+					  <source type="image/jpg" srcset="resources/images/accesories-collection-img--tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/accesories-collection-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="240" height="240">
+					</picture>
+				</div>
+				<figcaption>
+					<h4>Заголовок</h4>
+					<p>Задача организации, в особенности же начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке существенных финансовых и административных условий.</p>
+				</figcaption>
+			</figure>
+		</li>
+		<li>
+			<figure class="accesories-collection__card accesories-collection__card--reversed">
+				<div class="accesories-collection__card-img">
+					<div class="accesories-collection__card-top">
+						<h3>фирменные сумки и рюкзаки</h3>
+						<a href="#" class="variant-1-btn accesories-collection__link">смотреть</a>
+					</div>
+					<picture>
+						<source type="image/jpg" srcset="resources/images/accesories-collection-img--desktop-2.jpg" media="(min-width:1920px)">
+						<source type="image/jpg" srcset="resources/images/accesories-collection-img--desktop.jpg" media="(min-width:1440px)">
+					  <source type="image/jpg" srcset="resources/images/accesories-collection-img--tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/accesories-collection-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="240" height="240">
+					</picture>
+				</div>
+				<figcaption>
+					<h4>Заголовок</h4>
+					<p>Задача организации, в особенности же начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке существенных финансовых и административных условий.</p>
+				</figcaption>
+			</figure>
+		</li>
+		<li>
+			<figure class="accesories-collection__card">
+				<div class="accesories-collection__card-img">
+					<div class="accesories-collection__card-top">
+						<h3>фирменные сумки и рюкзаки</h3>
+						<a href="#" class="variant-1-btn accesories-collection__link">смотреть</a>
+					</div>
+					<picture>
+						<source type="image/jpg" srcset="resources/images/accesories-collection-img--desktop-2.jpg" media="(min-width:1920px)">
+						<source type="image/jpg" srcset="resources/images/accesories-collection-img--desktop.jpg" media="(min-width:1440px)">
+					  <source type="image/jpg" srcset="resources/images/accesories-collection-img--tablet.jpg" media="(min-width:768px)">
+					  <img src="resources/images/accesories-collection-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="240" height="240">
+					</picture>
+				</div>
+				<figcaption>
+					<h4>Заголовок</h4>
+					<p>Задача организации, в особенности же начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке существенных финансовых и административных условий.</p>
+				</figcaption>
+			</figure>
+		</li>
+	</ul>
+</div>
+</section>
 		</main>
 		@@include('../parts/footer.html')
 	</body>

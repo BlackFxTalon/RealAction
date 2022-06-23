@@ -69,3 +69,35 @@ const newCollectionsSlider = new Swiper('.new-collections-slider', {
     
   }
 });
+
+const seasonPopularSlider = new Swiper('.season-popular-slider', {
+  slidesPerView:'auto',
+  spaceBetween:10,
+  pagination: {
+    el: '.season-popular-slider__pagination',
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<p class="' + className + '"><span class="swiper-pagination-bullet-count">' + (index + 1) + "</span></p>";
+    },
+  },
+  navigation: {
+    nextEl: '.season-popular-slider__button-next',
+    prevEl: '.season-popular-slider__button-prev',
+  },
+
+  breakpoints: {
+    320: {
+      loop: true,
+    },
+    1440: {
+      slidesPerView:4,
+      loop: false,
+      spaceBetween:12,
+    },
+    1920: {
+      slidesPerView:5,
+      spaceBetween:15,
+    },
+    
+  }
+});

@@ -159,6 +159,7 @@ main {
 }
 .variant-1-btn:hover,
 .variant-1-btn:active,
+.variant-1-btn.active,
 .variant-1-btn:focus {
   background-color: white;
   color: black;
@@ -259,6 +260,23 @@ line-height: 42px;
     }
   }
 }
+.section-title--reversed {
+
+  .section-title__text {
+    order: 1;
+  }
+
+  &::before {
+    right: 0;
+  }
+}
+
+@keyframes scale-up {
+  50% {
+      transform: scale(1.5);
+  }
+}
+
 // header styles
 .header {
   background-color: black;
