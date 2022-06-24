@@ -321,6 +321,41 @@ line-height: 42px;
   }
 }
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+@keyframes transformItem {
+  0% {
+    transform: translateX(-170px) scale(1.2);
+    transform-origin: center;
+}
+100% {
+    transform: translateX(0) scale(1);
+}
+}
+[data-aos="animate-in-view"] {
+  transform: translateY(30px);
+  transition-property: transform;
+  transition-duration: 3.25s !important;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+  transition-delay: 0s !important;
+
+  &.aos-animate {
+    transform: translate(0);
+  }
+
+  @include media-medium() {
+    transition-duration: 2.25s !important;
+    transform: translateY(25px);
+  }
+
+}
 // header styles
 .header {
   background-color: black;

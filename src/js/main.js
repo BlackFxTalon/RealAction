@@ -8,6 +8,10 @@ Alpine.start()
 
 // alpine params
 
+// AOS.js
+
+AOS.init();
+
 /* swiper.js */
 
 // core version + navigation, pagination modules:

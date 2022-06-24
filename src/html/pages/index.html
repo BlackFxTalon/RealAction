@@ -7,7 +7,7 @@
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>
-<div class="swiper cta-slider">
+<div class="swiper cta-slider" data-aos="animate-in-view">
 	<div class="swiper-wrapper cta-slider__wrapper">
 	  <div class="swiper-slide cta-slider__slide">
 		<picture>
@@ -84,16 +84,17 @@
 		<span class="cta-slider__pagination-current" data-index="0"></span>
 		</div>
   </div>
-<div class="index-video">
-	<div class="index-video__overlay"></div>
+<!-- <div class="index-video" data-aos="animate-in-view">
 	<div class="index-video__info">
 		<h2>ВСЕМИРНЫЙ ДЕНЬ ВОДНЫХ РЕСУРСОВ</h2>
 				<h3>Более экологичные модели Less Water</h3>
 				<a href="#" class="variant-1-btn index-video__btn">посмотреть сейчас</a>
 	</div>
-	<iframe width="375" height="500" src="https://www.youtube.com/embed/cDxv-y1XuaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<section class="new-collections">
+	<div class="video">
+	<video src="files/video.mp4" autoplay="true" loop="true" muted="true" width="375" height="500"></video>
+    </div>
+</div> -->
+<section class="new-collections" data-aos="animate-in-view">
 	<div class="container new-collections__container">
 		<h2 class="section-title">Новинки коллекции<span class="section-title__circle"></span></h2>
 		<div class="new-collections__btn-group">
@@ -107,6 +108,7 @@
 			<template x-for="sliderCount in sliderCounts">
 			  <li class="swiper-slide new-collections-slider__slide" data-count="sliderCount">
 				<figure class="clothes-card" x-data="{toggleHeart:false}">
+					<a href="#" class="clothes-card__card-link"></a>
 					<div class="clothes-card__img">
 					<div class="clothes-card__top">
 						<div class="clothes-card__badges">
@@ -213,7 +215,7 @@
 	</div>
 </section>
 <div class="container collection-gallery__container">
-<div class="collection-gallery collection-gallery--m-b" x-data="{ activeImage: 1}">
+<div class="collection-gallery" x-data="{ activeImage: 1}" data-aos="animate-in-view">
 	<div class="collection-gallery__left">
 		<ul class="collection-gallery__img-gallery" role="list">
 			<template x-for="i in 4">
@@ -257,7 +259,7 @@
 		</div>
 	</div>
 </div>
-<div class="collection-gallery collection-gallery--reversed" x-data="{ activeImage: 1}">
+<!-- <div class="collection-gallery collection-gallery--reversed" x-data="{ activeImage: 1}">
 	<div class="collection-gallery__left">
 		<ul class="collection-gallery__img-gallery" role="list">
 			<template x-for="i in 4">
@@ -276,7 +278,7 @@
 			<p>коллекция копченая нога</p>
 			<span>изысканный вкус и устойчивый запах</span>
 		   </div>
-		<a href="#" class="collection-gallery__link">Посмотреть сейчас</a>
+		<a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
 		<div class="collection-gallery__thumbnail-gallery">
 			<ul class="collection-gallery__detail-thumbnail-gallery" role="list">
 				<template x-for="i in 4">
@@ -300,9 +302,9 @@
 			</ul>
 		</div>
 	</div>
+</div> -->
 </div>
-</div>
-<section class="season-popular" x-data="{activeSlider: 4}">
+<section class="season-popular" x-data="{activeSlider: 4}" data-aos="animate-in-view">
 	<div class="container season-popular__container">
 		<ul role="list" class="season-popular-slider__tabs season-popular-slider__tabs--tablet">
 			<li>
@@ -385,7 +387,7 @@
 	</div>
 </section>
 <div class="container discount__container">
-<figure class="discount discount--m-b">
+<figure class="discount discount--m-b" data-aos="animate-in-view">
 	<div class="discount__img">
 	<div class="discount__top">
 		<div class="discount__info">
@@ -401,10 +403,10 @@
 </picture>
 </div>
 <figcaption>
-	<a href="#" class="variant-1-btn">перейти к выбору</a>
+	<a href="#">перейти к выбору</a>
 </figcaption>
 </figure>
-<figure class="discount discount--reversed">
+<figure class="discount discount--reversed" data-aos="animate-in-view">
 	<div class="discount__img">
 	<div class="discount__top">
 		<div class="discount__info">
@@ -420,17 +422,17 @@
 </picture>
 </div>
 <figcaption>
-	<a href="#" class="variant-1-btn">перейти к выбору</a>
+	<a href="#">перейти к выбору</a>
 </figcaption>
 </figure>
 </div>
-<section class="accesories-collection">
+<section class="accesories-collection" data-aos="animate-in-view">
 	<div class="container accesories-collection__container">
 	<div class="accesories-collection__title">
 	<h2>Весенняя коллекция аксессуаров 2022</h2>
 	<p>Базовые вещи на каждый день</p>
 	<img loading="lazy" decoding="async" src="resources/images/accesories-collection-title-img.jpg" alt="image" width="390" height="600">
-	<a href="#" class="variant-2-btn accesories-collection__title-btn">смотреть коллекцию</a>
+	<a href="#" class="accesories-collection__title-btn">смотреть коллекцию</a>
     </div>
 	<ul class="accesories-collection__list" role="list">
 		<li>
@@ -496,7 +498,7 @@
 	</ul>
 </div>
 </section>
-<section class="together-with">
+<section class="together-with" data-aos="animate-in-view">
 	<div class="container together-with__container">
       <ul role="list">
 		<li class="together-with__item together-with__item--big">
@@ -505,8 +507,7 @@
 				<img loading="lazy" decoding="async" src="resources/images/together-with-card-img-1.jpg" alt="image" width="335" height="340">
 				<figcaption>
 					<p>Подпишитесь на нас в социальных сетях и упоминайте <span>@real_action</span> в подписи, чтобы продемонстрировать свой фирменный стиль</p>
-					<a href="#" class="variant-1-btn
-					together-with__card-link together-with__card-link--big">перейти в instagram</a>
+					<a href="#" class="together-with__card-link together-with__card-link--big">перейти в instagram</a>
 				</figcaption>
 			</figure>
 		</li>
