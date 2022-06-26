@@ -332,13 +332,22 @@ line-height: 42px;
 
 @keyframes transformItem {
   0% {
-    transform: translateX(-170px) scale(1.2);
-    transform-origin: center;
+    transform: translateX(-170px);
 }
 100% {
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
 }
 }
+
+@keyframes transformOverlay {
+  from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(101%);
+	}
+}
+
 [data-aos="animate-in-view"] {
   transform: translateY(30px);
   transition-property: transform;
@@ -1320,21 +1329,28 @@ color: white;
     }
   }
 
+  &__top {
+    background-color: black;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-custom(1440px) {
+      padding-bottom: 75px;
+    }
+
+    @include media-custom(1920px) {
+      padding-bottom: 85px;
+    }
+  }
+
   &__mail {
       max-width: 320px;
       margin: auto;
-      padding-bottom: 20px;
 
       @include media-medium() {
         max-width: 500px;
-      }
-
-      @include media-custom(1440px) {
-        padding-bottom: 75px;
-      }
-
-      @include media-custom(1920px) {
-        padding-bottom: 85px;
       }
 
       fieldset {

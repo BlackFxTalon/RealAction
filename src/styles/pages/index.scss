@@ -260,6 +260,9 @@ align-self: center;
     iframe {
         width: 100%;
         height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .video {
@@ -580,6 +583,8 @@ line-height: 12px;
 
         &.active {
             animation: scale-up .25s cubic-bezier(.77, -0.19, .33, 1.12);
+            opacity: 1;
+            visibility: visible;
 
             .clothes-card__heart-icon-stroke {
                  opacity: 0;
@@ -684,7 +689,7 @@ line-height: 19px;
 }
 
 @include media-custom(1920px) {
-    font-size: 20px;
+    font-size: 16px;
 line-height: 23px;
 }
 
@@ -692,7 +697,7 @@ line-height: 23px;
     }
 }
 .new-collections {
-    padding-top: 20px;
+    padding-top: 60px;
     padding-bottom: 20px;
 
     @include media-custom(1440px) {
@@ -751,7 +756,6 @@ line-height: 23px;
             height: 50px;
             font-size: 16px;
             line-height: 19px;
-            font-weight: 700;
         }
 
         @include media-custom(1920px) {
@@ -1040,10 +1044,30 @@ backdrop-filter: blur(2px);
                 visibility: visible;
                 z-index: 1;
             animation-name: fadeUp, transformItem;
+            animation-delay: 200ms, 200ms;
             animation-duration: 1000ms, 1200ms;
             animation-fill-mode: backwards;
             animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
             }
+        }
+
+        li::before {
+            content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 1;
+    z-index: 1;
+    transform: translateX(101%);
+        }
+        li.active::before {
+            animation-name: fadeUp, transformOverlay;
+            animation-duration: 300ms, 1500ms;
+            animation-fill-mode: backwards;
+            animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
         }
     }
 
@@ -1557,23 +1581,12 @@ border: 1px solid white;
  text-transform: uppercase;
  text-decoration: none;
  width: 100%;
- transition: .3s ease-in-out;
  color: white;
  overflow: hidden;
  position: relative;
  z-index: 0;
+ transition: 0.3s ease-in-out;
 
- &::after {
-    content: '';
-	position: absolute;
-	z-index: -1;
-  width: 100%;
-	height: 0;
-	top: 0;
-	left: 0;
-	background-color: white;
-  transition: all 0.4s;
- }
 
 @include media-medium() {
     min-width: 51px;
@@ -1598,9 +1611,8 @@ line-height: 19px;
 
 &.active {
     color: black;
-    &::after {
-        height: 100%;
-    }
+    background-color: white;
+
     @include media-medium() {
         font-weight: 700;
 font-size: 16px;
