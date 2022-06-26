@@ -1134,17 +1134,17 @@ li:nth-child(2) {
   line-height: 14px;
   text-transform: uppercase;
   color: white;
-  row-gap: 20px;
-  
-  @include media-medium() {
-    row-gap: 10px;
-  }
       }
       li {
         display: grid;
         align-items: center;
         grid-template-columns: repeat(2,max-content);
         gap: 10px;
+        padding-bottom: 20px;
+
+        @include media-medium() {
+          padding-bottom: 10px;
+        }
       }
       a {
         text-decoration: none;
