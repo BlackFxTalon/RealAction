@@ -825,3 +825,18 @@ line-height: 23px;
         }
     }
 }
+.fancybox__toolbar,
+.fancybox__slide::before, .fancybox__slide::after,
+.fancybox__thumbs {
+    display: none;
+}
+.carousel__button svg {
+    --carousel-button-svg-width:100%;
+    --carousel-button-svg-height: 100%;
+}
+.fancybox__slide {
+    @include media-custom(1440px) {
+        padding: 0;
+        align-self: center;
+    }
+}

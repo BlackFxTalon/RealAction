@@ -4,10 +4,6 @@
 	"title":"Главная"
 	})
 	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false}">
-        <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
-    />
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
@@ -30,7 +26,7 @@
             <div class="swiper product-card-slider" data-aos="animate-in-view">
                 <ul class="swiper-wrapper product-card-slider__wrapper" role="list">
                     <template x-for="i in 5">
-                  <li class="swiper-slide product-card-slider__slide" data-index="i" data-fancybox="productCardSlider" data-src="resources/images/product-card-slider-img--mobile.jpg">
+                  <li class="swiper-slide product-card-slider__slide" data-index="i" data-fancybox="productCardSlider" data-src="resources/images/product-card-slider-img--gallery.jpg">
                     <div class="product-card">
                             <div class="product-card__badges">
                                 <p class="product-card__badge-sale"><span>Sale</span></p>
