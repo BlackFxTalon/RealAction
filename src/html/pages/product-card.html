@@ -3,8 +3,10 @@
 	@@include('../parts/head.html',{
 	"title":"Главная"
 	})
-	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false}">
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, tableModal:false}">
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>
@@ -107,7 +109,7 @@
               </ul>
               <li class="product-card-info__table">
                 <p>Выберите размер:</p>
-                <button type="button" aria-label="button" class="product-card-info__table-btn">Таблица размеров</button>
+                <button type="button" aria-label="button" class="product-card-info__table-btn" @click="tableModal = true">Таблица размеров</button>
               </li>
               <li>
                 <ul class="product-card-info__sizes-list" x-data="{sizes: ['xs','s','m','l','xl','2xl','5xl']}" role="list">
@@ -136,6 +138,88 @@
             </div>
             </div>
 		</main>
+    <div class="table-modal" :class="{'active': tableModal === true}" @click.self="tableModal = false">
+      <div class="table-modal__content">
+         <div class="table-modal__top">
+          <div class="table-modal__title">
+            <h2>Размерная сетка</h2>
+            <span>Мужская</span>
+          </div>
+          <button class="table-modal__close" type="button" aria-label="button" @click="tableModal = false">
+            <svg width="20" height="20">
+              <use href="../resources/svgSprites/svgSprite.svg#close-modal-icon"></use>
+              </svg>
+          </button>
+         </div>
+         <h3 class="table-modal__subtitle">ФУТБОЛКИ</h3>
+         <div class="table-modal__table-wrapper" data-simplebar data-simplebar-auto-hide="false">
+         <table>
+          <tbody>
+            <tr>
+             <td>Европейский размер</td>
+             <td>XS</td>
+             <td>S</td>
+             <td>M</td>
+             <td>L</td>
+             <td>XL</td>
+             <td>2XL</td>
+             <td>3XL</td>
+            </tr>
+            <tr>
+              <td>Российский размер</td>
+              <td>42</td>
+              <td>44-46</td>
+              <td>48</td>
+              <td>50-52</td>
+              <td>54-56</td>
+              <td>58-60</td>
+              <td>60-62</td>
+             </tr>
+             <tr>
+              <td>Рост (см)</td>
+              <td>167</td>
+              <td>168,5</td>
+              <td>176-182</td>
+              <td>182</td>
+              <td>182</td>
+              <td>182-188</td>
+              <td>182-188</td>
+             </tr>
+             <tr>
+              <td>Обхват груди (см)</td>
+              <td>84</td>
+              <td>88</td>
+              <td>96</td>
+              <td>100-104</td>
+              <td>108-112</td>
+              <td>116-120</td>
+              <td>116-120</td>
+             </tr>
+             <tr>
+              <td>Обхват талии (см)</td>
+              <td>63,4</td>
+              <td>67,4</td>
+              <td>96</td>
+              <td>100-104</td>
+              <td>108-112</td>
+              <td>116-120</td>
+              <td>116-120</td>
+             </tr>
+             <tr>
+              <td>Обхват бёдер (см)</td>
+              <td>90</td>
+              <td>94</td>
+              <td>96</td>
+              <td>100-104</td>
+              <td>108-112</td>
+              <td>116-120</td>
+              <td>116-120</td>
+             </tr>
+          </tbody>
+         </table>
+        </div>
+    </div>
+  </div>
 		@@include('../parts/footer.html')
 	</body>
 </html>
