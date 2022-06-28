@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Главная"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false}">
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container breadcrumbs__container">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="product-card-grid">
+                <div class="container product-card-grid__container">
+            <div class="container product-card-slider__container">
+            <div class="swiper product-card-slider" data-aos="animate-in-view">
+                <ul class="swiper-wrapper product-card-slider__wrapper" role="list">
+                    <template x-for="i in 5">
+                  <li class="swiper-slide product-card-slider__slide" data-index="i" data-fancybox="productCardSlider" data-src="resources/images/product-card-slider-img--mobile.jpg">
+                    <div class="product-card">
+                            <div class="product-card__badges">
+                                <p class="product-card__badge-sale"><span>Sale</span></p>
+                                <p class="product-card__badge-discount"><span>-25%</span></p>
+                             </div>
+                        <picture>
+                          <source type="image/jpg" srcset="resources/images/product-card-slider-img--tablet.jpg" media="(min-width:768px)">
+                          <img src="resources/images/product-card-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="568">
+                        </picture>
+                    </div>
+                  </li>
+                  </template>
+                </ul>
+                <div class="swiper-button-prev product-card-slider__button-prev">
+                    <svg width="40" height="30">
+                        <use href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                      </svg>
+                </div>
+              <div class="swiper-button-next product-card-slider__button-next">
+                <svg width="40" height="30">
+                    <use href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                  </svg>
+              </div>
+              <div class="product-card-slider__controls" x-data="{toggleHeart: false}">
+                <button type="button" aria-label="button" class="product-card-slider__fullscreen-btn"><svg width="30" height="30">
+                    <use href="../resources/svgSprites/svgSprite.svg#fullscreen-icon"></use>
+                  </svg></button>
+                <div class="product-card-slider__scrollbar-pagination-wrapper">
+                    <div class="swiper-pagination product-card-slider__pagination"></div>
+                    <div class="swiper-scrollbar product-card-slider__scrollbar"></div>
+                </div>
+                <span class="product-card-slider__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                    <svg width="20" height="18">
+                        <use class="product-card-slider__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                        <use class="product-card-slider__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                      </svg>
+              </span>
+                </div>
+              </div>
+            </div>
+            <div class="product-card-title" x-data="{toggleHeart: false}">
+              <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+              <span class="product-card-heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                <svg width="20" height="18">
+                    <use class="product-card-heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                    <use class="product-card-heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                  </svg>
+          </span>
+            </div>
+            <div class="container product-card-info__container">
+            <ul class="product-card-info" role="list" x-data="{colorChoice: 'yellow', sizesChoice: 's'}">
+              <li class="product-card-info__title-row">
+                <h2><span class="product-card-info__title">Летняя коллекция SUMMER FALL 2022</span><span class="product-card-info__title-circle"></span></h2>
+                <span class="product-card-info__badge">sale</span>
+              </li>
+              <li class="product-card-info__subtitle">
+                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+              </li>
+              <li class="product-card-info__price">
+                <p>Цена:</p>
+                <div class="product-card-info__new-old-price-row">
+                <strong>15999 ₽</strong><del>15999 ₽</del>
+                </div>
+              </li>
+              <li class="product-card-info__brand">
+                <p>Бренд:</p>
+                <span>REAL ACTION</span>
+              </li>
+              <li class="product-card-info__color">
+                <p>Цвет:</p>
+                <p x-text="colorChoice === 'lightGrey' ? 'Светло-серый' : colorChoice === 'darkGrey' ? 'Темно-серый' : colorChoice === 'green' ? 'Зеленый': colorChoice === 'lightRed' ? 'Светло-красный' : colorChoice === 'yellow' ? 'Желтый' : ''">Желтый</p>
+              </li>
+              <ul role="list" class="product-card-info__color-list" x-data="{ colors: ['lightGrey', 'darkGrey', 'green', 'lightRed', 'yellow'] }">
+                <template x-for="color in colors">
+                  <li class="product-card-info__color-circle" x-bind:data-color="color" :class="{'active': colorChoice === color}" @click="colorChoice = color"></li>
+              </template>
+              <li class="product-card-info__color-active-circle"></li>
+              </ul>
+              <li class="product-card-info__table">
+                <p>Выберите размер:</p>
+                <button type="button" aria-label="button" class="product-card-info__table-btn">Таблица размеров</button>
+              </li>
+              <li>
+                <ul class="product-card-info__sizes-list" x-data="{sizes: ['xs','s','m','l','xl','2xl','5xl']}" role="list">
+                  <template x-for="size in sizes">
+                    <li>
+                      <button type="button" aria-label="button" :class="{'active': sizesChoice === size}" @click="sizesChoice = size"><span x-text="size"></span></button>
+                    </li>
+                  </template>
+                </ul>
+              </li>
+              <li>
+                <ul role="list" class="product-card-info__btn-list">
+                  <li>
+                    <button type="button" aria-label="button" class="variant-1-btn product-card-info__fast-buy-btn">Быстрая покупка</button>
+                  </li>
+                  <li>
+                    <button type="button" aria-label="button" class="variant-1-btn product-card-info__add-to-basket-btn">Добавить в корзину</button>
+                  </li>
+                  <li style="display:none;">
+                    <button type="button" aria-label="button" class="variant-1-btn disabled product-card-info__no-product-btn">Товар временно отсутствует</button>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+            </div>
+            </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>

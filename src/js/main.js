@@ -105,3 +105,38 @@ const seasonPopularSlider = new Swiper('.season-popular-slider', {
     
   }
 });
+
+const productCardSlider = new Swiper('.product-card-slider', {
+  slidesPerView:'auto',
+  pagination: {
+    el: '.product-card-slider__pagination',
+    type: "fraction",
+  },
+  scrollbar: {
+    el: ".product-card-slider__scrollbar",
+  },
+  navigation: {
+    nextEl: '.product-card-slider__button-next',
+    prevEl: '.product-card-slider__button-prev',
+  },
+
+  breakpoints: {
+    768: {
+      spaceBetween:20,
+    },
+    1440: {
+      spaceBetween:30,
+    },
+    1920: {
+      slidesPerView:2,
+      spaceBetween:20,
+    },
+    
+  }
+});
+
+const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-btn');
+
+fullScreenBtn.addEventListener('click',()=>{
+  document.querySelector('[data-fancybox="productCardSlider"]').click();
+})
