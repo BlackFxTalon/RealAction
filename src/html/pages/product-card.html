@@ -6,12 +6,11 @@
 	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, tableModal:false}">
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
-
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>
             <nav class="breadcrumbs">
-                <div class="container breadcrumbs__container">
+                <div class="container-alt breadcrumbs__container">
                 <ul role="list">
                     <li>
                         <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
@@ -22,10 +21,10 @@
                 </ul>
             </div>
             </nav>
-            <div class="product-card-grid">
-                <div class="container product-card-grid__container">
+            <div class="product-card-grid" data-aos="animate-in-view">
+                <div class="container-alt product-card-grid__container">
             <div class="container product-card-slider__container">
-            <div class="swiper product-card-slider" data-aos="animate-in-view">
+            <div class="swiper product-card-slider">
                 <ul class="swiper-wrapper product-card-slider__wrapper" role="list">
                     <template x-for="i in 5">
                   <li class="swiper-slide product-card-slider__slide" data-index="i" data-fancybox="productCardSlider" data-src="resources/images/product-card-slider-img--gallery.jpg">
@@ -137,6 +136,187 @@
             </div>
             </div>
             </div>
+            <div class="product-descr" data-aos="animate-in-view">
+              <div class="container-alt product-descr__container">
+              <div class="container product-descr-slider-container">
+                <div class="swiper product-descr-slider" data-aos="animate-in-view">
+                  <ul class="swiper-wrapper product-descr-slider__wrapper" role="list">
+                      <template x-for="i in 3">
+                    <li class="swiper-slide product-descr-slider__slide" data-src="resources/images/product-descr-slider-img--gallery.jpg">
+                          <picture>
+                            <source src="resources/images/product-descr-slider-img--desktop-2.jpg" media="(min-width:1920px)">
+                            <source src="resources/images/product-descr-slider-img--desktop.jpg" media="(min-width:1440px)">
+                            <source src="resources/images/product-descr-slider-img--tablet.jpg" media="(min-width:768px)">
+                            <img src="resources/images/product-descr-slider-img--mobile.png" loading="lazy" decoding="async" alt="image" width="290" height="372">
+                          </picture>
+                    </li>
+                    </template>
+                  </ul>
+                  <div class="swiper-button-prev product-descr-slider__button-prev">
+                      <svg width="40" height="30">
+                          <use href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                        </svg>
+                  </div>
+                <div class="swiper-button-next product-descr-slider__button-next">
+                  <svg width="40" height="30">
+                      <use href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                    </svg>
+                </div>
+                </div>
+              </div>
+              <section class="product-descr-info">
+                <div class="container product-descr-info__container">
+                  <h2>описание товара</h2>
+                  <p>Свитшот на молнии стандартного кроя из мужской коллекции RA. Этот свитшот с капюшоном из хлопкового футера для повседневного комфорта отделан нашивкой с логотипом RA фирменного красного цвета на груди слева. Создавайте образы в стиле streetwear с этой современной моделью. Покупка этой модели поможет поддержать проект Cotton made in Africa.</p>
+                  <ul role="list" class="product-descr-info__accordeon" x-data="{accordeon: '', accordeonItems:[
+                    {id: 1, title:'Рекомендация по стирке'},
+                    {id: 2, title:'Дополнительная информация по уходу'},
+                    {id: 3, title:'Используемый материал'},
+                    ]}">
+                    <template x-for="accordeonItem in accordeonItems" :key="accordeonItem.id">
+                    <li :class="{'active': accordeon === accordeonItem.id}" class="product-descr-info__accordeon-item">
+                      <div class="product-descr-info__accordeon-top" @click="accordeon !== accordeonItem.id ? accordeon = accordeonItem.id : accordeon = null" :class="{'active': accordeon === accordeonItem.id}">
+                      <h3 x-text="accordeonItem.title" :class="{'active': accordeon === accordeonItem.id}">Рекомендация по стирке</h3>
+                      <button type="button" aria-label="button" class="product-descr-info__accordeon-btn" :class="{'active': accordeon === accordeonItem.id}">
+                        <span></span>
+                        <span></span>
+                      </button>
+                      </div>
+                      <nav x-ref="subList" x-bind:style="accordeon === accordeonItem.id ? 'height: ' + $refs.subList.scrollHeight + 'px' : ''" :class="{'active': accordeon === accordeonItem.id}">
+                      <ul role="list" class="product-descr-info__descr">
+                        <li>
+                          <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#product-descr-info-descr-icon"></use>
+                            </svg>
+                            <span>Деликатная машинная стирка в холодной воде</span>
+                        </li>
+                        <li>
+                          <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#product-descr-info-descr-icon-2"></use>
+                            </svg>
+                            <span>Не отбеливать</span>
+                        </li>
+                        <li>
+                          <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#product-descr-info-descr-icon-3"></use>
+                            </svg>
+                            <span>Подправить утюгом при теплой температуре</span>
+                        </li>
+                        <li>
+                          <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#product-descr-info-descr-icon-4"></use>
+                            </svg>
+                            <span>Машинная сушка при низкой температуре</span>
+                        </li>
+                        <li>
+                          <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#product-descr-info-descr-icon-5"></use>
+                            </svg>
+                            <span>Химическая чистка запрещена</span>
+                        </li>
+                      </ul>
+                      </nav>
+                    </li>
+                  </template>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            </div>
+            <section class="gather-collection">
+              <div class="container-alt gather-collection__container">
+                <div class="swiper gather-collection-slider">
+                  <h2>Соберите коллекцию</h2>
+                  <ul class="swiper-wrapper gather-collection-slider__wrapper" role="list">
+                      <template x-for="i in 5">
+                    <li class="swiper-slide gather-collection-slider__slide" data-index="i">
+                          <picture>
+                            <source src="resources/images/gather-collection-slider-img--desktop.jpg" media="(min-width:1440px)">
+                            <source src="resources/images/gather-collection-slider-img--tablet.jpg" media="(min-width:768px)">
+                            <img src="resources/images/product-card-slider-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="375" height="568">
+                          </picture>
+                    </li>
+                    </template>
+                  </ul>
+                  <div class="swiper-button-prev gather-collection-slider__button-prev">
+                      <svg width="40" height="30">
+                          <use href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                        </svg>
+                  </div>
+                <div class="swiper-button-next gather-collection-slider__button-next">
+                  <svg width="40" height="30">
+                      <use href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                    </svg>
+                </div>
+                </div>
+                <div class="gather-collection-list-wrapper" data-simplebar data-simplebar-auto-hide="false">
+                <ul role="list" class="gather-collection-list" x-data="{colorChoice: 'olive', toggleHeart: false}">
+                  <template x-for="i in 5">
+                    <li class="gather-collection-list__item">
+                      <div class="gather-collection-list__top">
+                        <p class="gather-collection-list__count">
+                          <span x-text="i">1</span><span>/</span><span>5</span>
+                        </p>
+                        <span class="gather-collection-list__heart gather-collection-list__heart--desktop" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                          <svg width="30" height="26">
+                              <use class="gather-collection-list__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart-white"></use>
+                              <use class="gather-collection-list__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-white-active"></use>
+                            </svg>
+                      </span>
+                      <p class="gather-collection-list__clothes-line gather-collection-list__clothes-line--desktop">Женская линейка<span>REAL ACTION</span></p>
+                      </div>
+                      <div class="gather-collection-list__bottom">
+                      <picture class="gather-collection-list__img">
+                        <source src="resources/images/product-descr-slider-img--desktop-2.jpg" media="(min-width:1920px)">
+                        <source src="resources/images/product-descr-slider-img--desktop.jpg" media="(min-width:1440px)">
+                        <source src="resources/images/product-descr-slider-img--tablet.jpg" media="(min-width:768px)">
+                        <img src="resources/images/product-descr-slider-img--mobile.png" loading="lazy" decoding="async" alt="image" width="180" height="246">
+                      </picture>
+                      <h2>CITY CLUB HALF ZIP PERCY JACKET</h2>
+                      <p class="gather-collection-list__price">15999<span> ₽</span></p>
+                      <ul role="list" class="gather-collection-list__color-list" x-data="{ colors: ['green', 'lightRed', 'olive'] }">
+                        <template x-for="color in colors">
+                          <li class="gather-collection-list__color-circle" x-bind:data-color="color" :class="{'active': colorChoice === color}" @click="colorChoice = color"></li>
+                      </template>
+                      <li class="gather-collection-list__color-active-circle"></li>
+                      </ul>
+                      <div class="gather-collection-list__sizes-dropdown" x-data="{toggleDropdown: false, sizesChoice: '', sizes: ['s','m','l','xl','2xl','3xl']}" :class="{'active': toggleDropdown === true}">
+                        <div class="gather-collection-list__sizes-dropdown-top" @click="toggleDropdown = !toggleDropdown" :class="{'active': toggleDropdown === true}">
+                          <p>выберите размер <span x-text="sizesChoice"></span></p>
+                          <svg width="20" height="20" class="gather-collection-list__arrow" :class="{'active': toggleDropdown === true}">
+                            <use class="gather-collection-list__arrow-down" href="../resources/svgSprites/svgSprite.svg#product-card-slider-arrow"></use>
+                            <use class="gather-collection-list__arrow-up" href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                          </svg>
+                        </div>
+                        <div class="gather-collection-list__sizes-dropdown-list-wrapper" x-ref="dropDownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.dropDownList.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                        <ul role="list" class="gather-collection-list__sizes-dropdown-list">
+                          <li>
+                            <button class="active" type="button" aria-label="button" :class="{'active': sizesChoice === 'xs' || sizesChoice === ''}" @click="sizesChoice = 'xs'"><span>xs</span></button>
+                          </li>
+                            <template x-for="size in sizes">
+                              <li>
+                                <button type="button" aria-label="button" :class="{'active': sizesChoice === size}" @click="sizesChoice = size"><span x-text="size"></span></button>
+                              </li>
+                            </template>
+                        </ul>
+                      </div>
+                      </div>
+                      <span class="gather-collection-list__heart gather-collection-list__heart--adaptive" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                        <svg width="30" height="26">
+                            <use class="gather-collection-list__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart-white"></use>
+                            <use class="gather-collection-list__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-white-active"></use>
+                          </svg>
+                    </span>
+                      <button type="button" class="variant-1-btn gather-collection-list__add-to-basket-btn">добавить в корзину</button>
+                      <a href="#" class="gather-collection-list__link">перейти к просмотру</a>
+                      <p class="gather-collection-list__clothes-line gather-collection-list__clothes-line--adaptive">Женская линейка<span>REAL ACTION</span></p>
+                      </div>
+                    </li>
+                  </template>
+                </ul>
+                </div>
+              </div>
+            </section>
 		</main>
     <div class="table-modal" :class="{'active': tableModal === true}" @click.self="tableModal = false">
       <div class="table-modal__content">

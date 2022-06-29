@@ -135,6 +135,34 @@ const productCardSlider = new Swiper('.product-card-slider', {
   }
 });
 
+const productDescrSlider = new Swiper('.product-descr-slider', {
+  slidesPerView: 1,
+  navigation: {
+    nextEl: '.product-descr-slider__button-next',
+    prevEl: '.gather-collection-slider__button-prev',
+  },
+});
+
+const gatherCollectionSlider = new Swiper('.gather-collection-slider', {
+  slidesPerView: 1,
+  navigation: {
+    nextEl: '.gather-collection-slider__button-next',
+    prevEl: '.gather-collection-slider__button-prev',
+  },
+
+  breakpoints: {
+    768: {
+      spaceBetween:20,
+      slidesPerView: 'auto',
+    },
+
+    1440: {
+      spaceBetween:0,
+      slidesPerView: 1,
+    }
+  }
+});
+
 const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-btn');
 
 fullScreenBtn.addEventListener('click',()=>{

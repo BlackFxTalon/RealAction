@@ -69,14 +69,18 @@ select {
 /* global styles */
 :root {
   --black-color:#0B0C0D;
+  --black-color-2:#101112;
+  --black-color-3:#292929;
   --red-color:#FF0000;
 --grey-color:rgba(41, 41, 41, 0.5);
+--grey-color-2:#414141;
 --pink-color:#E28376;
 --light-grey-color: #D8D8D8;
 --dark-grey-color:#A5A0A0;
 --green-color: #37A64F;
 --light-red-color: #CE4949;
 --yellow-color: #FFE600;
+--olive-color:#9B902B;
 }
 
 body {
@@ -106,6 +110,31 @@ body {
   @include media-custom(1440px) {
     --padding-left:80px;
     --padding-right:80px;
+  }
+}
+.container-alt {
+  --max-width: 1760px;
+  --padding-left:10px;
+  --padding-right:10px;
+	width: Min(100%, var(--max-width));
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--padding-left);
+	padding-right: var(--padding-right);
+
+  @include media-medium() {
+    --padding-left:20px;
+    --padding-right:20px;
+  }
+
+  @include media-custom(1440px) {
+    --padding-left:80px;
+    --padding-right:80px;
+  }
+
+  @include media-custom(1920px) {
+    --padding-left:0;
+    --padding-right:0;
   }
 }
 .grid {
@@ -474,9 +503,14 @@ text-transform: uppercase;
   &__container {
     --padding-left:20px;
     --padding-right:20px;
+    --max-width:1840px;
     @include media-medium() {
       --padding-left:40px;
     --padding-right:40px;
+    }
+    @include media-custom(1920px) {
+      --padding-left:0;
+      --padding-right:0;
     }
   }
 
@@ -1180,7 +1214,7 @@ li:nth-child(2) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #292929;
+    background-color: var(--black-color-3);
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
