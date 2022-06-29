@@ -1106,16 +1106,16 @@ line-height: 19px;
 }
 .product-descr-slider-container {
     @include media-medium() {
-        --padding-left: 15px;
-        --padding-right: 15px;
-        border-top:1px solid white;
-        border-left:1px solid white;
-        border-right:1px solid white;
+        --padding-left: 15px !important;
+        --padding-right: 15px !important;
+        border-top:1px solid white !important;
+        border-left:1px solid white !important;
+        border-right:1px solid white !important;
     }
 
     @include media-custom(1440px) {
-        border-right: unset;
-        border-bottom: 1px solid white;
+        border-right: unset !important;
+        border-bottom: 1px solid white !important;
     }
 }
 .product-descr-info {
