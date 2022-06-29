@@ -2012,14 +2012,14 @@ line-height: 23px;
     &__clothes-line--adaptive {
         
         @include media-custom(1920px) {
-            display: none;
+            display: none !important;
         }
     }
     &__clothes-line--desktop {
-        display: none;
+        display: none !important;
 
         @include media-custom(1920px) {
-            display: grid;
+            display: grid !important;
             margin-left: 0;
         }
     }
