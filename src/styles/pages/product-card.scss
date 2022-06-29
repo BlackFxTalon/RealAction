@@ -24,16 +24,16 @@
     }
 
     &__container {
-        --padding-left:0;
-        --padding-right:0;
+        --padding-left:0 !important;
+        --padding-right:0 !important;
 
         @include media-medium() {
-            --max-width:728px;
-            background-color: white;
+            --max-width:728px !important;
+            background-color: white !important;
         }
 
         @include media-custom(1440px) {
-            --max-width:100%;
+            --max-width:100% !important;
         }
     }
     &__slide {
