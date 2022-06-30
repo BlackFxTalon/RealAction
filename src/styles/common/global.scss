@@ -680,6 +680,49 @@ margin: 0;
   height: 50px;
 }
     }
+
+    &__checkbox {
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      gap: 23px;
+      position: relative;
+
+      input {
+        width: 20px;
+        height: 20px;
+        opacity: 0;
+        visibility: hidden;
+        margin: 0;
+      }
+
+      input:checked + label:after {
+        opacity: 1;
+      }
+
+      label {
+        font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+color: black;
+      }
+      label:before,
+      label:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 20px;
+      }
+      label:before {
+        border: 1px solid black;
+        background-color: transparent;
+      }
+      label::after {
+        background: url(../resources/svgSprites/svgSprite.svg#checkmark-icon) no-repeat center/contain;
+        transition: opacity .3s ease-in-out;
+        opacity: 0;
+      }
+    }
 }
 .modal-content {
   background-color: white;

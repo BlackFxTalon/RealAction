@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница входа по email"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, enterModal: false}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <button type="button" aria-label="button" class="variant-1-btn" @click="enterModal = true">Модалка входа по email</button>
+		</main>
+    <div class="modal enter-modal" :class="{'active': enterModal === true}" @click.self="enterModal = false">
+      <div class="modal-content enter-modal__content">
+      <fieldset>
+        <legend class="modal__title enter-modal__title"><h2>Войти</h2><button class="modal__close" type="button" aria-label="button" @click="enterModal = false">
+            <svg width="20" height="20">
+              <use href="../resources/svgSprites/svgSprite.svg#close-modal-icon"></use>
+              </svg>
+          </button></legend>
+        <div class="modal__input-group enter-modal__input-group">
+            <label for="mail">Ваша почта</label>
+            <input type="email" name="mail" id="mail" placeholder="customer@example.com">
+        </div>
+        <div class="modal__input-group enter-modal__input-group">
+            <div class="enter-modal__input-group-row">
+            <label for="passwordChange">Ваш пароль</label>
+            <a href="#" class="enter-modal__forget-pass-link">Забыли пароль?</a>
+            </div>
+            <input type="password" name="passwordChange" id="passwordChange" placeholder="****************">
+        </div>
+        <div class="modal__checkbox enter-modal__checkbox">
+            <input type="checkbox" name="rememberDevice" id="rememberDevice">
+            <label for="rememberDevice">Запомнить меня на этом устройстве</label>
+        </div>
+        <div class="enter-modal__btn-group">
+        <button type="submit" class="variant-2-btn modal__submit-btn enter-modal__submit-btn">Войти</button>
+        <span>или</span>
+        <a href="#" class="variant-3-btn enter-modal__new-account-link">Создать учетную запись</a>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+		@@include('../parts/footer.html')
+	</body>
+</html>

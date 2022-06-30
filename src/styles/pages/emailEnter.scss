@@ -1,0 +1,95 @@
+// emailEnter styles
+.enter-modal {
+
+    &__content {
+
+        @include media-medium() {
+            max-width: toRem(630);
+            margin-top: auto;
+        }
+        @include media-custom(1440px) {
+            max-width: toRem(630);
+        }
+    }
+
+    &__input-group:not(:last-of-type) {
+        @include media-medium() {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        @include media-medium() {
+            margin-bottom: 30px;
+        }
+    }
+
+
+    &__input-group-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__forget-pass-link {
+        font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+color: black;
+transition: .3s ease-in-out;
+text-decoration: none;
+    }
+    &__forget-pass-link:hover,
+    &__forget-pass-link:active,
+    &__forget-pass-link:focus {
+        text-decoration: underline;
+    }
+
+    &__checkbox {
+        margin-top: 11px;
+
+        @include media-medium() {
+            margin-top: 0;
+        }
+    }
+
+    &__btn-group {
+        display: grid;
+        gap: 10px;
+        margin-top: 30px;
+
+        @include media-medium() {
+            grid-template-columns: 160px 1fr 318px;
+            gap: 31px;
+            align-items: center;
+        }
+        @include media-custom(1440px) {
+            margin-top: 40px;
+        }
+
+        span {
+            font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+text-transform: uppercase;
+color: black;
+text-align: center;
+        }
+    }
+
+    &__submit-btn {
+        font-weight: 300;
+    }
+
+    &__new-account-link {
+        text-align: center;
+        height: 40px;
+
+        @include media-medium() {
+            height: 50px;
+            font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+        }
+    }
+}
