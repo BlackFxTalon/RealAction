@@ -2,13 +2,12 @@
 .reg-modal {
 
     &__content {
-        max-height: toRem(667);
         overflow: auto;
         margin-top: 0;
+        height: 100%;
 
         @include media-medium() {
             max-width: toRem(610);
-            max-height: 100%;
             margin-top: auto;
         }
         @include media-custom(1440px) {
@@ -17,11 +16,15 @@
     }
 
     &__input-group-wrapper {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 20px;
+
         @include media-medium() {
-            display: grid;
             grid-template-columns: repeat(2,250px);
             justify-content: space-between;
             align-items: flex-end;
+            gap: 0;
             margin-bottom: 27px;
         }
 
