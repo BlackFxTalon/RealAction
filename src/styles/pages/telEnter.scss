@@ -1,0 +1,313 @@
+// telEnter styles
+.enter-tel-modal {
+
+    &__content {
+        padding: 0;
+
+        @include media-medium() {
+            max-width: toRem(500);
+        }
+        @include media-custom(1440px) {
+            max-width: toRem(680);
+        }
+    }
+
+    form {
+        padding: 20px;
+
+        @include media-medium() {
+            padding: 30px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 25px;
+
+        @include media-medium() {
+            margin-bottom: 34px;
+        }
+    }
+
+    &__input-group:not(:last-of-type) {
+        @include media-medium() {
+            margin-bottom: 30px;
+        }
+        @include media-custom(1440px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__submit-btn {
+        font-weight: 300;
+        max-width: 300px;
+        height: 60px;
+        font-weight: 300;
+font-size: 20px;
+line-height: 23px;
+text-transform: uppercase;
+color: black;
+margin-left: auto;
+margin-right: auto;
+
+@include media-medium() {
+    max-width: 231px;
+    height: 53px;
+}
+@include media-custom(1440px) {
+    margin-left: 0;
+}
+    }
+
+    p {
+        font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+color: black;
+margin-top: 20px;
+margin-bottom: 20px;
+
+@include media-medium() {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+    }
+
+    &__row {
+        @include media-medium() {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__email-enter-link {
+        margin-bottom: 40px;
+
+        @include media-medium() {
+            margin-bottom: 0;
+        }
+    }
+
+    &__tel-enter-link {
+        background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 16px;
+        margin-top: toRem(130);
+
+        @include media-medium() {
+            margin-top: 0;
+        }
+        @include media-custom(1440px) {
+            margin-top: 7px;
+        }
+    }
+
+    &__email-enter-link,
+    &__tel-enter-link {
+        font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+color: black;
+    }
+
+    
+}
+
+.verify-tel-modal {
+
+    &__content {
+        padding: 0;
+
+        @include media-medium() {
+            max-width: toRem(560);
+        }
+        @include media-custom(1440px) {
+            max-width: toRem(680);
+        }
+    }
+
+    form {
+        padding: 20px;
+        padding-bottom: 49px;
+
+        @include media-medium() {
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__title {
+
+        @include media-medium() {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__toast {
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+padding-top: 21px;
+padding-bottom: 23px;
+padding-left: 38px;
+padding-right: 37px;
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: max-content;
+gap: 3px;
+align-items: center;
+justify-content: center;
+background-color: rgba(41, 41, 41, 0.1);
+margin-bottom: 40px;
+
+@include media-medium() {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 0;
+    justify-content: flex-start;
+    margin-bottom: 41px;
+}
+@include media-custom(1440px) {
+    margin-bottom: 30px;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+    }
+
+    &__number-list {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-columns: repeat(6,max-content);
+        padding-bottom: 40px;
+
+        @include media-custom(376px) {
+            gap: 10px;
+        }
+
+        @include media-medium() {
+            padding-bottom: 30px;
+            gap: 20px;
+            margin: 0 15px;
+        }
+
+        li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+
+            @include media-medium() {
+                width: 60px;
+                height: 60px;
+            }
+            @include media-custom(1440px) {
+                width: 80px;
+                height: 100px;
+            }
+        }
+
+        input {
+            padding: 0;
+            margin: 0;
+            font-weight: 300;
+            font-size: 36px;
+            line-height: 42px;
+            color: black;
+            background-color: transparent;
+            border-color: transparent;
+            width: 100%;
+            height: 100%;
+            padding-left: 13px;
+
+            @include media-custom(1440px) {
+                font-size: 48px;
+                line-height: 56px;
+                padding-left: 25px;
+            }
+        }
+        input:focus,
+        input:focus-within,
+        input:focus-visible {
+            outline: transparent;
+        }
+
+        input::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &__btn-group {
+        display: grid;
+        gap: 40px;
+
+        @include media-medium() {
+            grid-template-columns: 287px 109px;
+            gap: 64px;
+            margin: 0 15px;
+        }
+        @include media-custom(1440px) {
+            grid-template-columns: 228px 287px;
+            margin: 0;
+            gap: 105px;
+        }
+    }
+
+    &__repeat-code-btn {
+        font-weight: 700;
+font-size: 16px;
+line-height: 19px;
+        height: 49px;
+text-transform: uppercase;
+padding: 0;
+
+@include media-medium() {
+    font-size: 20px;
+    line-height: 23px;
+    height: 53px;
+}
+
+@include media-custom(1440px) {
+    order: 1;
+}
+    }
+
+    &__back-link {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        text-transform: uppercase;
+        height: 49px;
+
+        @include media-medium() {
+            height: 53px;
+            font-size: 20px;
+            line-height: 23px;
+        }
+    }
+
+    &__email-enter-link {
+        background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 16px;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        color: black;
+    }
+    
+}

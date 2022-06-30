@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница входа по телефону"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <button type="button" aria-label="button" class="variant-1-btn" @click="telModal = true">Модалка входа по телефону</button>
+            <button type="button" aria-label="button" class="variant-1-btn" @click="verifyTelModal = true">Модалка подтверждения входа</button>
+		</main>
+    <div class="modal enter-tel-modal" :class="{'active': telModal === true}" @click.self="telModal = false">
+      <div class="modal-content enter-tel-modal__content">
+      <form action="#">
+      <fieldset>
+        <legend class="modal__title enter-tel-modal__title"><h2>Вход или регистрация</h2><button class="modal__close" type="button" aria-label="button" @click="telModal = false">
+            <svg width="20" height="20">
+              <use href="../resources/svgSprites/svgSprite.svg#close-modal-icon"></use>
+              </svg>
+          </button></legend>
+          <div class="modal__input-group enter-tel-modal__input-group">
+            <label for="phone">Введите номер телефона</label>
+            <input type="tel" name="phone" id="phone" placeholder="+_(___)___-____" required>
+        </div>
+        <div class="enter-tel-modal__row">
+        <p>На этот номер придёт код подтверждения</p>
+        <a href="#" class="enter-tel-modal__email-enter-link">Войти с помощью email</a>
+        </div>
+        <button type="submit" class="variant-2-btn modal__submit-btn enter-tel-modal__submit-btn">Получить код</button>
+      </fieldset>
+      </form>
+      <a href="#" class="enter-tel-modal__tel-enter-link">Войти с помощью телефона</a>
+    </div>
+  </div>
+  <div class="modal verify-tel-modal" :class="{'active': verifyTelModal === true}" @click.self="verifyTelModal = false">
+    <div class="modal-content verify-tel-modal__content">
+    <form action="#">
+    <fieldset>
+      <legend class="modal__title verify-tel-modal__title"><h2>Подтверждение входа</h2><button class="modal__close" type="button" aria-label="button" @click="verifyTelModal = false">
+          <svg width="20" height="20">
+            <use href="../resources/svgSprites/svgSprite.svg#close-modal-icon"></use>
+            </svg>
+        </button></legend>
+        <div class="verify-tel-modal__toast">
+            <p>Код выслан на номер</p>
+            <a>+7 (905) 806 48 63</a>
+        </div>
+        <ul role="list" class="verify-tel-modal__number-list">
+            <template x-for="i in 6">
+                <li data-count="i">
+                    <input type="number" name="number" id="i" placeholder="3">
+                </li>
+            </template>
+        </ul>
+        <div class="verify-tel-modal__btn-group">
+      <button type="button" class="variant-3-btn verify-tel-modal__repeat-code-btn">выслать код повторно</button>
+      <a href="#" class="variant-2-btn verify-tel-modal__back-link">вернуться назад</a>
+     </div>
+    </fieldset>
+   </form>
+   <a href="#" class="verify-tel-modal__email-enter-link">Войти с помощью email</a>
+  </div>
+</div>
+		@@include('../parts/footer.html')
+	</body>
+</html>
