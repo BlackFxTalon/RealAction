@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница регистрации"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, regModal: false}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <button type="button" aria-label="button" class="variant-1-btn" @click="regModal = true">Модалка регистрации</button>
+		</main>
+    <div class="modal reg-modal" :class="{'active': regModal === true}" @click.self="regModal = false">
+      <div class="modal-content reg-modal__content">
+      <fieldset>
+        <legend class="modal__title"><h2>Регистрация</h2><button class="modal__close" type="button" aria-label="button" @click="regModal = false">
+            <svg width="20" height="20">
+              <use href="../resources/svgSprites/svgSprite.svg#close-modal-icon"></use>
+              </svg>
+          </button></legend>
+        <div class="reg-modal__input-group-wrapper">
+        <div class="modal__input-group">
+            <label for="name">Имя<sup>*</sup></label>
+            <div class="input-validation input-validation--correct">
+            <input type="text" name="name" id="name" placeholder="Иван" required>
+           </div>
+        </div>
+        <div class="modal__input-group">
+            <label for="surname">Фамилия</label>
+            <div class="input-validation input-validation--error">
+            <input class="error" type="text" name="surname" id="surname" placeholder="Воробьев">
+            </div>
+        </div>
+        </div>
+        <div class="modal__input-group">
+            <label for="phone">Телефон<sup>*</sup></label>
+            <input type="tel" name="phone" id="phone" placeholder="+_(___)___-____" required>
+        </div>
+        <div class="modal__input-group">
+            <label for="mail">E-mail<sup>*</sup></label>
+            <input type="email" name="mail" id="mail" placeholder="customer@example.com">
+        </div>
+        <div class="modal__input-group">
+            <label for="passwordChange">Новый пароль<sup>*</sup></label>
+            <input type="password" name="passwordChange" id="passwordChange" placeholder="****************" required>
+        </div>
+        <div class="modal__input-group">
+            <label for="passwordAccept">Подтверждение пароля<sup>*</sup></label>
+            <input type="password" name="passwordAccept" id="passwordAccept" placeholder="****************" required>
+        </div>
+        <button type="submit" class="variant-2-btn modal__submit-btn reg-modal__submit-btn">регистрация</button>
+      </fieldset>
+    </div>
+  </div>
+		@@include('../parts/footer.html')
+	</body>
+</html>
