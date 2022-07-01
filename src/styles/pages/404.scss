@@ -1,0 +1,41 @@
+// 404 page styles
+.section-404 {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 60px;
+    max-width: 283px;
+    margin: auto;
+
+    @include media-medium() {
+        padding-top: 50px;
+        padding-bottom: 142px;
+    }
+
+    @include media-custom(1440px) {
+        padding-bottom: 192px;
+    }
+
+    h1 {
+        font-weight: 700;
+font-size: 128px;
+line-height: 150px;
+color: white;
+    }
+    p {
+        font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+color: white;
+    }
+
+    &__link {
+        height: 53px;
+        font-weight: 300;
+font-size: 19px;
+line-height: 23px;
+padding: 0 20px;
+    }
+
+}
