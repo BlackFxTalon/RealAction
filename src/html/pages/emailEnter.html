@@ -3,7 +3,7 @@
 	@@include('../parts/head.html',{
 	"title":"Страница входа по email"
 	})
-	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, enterModal: false}">
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, enterModal: false}" :class="{'overflow-hidden': enterModal === true }">
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>

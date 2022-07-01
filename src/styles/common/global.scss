@@ -93,6 +93,9 @@ body {
   flex-direction: column;
   background-color: var(--black-color);
 }
+body.overflow-hidden {
+  overflow: hidden;
+}
 .container {
 	--max-width: 1837px;
   --padding-left:10px;
@@ -461,12 +464,7 @@ line-height: 42px;
 }
 .breadcrumbs {
   padding: 20px 0;
-  display: none;
-
-  @include media-medium() {
-    display: block;
-  }
-
+  
   @include media-custom(1440px) {
     padding: 30px 0;
   }
@@ -499,7 +497,18 @@ text-transform: uppercase;
     padding-right: 10px;
   }
   li.active a {
+    width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-weight: 500;
+
+    @include media-medium() {
+      width: 100%;
+      white-space: unset;
+      overflow: unset;
+      text-overflow: unset;
+    }
   }
   li.active a::after {
     content: '';
@@ -525,9 +534,13 @@ text-transform: uppercase;
   }
 
   &__previous-page-link {
-    display: flex;
+    display: none;
     align-items: center;
     margin-right: 7px;
+
+    @include media-medium() {
+      display: flex;
+    }
 
     &::after {
       content: '|';
@@ -1377,7 +1390,7 @@ span {
   transform: scaleY(0);
   opacity: 0;
   transform-origin: top;
-  transition: transform .25s cubic-bezier(.19,1,.22,1) .15s,opacity 0s .4s;
+  transition: .3s ease-in-out;
   z-index: -7;
   padding-top: 26px;
   padding-bottom: 20px;
@@ -1385,24 +1398,17 @@ span {
   &.active {
     transform: scaleY(1);
     opacity: 1;
-    transition: transform .4s cubic-bezier(.19,1,.22,1),opacity 0s 0s;
+    transition: .3s ease-in-out;
     z-index: 7;
 
-    .mobile-menu__phone {
-      opacity: 1;
-      visibility: visible;
-      transition: visibility 0s ease 0.3s, opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-    }
     .mobile-menu__list {
     visibility: visible;
     opacity: 1;
     transition: visibility 0s ease 0s, opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     }
 
-    .mobile-menu__item-wrapper svg {
-      opacity: 1;
-      visibility: visible;
-      transition: visibility 0s ease 0.2s, opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 0.2s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    .mobile-menu__sub-list {
+      display: grid;
     }
   }
 
@@ -1418,9 +1424,6 @@ span {
     font-weight: 300;
     color: black;
     text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: visibility 0s ease 0s, opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 
     a {
       text-transform: uppercase;
@@ -1443,6 +1446,7 @@ span {
     visibility: hidden;
     transition: visibility 0s ease 0s, opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   }
+
   &__item {
     padding-top: 10px;
     padding-bottom: 12px;
@@ -1476,18 +1480,16 @@ color: black;
     justify-content: space-between;
 
     svg {
-      transition: visibility 0s ease 0.2s, opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 0.2s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-      opacity: 0;
-      visibility: hidden;
+      transition: visibility 0s ease 0s, opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     }
     svg.active {
       transform: rotate(180deg);
-      transition: .3s ease-in-out;
+      transition: visibility 0s ease 0s, opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     }
   }
 
   &__sub-list {
-    display: grid;
+    display: none;
     padding: 0;
     margin: 0;
     height: 0;

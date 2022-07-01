@@ -3,7 +3,7 @@
 	@@include('../parts/head.html',{
 	"title":"Главная"
 	})
-	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, tableModal:false}">
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, tableModal:false}" :class="{'overflow-hidden': tableModal === true }">
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 		<script src="js/main.min.js" defer></script>
@@ -139,7 +139,7 @@
             <div class="product-descr" data-aos="animate-in-view">
               <div class="container-alt product-descr__container">
               <div class="container product-descr-slider-container">
-                <div class="swiper product-descr-slider" data-aos="animate-in-view">
+                <div class="swiper product-descr-slider">
                   <ul class="swiper-wrapper product-descr-slider__wrapper" role="list">
                       <template x-for="i in 3">
                     <li class="swiper-slide product-descr-slider__slide" data-src="resources/images/product-descr-slider-img--gallery.jpg">
@@ -249,10 +249,10 @@
                     </svg>
                 </div>
                 </div>
-                <div class="gather-collection-list-wrapper" data-simplebar data-simplebar-auto-hide="false">
-                <ul role="list" class="gather-collection-list" x-data="{colorChoice: 'olive', toggleHeart: false}">
+                <div class="gather-collection-list-wrapper">
+                <ul role="list" class="gather-collection-list">
                   <template x-for="i in 5">
-                    <li class="gather-collection-list__item">
+                    <li class="gather-collection-list__item" x-data="{colorChoice: 'olive', toggleHeart: false}">
                       <div class="gather-collection-list__top">
                         <p class="gather-collection-list__count">
                           <span x-text="i">1</span><span>/</span><span>5</span>

@@ -168,3 +168,11 @@ const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-b
 fullScreenBtn.addEventListener('click',()=>{
   document.querySelector('[data-fancybox="productCardSlider"]').click();
 })
+
+function initGatherCollectionScrollBar () {
+  if (window.innerWidth >= 1440) {
+    new SimpleBar(document.querySelector('.gather-collection-list-wrapper'));
+  }
+}
+
+initGatherCollectionScrollBar();

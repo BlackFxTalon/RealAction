@@ -3,7 +3,7 @@
 	@@include('../parts/head.html',{
 	"title":"Страница входа по телефону"
 	})
-	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}">
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>
