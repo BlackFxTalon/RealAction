@@ -805,7 +805,7 @@ line-height: 23px;
         transition: transform .6s ease-in-out;
 
         @include media-medium() {
-            margin-left: -160px;
+            margin-left: -240px;
         }
 
         @include media-custom(1440px) {
@@ -1374,7 +1374,8 @@ line-height: 75px;
         --padding-right:0;
 
         @include media-medium() {
-            --padding-left:0;
+            --padding-left:20px;
+            --padding-right:20px;
         }
         @include media-custom(1440px) {
             --padding-left: 80px;
@@ -1405,7 +1406,7 @@ line-height: 75px;
         }
 
         @include media-custom(1440px) {
-            max-width: 310px;
+            max-width: 312px;
         }
 
         @include media-custom(1920px) {
@@ -1656,7 +1657,7 @@ backdrop-filter: blur(2px);
             height: 542px;
         }
         @include media-custom(1920px) {
-            height: 564px;
+            height: 562px;
         }
     }
 

@@ -1,4 +1,4 @@
-<header class="header" :class="{'active': mobileMenu === true}" @mouseover.outside="headerMegaMenu = false">
+<header class="header" :class="{'active': mobileMenu === true}" @mouseover.outside="headerMegaMenu = false" @click.outside="headerSearch = false">
     <div class="container header__container">
         <div class="header__left">
         <button type="button" class="header__hamb-btn" @click="mobileMenu = !mobileMenu" :class="{'active': mobileMenu === true}">
@@ -11,9 +11,9 @@
         </button>
     </div>
     <a href="#" class="header__logo">
-        <svg width="162" height="16">
+        <!-- <svg width="162" height="16">
             <use href="../resources/svgSprites/svgSprite.svg#header-logo"></use>
-        </svg>
+        </svg> -->
     </a>
     <nav class="header__menu">
         <ul role="list">
