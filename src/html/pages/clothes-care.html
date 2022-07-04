@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница Уход за одеждой"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container breadcrumbs__container--clothes-care-page">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container-alt clothes-care-page-container">
+            <section class="clothes-care-page" data-aos="animate-in-view">
+                <h1 class="section-page-title clothes-care-page__title"><span>Уход за одеждой</span></h1>
+                <div class="clothes-care-page-info">
+                <picture>
+                    <source type="image/jpg" srcset="resources/images/clothes-care-img--desktop.jpg" media="(min-width:1440px)">
+                  <source type="image/jpg" srcset="resources/images/clothes-care-img--tablet.jpg" media="(min-width:768px)">
+                  <img src="resources/images/clothes-care-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="335" height="196">
+                </picture>
+                <p>Специальные значки на ярлыке товара подскажут, как правильно ухаживать за вещью, чтобы она прослужила как можно дольше и выглядела, как новая!</p>
+                <p>Ищите бирки на вещах и соблюдайте рекомендации по уходу.</p>
+                <h2>Стирка</h2>
+                <ul role="list">
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-1"></use>
+                          </svg>
+                          <span>
+                            Разрешена стирка, включая замачивание, полоскание, нагревание и механическое воздействие.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-2"></use>
+                          </svg>
+                          <span>
+                            Ручная или машинная стирка при указанной температуре. Не подвергать сильной механической обработке. Умеренный отжим.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-3"></use>
+                          </svg>
+                          <span>
+                            Стирка запрещена.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-4"></use>
+                          </svg>
+                          <span>
+                            Очень деликатная стирка в большом количестве воды, минимальная механическая обработка, быстрое полоскание при низких оборотах.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-5"></use>
+                          </svg>
+                          <span>
+                            Ручная и машинная стирка при температуре не выше указанной.
+                          </span>
+                    </li>
+                </ul>
+                <h2>Сушка</h2>
+                <ul role="list">
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-6"></use>
+                          </svg>
+                          <span>
+                            Запрещено отжимать и сушить в стиральной машине.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-7"></use>
+                          </svg>
+                          <span>
+                            Сушить без отжима в подвешенном состоянии.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-8"></use>
+                          </svg>
+                          <span>
+                            Разрешено отжимать и сушить в стиральной машине.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-9"></use>
+                          </svg>
+                          <span>
+                            Сушить при нормальной температуре.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-10"></use>
+                          </svg>
+                          <span>
+                            После отжима разрешена вертикальная сушка.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-11"></use>
+                          </svg>
+                          <span>
+                            Сушить при горячей температуре.
+                          </span>
+                    </li>
+                </ul>
+                <h2>Отбеливание</h2>
+                <ul role="list">
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-12"></use>
+                          </svg>
+                          <span>
+                            При стирке не использовать средства, содержащие отбеливатель (хлор).
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-13"></use>
+                          </svg>
+                          <span>
+                            Разрешена стирка с отбеливателями, содержащими хлор. Использовать только холодную воду, следить за полным растворением порошка.
+                          </span>
+                    </li>
+                </ul>
+                <h2>Глаженные</h2>
+                <ul role="list">
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-14"></use>
+                          </svg>
+                          <span>
+                            Разрешено гладить при максимальной температуре 150°С, допустимо для шерсти и смешанных волокон с полиэстером и вискозой.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-15"></use>
+                          </svg>
+                          <span>
+                            Разрешено гладить при максимальной температуре 200°С, допустимо для льна и хлопка. Можно слегка увлажнять изделие.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-16"></use>
+                          </svg>
+                          <span>
+                            Разрешено гладить при максимальной температуре 110°С, допустимо для нейлона, акрила, полиэстера, ацетата.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-17"></use>
+                          </svg>
+                          <span>
+                            Гладить разрешено.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-18"></use>
+                          </svg>
+                          <span>
+                            Гладить запрещено.
+                          </span>
+                    </li>
+                </ul>
+                <h2>Химчистка</h2>
+                <ul role="list">
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-19"></use>
+                          </svg>
+                          <span>
+                            Только сухая чистка.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-20"></use>
+                          </svg>
+                          <span>
+                            Химическая стирка запрещена.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-21"></use>
+                          </svg>
+                          <span>
+                            Сухая чистка с любым растворителем.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-22"></use>
+                          </svg>
+                          <span>
+                            Чистка только с углеводородом, бензином, хлорным этиленом и монотрифтортрихлорметаном.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-23"></use>
+                          </svg>
+                          <span>
+                            Чистка только с использованием углеводорода, бензина и монотрифтортрихлорметана.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-24"></use>
+                          </svg>
+                          <span>
+                            Чистка только с углеводородом, бензином, хлорным этиленом и монотрифтортрихлорметаном при ограниченном добавлении воды, контроле над механическим воздействием и температурой сушки.
+                          </span>
+                    </li>
+                    <li>
+                        <svg width="30" height="30">
+                            <use href="../resources/svgSprites/svgSprite.svg#clothes-care-icon-25"></use>
+                          </svg>
+                          <span>
+                            Чистка только с углеводородом, бензином, хлорным этиленом и монотрифтортрихлорметаном при ограниченном добавлении воды, контроле над механическим воздействием и температурой сушки.
+                          </span>
+                    </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>

@@ -1,0 +1,112 @@
+// clothes-care page styles
+
+.breadcrumbs__container--clothes-care-page {
+    --max-width:1024px;
+}
+.clothes-care-page-container {
+    --max-width:1024px;
+    @include media-custom-max(767px) {
+        --padding-left:0;
+        --padding-right:0;
+    }
+}
+.clothes-care-page {
+    background-color: white;
+    padding: 20px;
+
+    @include media-custom(1440px) {
+        padding: 40px;
+        padding-bottom: 62px;
+    }
+
+    &__title {
+        font-weight: 300;
+font-size: 24px;
+line-height: 28px;
+color: black;
+padding-bottom: 5px;
+margin-bottom: 20px;
+
+@include media-medium() {
+font-size: 32px;
+line-height: 38px;
+padding-bottom: 9px;
+}
+@include media-custom(1440px) {
+    font-size: 36px;
+line-height: 42px;
+padding-bottom: 5px;
+margin-bottom: 40px;
+max-width: toRem(700);
+}
+@include media-custom(1920px) {
+max-width: toRem(800);
+}
+    }
+    &__title::after {
+        background-color: black;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.clothes-care-page-info {
+    display: grid;
+    gap: 20px;
+
+    &__img {
+        display: flex;
+    }
+
+    h2 {
+        font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: black;
+    }
+
+    p {
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: black;
+
+@include media-medium() {
+    font-size: 16px;
+line-height: 19px;
+max-width: 75ch;
+}
+
+@include media-custom(1440px) {
+    max-width: 100%;
+}
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 20px;
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: black;
+
+@include media-medium() {
+    grid-template-columns: repeat(3,1fr);
+    font-size: 13px;
+}
+@include media-custom(1440px) {
+    font-size: 14px;
+}
+
+li {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: max-content 1fr;
+ }
+ }
+}
