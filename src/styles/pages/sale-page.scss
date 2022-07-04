@@ -111,6 +111,11 @@ font-size: 14px;
 line-height: 17px;
 color: white;
 
+@include media-medium() {
+    font-size: 14px;
+line-height: 19px;
+}
+
 p:first-of-type {
     max-width: 38ch;
 
