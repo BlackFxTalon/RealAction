@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница Информация о доставке"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container breadcrumbs__container--payment-page">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container-alt payment-page-container">
+            <section class="payment-page" data-aos="animate-in-view">
+                <h1 class="section-page-title payment-page__title"><span>Оплата</span></h1>
+                <div class="payment-page-info">
+                <p>Оформляя заказ в интернет-магазине REAL ACTION, вы можете выбрать различные способы оплаты заказа.</p>
+                <p>Условия оплаты онлайн-заказов с самовывозом из магазина могут изменяться в зависимости от наличия товара, выбранного магазина и региона доставки. Уточнить информацию можно в корзине при оформлении заказа.<br>
+                    Выбирайте комфортный способ оплаты: онлайн-оплату на сайте и в мобильном приложении, Apple Pay и Google Pay, наличные или банковская карта при получении.<br>
+                    Мы используем безопасные платежи и надёжно защищаем персональные данные
+                </p>
+                <p>ОПЛАТА КУРЬЕРУ ПРИ ПОЛУЧЕНИИ ЗАКАЗА</p>
+                <p><strong>Наличными: </strong>Оплата производится непосредственно сотруднику Службы доставки при получении заказа. Сотрудник выписывает товарный чек и пробивает кассовый чек.</p>
+                <p><strong>Банковской картой: </strong>Мы принимаем платежи по банковским картам платежных систем МИР, Visa, Visa Electron, Diners Club International, MasterCard Electronic, Maestro. Оплата банковской картой производится непосредственно курьеру посредством мобильного банковского терминала при получении заказа. Сотрудник выписывает товарный чек и пробивает кассовый чек. О возможности оплаты банковской картой курьеру в вашем регионе узнайте у оператора Службы поддержки клиентов в online-чате.</p>
+                <p>БАНКОВСКОЙ КАРТОЙ НА САЙТЕ ОНЛАЙН-МАГАЗИНА REAL ACTION</p>
+                <p>К оплате принимаются все виды платёжных карточек МИР, а также VISA (за исключением Visa Electron) и MasterCard (за исключением Maestro).</p>
+                <p>Для оплаты банковской картой вам понадобится следующая информация:</p>
+                <ul role="list">
+                    <li>Номер банковской карты;
+                    </li>
+                    <li>Срок окончания действия вашей карты, месяц/год;</li>
+                    <li>ФИО владельца карты;</li>
+                    <li>CVV код для карт Visa / CVC код для Master Card: 3 последние цифры на полосе для подписи на обороте карты.</li>
+                </ul>
+                <img loading="lazy" decoding="async" src="resources/images/payment-img.png" alt="image" width="335" height="186">
+                <p>Если на вашей карте код CVC/CVV отсутствует, то, возможно, карта не пригодна для проведения транзакций без личного участия владельца банковской платежной карты.</p>
+              </div>
+            </section>
+          </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
