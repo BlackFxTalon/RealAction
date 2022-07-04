@@ -412,6 +412,18 @@ line-height: 42px;
   }
 }
 
+.section-page-title {
+  position: relative;
+}
+.section-page-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
 @keyframes scale-up {
   50% {
       transform: scale(1.5);

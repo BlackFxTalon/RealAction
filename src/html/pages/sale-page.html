@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница SALE"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container breadcrumbs__container--sale-page">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <section class="sale-page">
+                <div class="container-alt sale-page__container">
+                <h1 class="section-page-title sale-page__title"><span>Акции на одежду</span></h1>
+                <div class="sale-page__grid">
+                <ul class="sale-page__list" role="list">
+                    <template x-for="i in 6">
+                    <li data-index="i">
+                        <figure class="sale-page-card">
+                           <div class="sale-page-card__top">
+                            <picture>
+                                <source media="(min-width:1920px)" src="resources/images/sale-page-card-img--desktop-2.jpg">
+                                <source media="(min-width:1440px)" src="resources/images/sale-page-card-img--desktop.jpg">
+                                <source media="(min-width:768px)" src="resources/images/sale-page-card-img--tablet.jpg">
+                              <img src="resources/images/sale-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="335" height="335">
+                            </picture>
+                            <div class="sale-page-card__top-info">
+                                 <a href="#" class="variant-1-btn sale-page-card__link">посмотреть сейчас</a>
+                                 <p>акция действует - до <time datetime="2022-02-02">02.02.2022</time></p>
+                            </div>
+                         </div>
+                         <figcaption>
+                            <h2>Скидки 20% — 30%</h2>
+                            <span>На спортивные штаны</span>
+                         </figcaption>
+                        </figure>
+                    </li>
+                  </template>
+                </ul>
+                <div class="sale-page__main-info">
+                    <p>В розничных салонах и онлайн-магазине повседневной моды REAL ACTION регулярно обновляются акции на одежду. Это прекрасная возможность пополнить гардероб очень выгодно — со скидками до 80 %! Скидки предоставляются на актуальные модели текущих или прошлых коллекций. Клиентам предлагаются:</p>
+                    <ul role="list">
+                        <li>Праздничное снижение цен на всю продукцию;</li>
+                        <li>Скидки на определенные группы товаров;</li>
+                        <li>Подарки при покупке;</li>
+                        <li>Специальные цены на товары недели;</li>
+                        <li>Конкурсы с призами;</li>
+                        <li>Сезонные и межсезонные распродажи;</li>
+                        <li>Дополнительные бонусы для участников дисконтной системы.</li>
+                    </ul>
+                    <p>Подробная информация обо всех условиях, сроках проведения акций на одежду, действующих при заказе онлайн и покупке в филиалах в Екатеринбурге, Москве, Новосибирске, Санкт-Петербурге, представлена в разделе «Акции». Остались вопросы? Задайте их нашим операторам!</p>
+                </div>
+               </div>
+               </div>
+            </section>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
