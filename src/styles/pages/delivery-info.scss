@@ -1,0 +1,200 @@
+// delivery-info page styles
+.breadcrumbs__container--delivery-info-page {
+    --max-width:1024px;
+}
+.delivery-info-page-container {
+    --max-width:1024px;
+
+    @include media-custom-max(767px) {
+        --padding-left: 0;
+        --padding-right: 0;
+    }
+}
+.delivery-info-page {
+    background-color: white;
+    padding: 20px;
+
+    @include media-medium() {
+        padding-bottom: 30px;
+    }
+
+    @include media-custom(1440px) {
+        padding: 40px;
+
+    }
+
+
+    &__title {
+        font-weight: 300;
+font-size: 24px;
+line-height: 28px;
+color: black;
+padding-bottom: 5px;
+margin-bottom: 20px;
+
+@include media-medium() {
+    font-size: 32px;
+line-height: 38px;
+}
+
+@include media-custom(1440px) {
+    font-size: 36px;
+line-height: 42px;
+margin-bottom: 17px;
+}
+@include media-custom(1920px) {
+    max-width: toRem(800);
+}
+    }
+
+    &__title::after {
+        background-color: black;
+    }
+
+    &__accordeon {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        @include media-custom(1440px) {
+            margin-bottom: 48px;
+        }
+
+        p {
+            font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: black;
+padding-bottom: 10px;
+display: grid;
+gap: 5px;
+align-items: flex-start;
+grid-template-columns: min-content 1fr;
+margin-left: 7px;
+        }
+        p::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: black;
+            margin-top: 6px;
+        }
+    }
+    
+    &__accordeon-top {
+        display: grid;
+        align-items: flex-start;
+        justify-content: space-between;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        padding-bottom: 10px;
+        transition: .3s ease-in-out;
+    
+        &.active {
+            @include media-medium() {
+                padding-bottom: 30px;
+            }
+        }
+    }
+    
+    &__accordeon-item {
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+    }
+
+    &__accordeon-item:not(:last-of-type) {
+        margin-bottom: 20px;
+    }
+    
+    h3 {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16px;
+    color: black;
+    transition: .3s ease-in-out;
+    max-width: 35ch;
+
+    @include media-medium() {
+        font-size: 20px;
+        line-height: 23px;
+        max-width: 55ch;
+    }
+    @include media-custom(1440px) {
+        max-width: 100%;
+    }
+    
+    &.active {
+    text-decoration: underline;
+    font-weight: 700;
+    }
+    }
+    
+    &__accordeon-btn {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        margin: 0;
+        background-color: black;
+        border-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        position: relative;
+        transition: .3s ease-in-out;
+
+        @include media-medium() {
+            width: 30px;
+            height: 30px;
+        }
+    
+        &.active {
+            background-color:var(--pink-color);
+        }
+    
+        span {
+           position: absolute;
+           width: 2px;
+           height: 70%;
+           background-color: white;
+           border-radius: 2px;
+        }
+        span:last-child {
+            transform: rotate(90deg);
+        }
+    }
+    
+    nav {
+        overflow: hidden;
+        height: 0;
+        transition: 0.3s ease-in-out;
+        background-color: rgba(41, 41, 41, 0.1);
+    }
+    
+    &__descr {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        padding: 10px;
+        gap: 20px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16px;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+    &__bottom {
+        display: grid;
+        gap: 1rem;
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: black;
+    }
+
+}
+

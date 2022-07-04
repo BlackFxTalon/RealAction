@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница Информация о доставке"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container breadcrumbs__container--delivery-info-page">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container-alt delivery-info-page-container">
+            <section class="delivery-info-page" data-aos="animate-in-view">
+                <h1 class="section-page-title delivery-info-page__title"><span>Информация о доставке</span></h1>
+                <ul role="list" class="delivery-info-page__accordeon" x-data="{accordeon: ''}">
+                    <li :class="{'active': accordeon === 1}" class="delivery-info-page__accordeon-item">
+                      <div class="delivery-info-page__accordeon-top" @click="accordeon !== 1 ? accordeon = 1 : accordeon = null" :class="{'active': accordeon === 1}">
+                      <h3 :class="{'active': accordeon === 1}">Магазины розничной сети REAL ACTION (пункты самовывоза)</h3>
+                      <button type="button" aria-label="button" class="delivery-info-page__accordeon-btn" :class="{'active': accordeon === 1}">
+                        <span></span>
+                        <span></span>
+                      </button>
+                      </div>
+                      <p>Стоимость - бесплатно</p>
+                      <nav x-ref="subList" x-bind:style="accordeon === 1 ? 'height: ' + $refs.subList.scrollHeight + 'px' : ''" :class="{'active': accordeon === 1}">
+                      <ul role="list" class="delivery-info-page__descr">
+                        <li>
+                            Доставка вашего заказа в магазины REAL ACTION в России – бесплатна;
+                        </li>
+                        <li>
+                            Возможна примерка и частичный выкуп;
+                        </li>
+                        <li>
+                            При поступлении интернет-заказа в розничный магазин, вы получите уведомление по E-mail и SMS;
+                        </li>
+                        <li>
+                            Срок хранения интернет-заказа 2 дня (не считая дня поступления);
+                        </li>
+                        <li>
+                            Продлить срок хранения возможно в Личном кабинете или обратившись в Службу Клиентской поддержки REAL ACTION.
+                        </li>
+                      </ul>
+                      </nav>
+                    </li>
+                    <li :class="{'active': accordeon === 2}" class="delivery-info-page__accordeon-item">
+                        <div class="delivery-info-page__accordeon-top" @click="accordeon !== 2 ? accordeon = 2 : accordeon = null" :class="{'active': accordeon === 2}">
+                        <h3 :class="{'active': accordeon === 2}">Пункты выдачи заказов и постаматы (СДЭК, Boxberry, ПОЧТА РОССИИ)</h3>
+                        <button type="button" aria-label="button" class="delivery-info-page__accordeon-btn" :class="{'active': accordeon === 2}">
+                          <span></span>
+                          <span></span>
+                        </button>
+                        </div>
+                        <p>Стоимость и срок доставки рассчитываются на странице оформления заказа</p>
+                        <nav x-ref="subList2" x-bind:style="accordeon === 2 ? 'height: ' + $refs.subList2.scrollHeight + 'px' : ''" :class="{'active': accordeon === 2}">
+                        <ul role="list" class="delivery-info-page__descr">
+                          <li>
+                            В одном заказе возможно доставить не более 10 товаров или 4 товаров верхней одежды.
+                          </li>
+                          <li>
+                            В некоторых ПВЗ возможна примерка и частичный выкуп (уточняйте у оператора)
+                          </li>
+                          <li>
+                            Стоимость доставки – рассчитывается на странице оформления заказа.
+                          </li>
+                          <li>
+                            При оплате заказа на сайте доставка бесплатная.
+                          </li>
+                          <li>
+                            Получайте SMS уведомление с кодом для получения интернет-заказа (Внимание! При получении заказа через PickPoint на сумму свыше 15 000 российских рублей, необходимо произвести предоплату банковской картой в онлайн-магазине REAL ACTION).
+                          </li>
+                        </ul>
+                        </nav>
+                    </li>
+                    <li :class="{'active': accordeon === 3}" class="delivery-info-page__accordeon-item">
+                        <div class="delivery-info-page__accordeon-top" @click="accordeon !== 3 ? accordeon = 3 : accordeon = null" :class="{'active': accordeon === 3}">
+                        <h3 :class="{'active': accordeon === 3}">Доставка курьером по Москве, Московской области и регионам</h3>
+                        <button type="button" aria-label="button" class="delivery-info-page__accordeon-btn" :class="{'active': accordeon === 3}">
+                          <span></span>
+                          <span></span>
+                        </button>
+                        </div>
+                        <p>Стоимость и срок доставки рассчитываются на странице оформления заказа</p>
+                        <nav x-ref="subList3" x-bind:style="accordeon === 3 ? 'height: ' + $refs.subList3.scrollHeight + 'px' : ''" :class="{'active': accordeon === 3}">
+                        <ul role="list" class="delivery-info-page__descr">
+                          <li>
+                            В одном заказе возможно доставить не более 10 товаров или 4 товаров верхней одежды.
+                          </li>
+                          <li>
+                            Доставка возможна с примеркой и частичным выкупом.
+                          </li>
+                          <li>
+                            Примерка интернет-заказа – бесплатно, при этом обращаем внимание, что время нахождения у Вас курьера не должно превышать 15 минут.
+                          </li>
+                          <li>
+                            Примерка предоплаченных заказов не предусмотрена.
+                          </li>
+                          <li>
+                            Срок доставки по г. Москве и Московской области, г. Санкт-Петербургу и Ленинградской области от 1 дня, стоимость доставки зависит от адреса.
+                          </li>
+                          <li>
+                            Для остальных регионов РФ срок и стоимость доставки рассчитываются на странице оформления заказа.
+                          </li>
+                          <li>
+                            При оплате заказа на сайте доставка бесплатная.
+                          </li>
+                          <li>
+                            Менеджер интернет магазина предварительно свяжется с Вами для согласования удобной даты и времени получения интернет-заказа.
+                          </li>
+                        </ul>
+                        </nav>
+                      </li>
+                      <li :class="{'active': accordeon === 4}" class="delivery-info-page__accordeon-item">
+                        <div class="delivery-info-page__accordeon-top" @click="accordeon !== 4 ? accordeon = 4 : accordeon = null" :class="{'active': accordeon === 4}">
+                        <h3 :class="{'active': accordeon === 4}">Доставка Почтой России курьером до двери или в ближайшее отделение</h3>
+                        <button type="button" aria-label="button" class="delivery-info-page__accordeon-btn" :class="{'active': accordeon === 4}">
+                          <span></span>
+                          <span></span>
+                        </button>
+                        </div>
+                        <p>Стоимость доставки рассчитываются на странице оформления заказа</p>
+                        <nav x-ref="subList4" x-bind:style="accordeon === 4 ? 'height: ' + $refs.subList4.scrollHeight + 'px' : ''" :class="{'active': accordeon === 4}">
+                        <ul role="list" class="delivery-info-page__descr">
+                          <li>
+                            Вы можете выбрать доставку до двери или доставку в ближайшее к вам отделение
+                          </li>
+                          <li>
+                            Стоимость доставки – бесплатно.
+                          </li>
+                          <li>
+                            Отправка заказа осуществляется после поступления оплаты.
+                          </li>
+                          <li>
+                            Отследить отправление можно здесь: https://www.pochta.ru/tracking
+                          </li>
+                          <li>
+                            Время нахождения курьера у Вас не должно превышать 15 минут. Примерка предоплаченных заказов не предусмотрена.
+                          </li>
+                        </ul>
+                        </nav>
+                      </li>
+                </ul>
+                <div class="delivery-info-page__bottom">
+                    <p>Если у Вас возникли вопросы по доставке интернет-заказа, Вы можете обратиться в Службу клиентской поддержки по телефону: 8 (800) 700 99 88 (звонок по России бесплатно), либо написать на электронный почтовый адрес: order@real-action.ru</p>
+                    <p>Служба клиентской поддержки REAL ACTION работает ежедневно c Понедельника по Пятницу с 09:00 до 21:00.</p>
+                </div>
+            </section>
+          </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
