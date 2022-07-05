@@ -74,6 +74,7 @@ padding-bottom: 40px;
 li {
     position: relative;
     padding-bottom: 10px;
+    cursor: pointer;
 }
 li::after {
     content: '';
@@ -216,6 +217,7 @@ margin-top: 20px;
     padding: 20px;
     display: grid;
     gap: 20px;
+    background: linear-gradient(105.71deg, #000000 39.02%, #101112 68.88%);
 
     @include media-medium() {
         grid-template-columns: repeat(2,1fr);

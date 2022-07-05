@@ -19,9 +19,9 @@
                 </ul>
             </div>
             </nav>
-            <div class="sizes-page">
+            <div class="sizes-page" data-aos="animate-in-view">
                 <div class="container sizes-page__container">
-            <div class="sizes-page-grid" x-data="{sizesTab: 'woman'}" data-aos="animate-in-view">
+            <div class="sizes-page-grid" x-data="{sizesTab: 'woman'}">
                 <ul class="sizes-page-grid__tabs" role="list">
                     <li @click="sizesTab = 'woman'" :class="{'active': sizesTab === 'woman'}"><span>женские размеры</span></li>
                     <li @click="sizesTab = 'men'" :class="{'active': sizesTab === 'men'}"><span>мужские размеры</span></li>
@@ -89,7 +89,7 @@
                     </p>
                 </div>
             </div>
-            <div class="sizes-page-params" data-aos="animate-in-view">
+            <div class="sizes-page-params">
                 <div class="sizes-page-params__img">
                 <svg width="245" height="510" viewBox="0 0 245 510" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="245" height="510" fill="url(#pattern0)"/>
