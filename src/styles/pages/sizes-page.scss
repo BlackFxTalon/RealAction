@@ -14,8 +14,8 @@
 }
 .sizes-page {
     &__container {
-        --padding-left: 0;
-        --padding-right: 0;
+        --padding-left: 0 !important;
+        --padding-right: 0 !important;
 
         @include media-custom(1440px) {
             display: grid;
