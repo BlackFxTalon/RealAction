@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница мои заказы"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main class="personal-cabinet-main">
+            <div class="my-data-dropdown" x-data="{dropdown: false}" @click.outside="dropdown = false" x-ref="myDataDropdownList" x-bind:style="dropdown === true ? 'height: ' + $refs.myDataDropdownList.scrollHeight + 'px' : ''" @click.self="dropdown = true">
+                <div class="my-data-dropdown__top" @click="dropdown = true" :class="{'active': dropdown === true}">
+                    <p>Мои данные</p>
+                    <svg width="30" height="30">
+                        <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                    </svg>
+                </div>
+                    <div class="my-data-dropdown__wrapper">
+                   <ul role="list" class="personal-cabinet-list">
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">Мои заказы</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">избранное</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                       </li>
+                   </ul>
+                   <div class="my-data-dropdown__bottom">
+                     <a href="#" class="my-data-dropdown__exit-link">Выход</a>
+                     <button type="button" class="my-data-dropdown__close-btn" @click="dropdown = false">
+                        <span></span>
+                        <span></span>
+                     </button>
+                   </div>
+                   </div>
+            </div>
+            <nav class="breadcrumbs breadcrumbs--personal-cabinet">
+                <div class="container breadcrumbs__container breadcrumbs__container--personal-cabinet">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container container--personal-cabinet my-orders-container">
+            <section class="personal-cabinet">
+                <div class="personal-cabinet__top">
+                    <h2 class="personal-cabinet__title">Личный кабинет</h2>
+                    <p class="personal-cabinet__greetings">Приветствуем, <span class="personal-cabinet__greetings-name">vTR</span></p>
+                </div>
+                <ul role="list" class="personal-cabinet-list">
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">Мои заказы</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">избранное</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                    </li>
+                </ul>
+                <div class="last-discounts">
+                    <h4 class="last-discounts__title">Последние акции</h4>
+                   <p class="last-discounts__toast">
+                    Акция: -50% на вторые спортивные штаны
+                   </p>
+                </div>
+            </section>
+            <div class="my-orders-mobile" x-data="{myOrdersTabs: 'buyHistory'}">
+                <ul role="list" class="my-orders-mobile__tabs my-orders-mobile__tabs--mb">
+                  <li @click="myOrdersTabs !== 'currentOrders' ? myOrdersTabs = 'currentOrders': myOrdersTabs = ''" :class="{'active': myOrdersTabs === 'currentOrders'}"><span>текущие заказы</span><svg :class="{'active': myOrdersTabs === 'currentOrders'}" width="20" height="20">
+                      <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                  </svg></li>
+                </ul>
+                <div class="my-orders-mobile__mobile-list-wrapper" x-ref="currentOrdersMobileList" x-bind:style="myOrdersTabs === 'currentOrders' ? 'height: ' + $refs.currentOrdersMobileList.scrollHeight + 'px' : ''" :class="{'active': myOrdersTabs === 'currentOrders'}">
+                  <ul class="my-orders-mobile__mobile-list my-orders-mobile__current-orders-mobile-list" role="list">
+                     <template x-for="i in 4">
+                        <li data-index="i">
+                            <h3 class="my-orders-mobile__mobile-list-title">Заказ <span>№2503222-902868</span></h3>
+                            <div class="my-orders-mobile__mobile-list-top">
+                                <p class="my-orders-mobile__mobile-list-shop">Интернет-магазин</p>
+                                <time datetime="2022-05-09" class="my-orders-mobile__mobile-list-date">09.05.2022</time>
+                            </div>
+                                <div class="my-orders-mobile__mobile-list-status">
+                                    <p>Статус</p>
+                                    <p class="my-orders-mobile__mobile-list-dashed-line"></p>
+                                    <p>Отменён</p>
+                                </div>
+                                <div class="my-orders-mobile__mobile-list-cost">
+                                    <p>Стоимость</p>
+                                    <p class="my-orders-mobile__mobile-list-dashed-line"></p>
+                                    <p><span>799</span> ₽</p>
+                                </div>
+                                <a href="#" class="variant-1-btn my-orders-mobile__mobile-list-link">подробнее</a>
+                        </li>
+                     </template>
+                  </ul> 
+                  <ul role="list" class="pagination personal-cabinet__pagination my-orders-mobile__pagination">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">64</a></li>
+                </ul>
+              </div> 
+                <ul role="list" class="my-orders-mobile__tabs">
+                  <li @click="myOrdersTabs !== 'buyHistory' ? myOrdersTabs = 'buyHistory': myOrdersTabs = ''" :class="{'active': myOrdersTabs === 'buyHistory'}"><span>История покупок</span><svg :class="{'active': myOrdersTabs === 'buyHistory'}" width="20" height="20">
+                      <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                  </svg></li>
+                </ul>
+              <div class="my-orders-mobile__mobile-list-wrapper" x-ref="buyHistoryMobileList" x-bind:style="myOrdersTabs === 'buyHistory' ? 'height: ' + $refs.buyHistoryMobileList.scrollHeight + 'px' : ''" :class="{'active': myOrdersTabs === 'buyHistory'}" style="height: 691px">
+                  <ul class="my-orders-mobile__mobile-list my-orders-mobile__buy-history-mobile-list" role="list">
+                    <template x-for="i in 4">
+                       <li data-index="i">
+                           <h3 class="my-orders-mobile__mobile-list-title">Заказ <span>№2503222-902868</span></h3>
+                           <div class="my-orders-mobile__mobile-list-top">
+                               <p class="my-orders-mobile__mobile-list-shop">Интернет-магазин</p>
+                               <time datetime="2022-05-09" class="my-orders-mobile__mobile-list-date">09.05.2022</time>
+                            </div>
+                               <div class="my-orders-mobile__mobile-list-status">
+                                   <p>Статус</p>
+                                   <p class="my-orders-mobile__mobile-list-dashed-line"></p>
+                                   <p>Отменён</p>
+                               </div>
+                               <div class="my-orders-mobile__mobile-list-cost">
+                                   <p>Стоимость</p>
+                                   <p class="my-orders-mobile__mobile-list-dashed-line"></p>
+                                   <p><span>799</span> ₽</p>
+                               </div>
+                               <a href="#" class="variant-1-btn my-orders-mobile__mobile-list-link">подробнее</a>
+                       </li>
+                    </template>
+                 </ul> 
+                <ul role="list" class="pagination personal-cabinet__pagination my-orders-mobile__pagination">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">64</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="my-orders" x-data="{myOrdersTabs: 'currentOrders'}">
+                <ul role="list" class="my-orders__tabs">
+                  <li @click="myOrdersTabs = 'currentOrders'" :class="{'active': myOrdersTabs === 'currentOrders'}"><span>текущие заказы</span></li>
+                  <li @click="myOrdersTabs = 'buyHistory'" :class="{'active': myOrdersTabs === 'buyHistory'}"><span>История покупок</span></li>
+                </ul>
+                <div class="my-orders__list-wrapper" x-ref="currentOrdersList" x-bind:style="myOrdersTabs === 'currentOrders' ? 'height: ' + $refs.currentOrdersList.scrollHeight + 'px' : ''" :class="{'active': myOrdersTabs === 'currentOrders'}" style="height: 561px;">
+                  <ul class="my-orders__list my-orders__current-orders-list" role="list">
+                  <li class="my-orders__list-item my-orders__subtitles-list-item">
+                      <h3 class="my-orders__list-item-title my-orders__list-item-title--list">список</h3>
+                      <h3 class="my-orders__list-item-title my-orders__list-item-title--data">дата</h3>
+                      <h3 class="my-orders__list-item-title my-orders__list-item-title--cost">цена</h3>
+                      <h3 class="my-orders__list-item-title my-orders__list-item-title--status">статус</h3>
+                  </li>
+                     <template x-for="i in 6">
+                        <li data-index="i" class="my-orders__list-item">
+                            <h3 class="my-orders__list-title">Заказ <span>№2503222-902868</span></h3>
+                                <time datetime="2022-05-09" class="my-orders__list-date">09.05.2022</time>
+                                  <p class="my-orders__list-cost"><span>15999</span> ₽</p>
+                                  <p class="my-orders__list-status">В обработке</p>
+                                <a href="#" class="variant-1-btn my-orders__list-link">подробнее</a>
+                        </li>
+                     </template>
+                  </ul> 
+                  <ul role="list" class="pagination personal-cabinet__pagination my-orders__pagination">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">64</a></li>
+                </ul>
+              </div> 
+              <div class="my-orders__list-wrapper" x-ref="buyHistoryList" x-bind:style="myOrdersTabs === 'buyHistory' ? 'height: ' + $refs.buyHistoryList.scrollHeight + 'px' : ''" :class="{'active': myOrdersTabs === 'buyHistory'}">
+                  <ul class="my-orders__list my-orders__buy-history-list" role="list">
+                  <li class="my-orders__list-item my-orders__subtitles-list-item">
+                    <h3 class="my-orders__list-item-title my-orders__list-item-title--list">список</h3>
+                    <h3 class="my-orders__list-item-title my-orders__list-item-title--data">дата</h3>
+                    <h3 class="my-orders__list-item-title my-orders__list-item-title--cost">цена</h3>
+                    <h3 class="my-orders__list-item-title my-orders__list-item-title--status">статус</h3>
+                  </li>
+                     <template x-for="i in 6">
+                        <li data-index="i" class="my-orders__list-item">
+                            <h3 class="my-orders__list-title">Заказ <span>№2503222-902868</span></h3>
+                                <time datetime="2022-05-09" class="my-orders__list-date">09.05.2022</time>
+                                  <p class="my-orders__list-cost"><span>15999</span> ₽</p>
+                                  <p class="my-orders__list-status">В обработке</p>
+                                <a href="#" class="variant-1-btn my-orders__list-link">подробнее</a>
+                        </li>
+                     </template>
+                  </ul> 
+                  <ul role="list" class="pagination personal-cabinet__pagination my-orders__pagination">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">64</a></li>
+                </ul>
+              </div> 
+            </div>
+      </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>

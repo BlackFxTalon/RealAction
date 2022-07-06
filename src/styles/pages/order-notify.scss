@@ -140,6 +140,7 @@ min-width: toRem(300);
         background: url(../resources/svgSprites/svgSprite.svg#new-nots-circle) no-repeat center/cover;
         margin-left: 4rem;
         z-index: 1;
+        animation: newNotsCircleBlinking 1s forwards infinite;
 
         @include media-custom(1440px) {
             margin-left: 1rem;
@@ -209,29 +210,8 @@ color: white;
             margin-bottom: 40px;
         }
     }
-
-    &__pagination {
-        margin-top: 30px;
-        justify-content: center;
-        align-items: center;
-
-        @include media-medium() {
-            margin-top: 36px;
-        }
-    }
 }
-.notifications-container {
 
-    @include media-custom-max(767px) {
-        --padding-left: 0;
-        --padding-right: 0;
-    }
-
-    @include media-custom(1440px) {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-    }
-}
 .notifications-list {
     padding: 0;
     margin: 0;

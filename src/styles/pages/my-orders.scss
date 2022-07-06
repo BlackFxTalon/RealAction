@@ -1,0 +1,317 @@
+// my-orders page styles
+.my-orders-mobile {
+    padding: 20px;
+    background: linear-gradient(164.41deg, #000000 0%, #101112 52.08%);
+
+    @include media-medium() {
+        display: none;
+    }
+
+    &__tabs {
+        padding: 0;
+        margin: 0;
+        font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+text-transform: uppercase;
+color: white;
+display: grid;
+gap: 10px;
+margin-bottom: 20px;
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+span {
+    transition: .3s ease-in-out;
+}
+
+li.active span {
+    font-weight: 700;
+}
+
+svg {
+    width: 15px;
+    height: 15px;
+    transition: .3s ease-in-out;
+    transform: rotate(270deg);
+}
+svg.active {
+    transform: rotate(90deg);
+}
+    }
+
+    &__tabs--mb {
+        margin-bottom: 10px;
+    }
+
+    &__mobile-list-wrapper {
+         height: 0;
+        overflow: hidden;
+        transition: .3s ease-in-out;
+    }
+    &__mobile-list-wrapper.active {
+        margin-bottom: 2rem;
+    }
+
+    &__mobile-list {
+        display: grid;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__mobile-list-title {
+        font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-transform: uppercase;
+color: white;
+padding-bottom: 5px;
+    }
+
+    &__mobile-list-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+    }
+
+    &__mobile-list-shop {
+        font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__mobile-list-date {
+        font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: white;
+    }
+
+    &__mobile-list-status {
+        display: grid;
+        align-items: flex-end;
+        grid-auto-flow: column;
+        grid-template-columns: max-content 1fr max-content;
+        padding-bottom: 10px;
+
+        p {
+            font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: white;
+        }
+    }
+
+    &__mobile-list-dashed-line {
+        border: 1px dashed white;
+        margin-bottom: 4px;
+    }
+
+    &__mobile-list-cost {
+        display: grid;
+        align-items: flex-end;
+        grid-auto-flow: column;
+        grid-template-columns: max-content 1fr max-content;
+        padding-bottom: 20px;
+
+        p {
+            font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+color: white;
+        }
+    }
+
+    &__mobile-list-link {
+        height: 40px;
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+text-transform: uppercase;
+color: white;
+    }
+}
+.my-orders {
+    padding: 30px;
+    background: linear-gradient(164.41deg, #000000 0%, #101112 52.08%);
+    display: none;
+    border: 1px solid white;
+
+    @include media-medium() {
+        display: block;
+    }
+
+    @include media-custom(1920px) {
+        padding: 40px;
+    }
+
+    &__tabs {
+        padding: 0;
+        margin: 0;
+        font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+text-transform: uppercase;
+color: white;
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: max-content;
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    transition: .3s ease-in-out;
+    height: 40px;
+
+    @include media-custom(1440px) {
+        height: 50px;
+    }
+}
+
+li.active {
+    background-color: white;
+}
+
+span {
+    transition: .3s ease-in-out;
+}
+
+li.active span {
+    font-weight: 700;
+    color: black;
+}
+    }
+
+    &__list-wrapper {
+        height: 0;
+        overflow: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    &__list {
+        display: grid;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__list-item {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 143px repeat(4, 1fr);
+        gap: 45px;
+        padding-bottom: 15px;
+
+        @include media-custom(1440px) {
+            gap: 34px;
+        }
+    }
+    &__list-item:not(:last-child) {
+        border-bottom: 1px solid white;
+    }
+
+    &__subtitles-list-item {
+        border-top: 1px solid white;
+        padding-top: 21px;
+        padding-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+
+        h3 {
+            font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+text-transform: uppercase;
+color: white;
+        }
+    }
+
+    &__list-title {
+        font-weight: 700;
+font-size: 16px;
+line-height: 19px;
+text-transform: uppercase;
+color: white;
+max-width: 16ch;
+
+span {
+    display: block;
+}
+    }
+
+    &__list-date {
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: white;
+white-space: nowrap;
+    }
+
+    &__list-cost {
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: white;
+white-space: nowrap;
+    }
+
+    &__list-status {
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: white;
+white-space: nowrap;
+    }
+
+    &__list-link {
+        height: 40px;
+        font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+text-transform: uppercase;
+color: white;
+min-width: toRem(140);
+
+@include media-custom(1920px) {
+    min-width: toRem(180);
+}
+    }
+
+    &__list-item-title--status {
+        padding-right: 5rem;
+
+        @include media-custom(1920px) {
+            padding-right: 7rem;
+        }
+    }
+
+    &__list-item-title--list {
+        padding-left: 20px;
+    }
+
+    &__list-item-title--data {
+        @include media-custom(1440px) {
+            padding-left: 10px;
+        }
+    }
+
+    &__list-item-title--cost {
+        @include media-custom(1440px) {
+            padding-left: 10px;
+        }
+    }
+
+    &__pagination {
+        margin-top: 51px;
+    }
+}

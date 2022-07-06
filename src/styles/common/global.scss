@@ -119,6 +119,16 @@ body.overflow-hidden {
 .container--personal-cabinet {
   --max-width: 1720px;
 
+  @include media-custom-max(767px) {
+    --padding-left: 0;
+    --padding-right: 0;
+}
+
+@include media-custom(1440px) {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
   @include media-custom(1920px) {
     --padding-left: 0;
     --padding-right: 0;
@@ -811,6 +821,14 @@ color: black;
   height: 3px;
   background-color: var(--red-color);
 }
+@keyframes newNotsCircleBlinking {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes glitch-logo {
   0% {
     opacity: 1;
@@ -985,6 +1003,15 @@ a {
 li.active a {
   font-weight: 700;
 }
+}
+.personal-cabinet__pagination {
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+
+  @include media-medium() {
+      margin-top: 36px;
+  }
 }
 // header styles
 .header {
