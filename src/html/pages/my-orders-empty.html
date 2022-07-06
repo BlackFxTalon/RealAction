@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	@@include('../parts/head.html',{
-	"title":"Страница Уведомления заказов"
+	"title":"Страница мои заказы(пусто)"
 	})
 	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
 		<script src="js/main.min.js" defer></script>
@@ -17,7 +17,7 @@
                     <div class="my-data-dropdown__wrapper">
                    <ul role="list" class="personal-cabinet-list">
                        <li class="personal-cabinet-list__item">
-                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                        <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">Мои заказы</a>
                        </li>
                        <li class="personal-cabinet-list__item">
                         <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
@@ -26,7 +26,7 @@
                         <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">избранное</a>
                        </li>
                        <li class="personal-cabinet-list__item">
-                        <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active new-nots-circle">уведомления</a>
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
                        </li>
                    </ul>
                    <div class="my-data-dropdown__bottom">
@@ -50,7 +50,7 @@
                 </ul>
             </div>
             </nav>
-            <div class="container container--personal-cabinet notifications-container">
+            <div class="container container--personal-cabinet my-orders-empty-container">
             <section class="personal-cabinet">
                 <div class="personal-cabinet__top">
                     <h2 class="personal-cabinet__title">Личный кабинет</h2>
@@ -58,7 +58,7 @@
                 </div>
                 <ul role="list" class="personal-cabinet-list">
                     <li class="personal-cabinet-list__item">
-                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                     <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">Мои заказы</a>
                     </li>
                     <li class="personal-cabinet-list__item">
                      <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
@@ -67,7 +67,7 @@
                      <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">избранное</a>
                     </li>
                     <li class="personal-cabinet-list__item">
-                     <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active new-nots-circle">уведомления</a>
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
                     </li>
                 </ul>
                 <div class="last-discounts">
@@ -77,31 +77,26 @@
                    </p>
                 </div>
             </section>
-            <section class="notifications">
-            <h2 class="personal-cabinet-title notifications__title">Уведомления</h2>
-            <ul role="list" class="notifications-list">
-                <template x-for="i in 5">
-                 <li class="notifications-list__item">
-                    <time datetime="2022-04-09">09.04.2022</time>
-                    <p>Заказ ожидает оплаты!</p>
-                    <div class="notifications-list__info">Заказ <span>2502422-949047 </span>на сумму <span>2598</span>р. ждёт вас: <address>Екатеринбург, "Парк Хаус", 2 этаж</address> до <time datetime="22:00">22:00 </time><time datetime="2022-04-11"> 11.04.2022</time></div>
-                 </li>
+           <section class="my-orders-empty">
+            <h2 class="personal-cabinet-title my-orders-empty__title">Мои заказы</h2>
+            <div class="my-orders-empty__info">
+            <h3 class="my-orders-empty__subtitle">Вы ещё не сделали ни одного заказа</h3>
+            <p class="my-orders-empty__list-title">Сделать заказ на REAL ACTION просто:</p>
+            <ul role="list" class="my-orders-empty__list" x-data="{myOrdersEmptyListItems:[
+                {id:1,text:'Выберите товар'},
+                {id:2,text:'Положите его в корзину'},
+                {id:3,text:'Заполните короткую форму'},
+                ]}">
+                <template x-for="myOrdersEmptyListItem in myOrdersEmptyListItems">
+                    <li class="my-orders-empty__list-item">
+                        <span x-text="myOrdersEmptyListItem.id"></span>
+                        <p x-text="myOrdersEmptyListItem.text"></p>
+                    </li>
                 </template>
             </ul>
-            <ul role="list" class="pagination personal-cabinet__pagination notifications__pagination">
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-                <li><a href="#">8</a></li>
-                <li><a href="#">9</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">64</a></li>
-            </ul>
-        </section>
+            <a href="#" class="variant-1-btn my-orders-empty__link">Перейти на главную страницу</a>
+           </div>
+           </section>
       </div>
 		</main>
 		@@include('../parts/footer.html')

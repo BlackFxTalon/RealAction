@@ -1013,6 +1013,22 @@ li.active a {
       margin-top: 36px;
   }
 }
+.personal-cabinet-title {
+  display: none;
+  font-weight: 300;
+font-size: 32px;
+line-height: 38px;
+color: white;
+
+@include media-medium() {
+  display: block;
+}
+
+@include media-custom(1440px) {
+  font-size: 36px;
+  line-height: 42px;
+}
+}
 // header styles
 .header {
   background-color: black;
