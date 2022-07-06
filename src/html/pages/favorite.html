@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Избранное"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main class="personal-cabinet-main">
+            <div class="my-data-dropdown" x-data="{dropdown: false}" @click.outside="dropdown = false" x-ref="myDataDropdownList" x-bind:style="dropdown === true ? 'height: ' + $refs.myDataDropdownList.scrollHeight + 'px' : ''" @click.self="dropdown = true">
+                <div class="my-data-dropdown__top" @click="dropdown = true" :class="{'active': dropdown === true}">
+                    <p>Мои данные</p>
+                    <svg width="30" height="30">
+                        <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                    </svg>
+                </div>
+                    <div class="my-data-dropdown__wrapper">
+                   <ul role="list" class="personal-cabinet-list">
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">избранное</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                       </li>
+                   </ul>
+                   <div class="my-data-dropdown__bottom">
+                     <a href="#" class="my-data-dropdown__exit-link">Выход</a>
+                     <button type="button" class="my-data-dropdown__close-btn" @click="dropdown = false">
+                        <span></span>
+                        <span></span>
+                     </button>
+                   </div>
+                   </div>
+            </div>
+            <nav class="breadcrumbs breadcrumbs--personal-cabinet">
+                <div class="container breadcrumbs__container breadcrumbs__container--personal-cabinet">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container container--personal-cabinet favorites-container">
+            <section class="personal-cabinet">
+                <div class="personal-cabinet__top">
+                    <h2 class="personal-cabinet__title">Личный кабинет</h2>
+                    <p class="personal-cabinet__greetings">Приветствуем, <span class="personal-cabinet__greetings-name">vTR</span></p>
+                </div>
+                <ul role="list" class="personal-cabinet-list">
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">избранное</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                    </li>
+                </ul>
+                <div class="last-discounts">
+                    <h4 class="last-discounts__title">Последние акции</h4>
+                   <p class="last-discounts__toast">
+                    Акция: -50% на вторые спортивные штаны
+                   </p>
+                </div>
+            </section>
+           <section class="favorites">
+            <h2 class="personal-cabinet-title favorites__title">Избранное</h2>
+            <div class="favorites__info">
+            <h3 class="favorites__subtitle">Сейчас у вас нет товаров в «Избранном»</h3>
+            <p>Чтобы добавить понравившийся товар в «Избранное», отметьте его «сердцем». Список избранных товаров сохраняется в вашем аккаунте, что удобно, когда вы пользуетесь несколькими устройствами. Например, если вы переключаетесь между компьютером, планшетом и смартфоном.</p>
+            <a href="#" class="variant-1-btn favorites__link">Перейти на главную страницу</a>
+           </div>
+           </section>
+      </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
