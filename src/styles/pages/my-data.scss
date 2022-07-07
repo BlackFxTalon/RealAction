@@ -1,0 +1,339 @@
+// my-data page styles
+.my-data {
+    padding: 20px;
+    background: linear-gradient(147.85deg, #000000 0%, #101112 49.73%);
+
+    @include media-medium() {
+        padding: 30px;
+        border: 1px solid white;
+    }
+
+    @include media-custom(1440px) {
+        border-left: none;
+    }
+
+    @include media-custom(1920px) {
+        padding-top: 40px;
+        padding-right: 34px;
+        padding-bottom: 40px;
+        padding-left: 39px;
+    }
+
+    &__title {
+        @include media-medium() {
+            margin-bottom: 51px;
+        }
+    }
+
+    &__form {
+
+        fieldset {
+            padding: 0;
+            border: none;
+            display: grid;
+            gap: 20px;
+
+            @include media-medium() {
+                gap: 40px;
+            }
+        }
+    }
+
+    &__form-top {
+        display: grid;
+        gap: 20px;
+
+        @include media-medium() {
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 64px;
+            row-gap: 43px;
+        }
+
+        @include media-custom(1440px) {
+            column-gap: 40px;
+        }
+    }
+
+    &__input-group {
+        border-bottom: 1px solid white;
+        padding-bottom: 4px;
+        position: relative;
+
+        label {
+            display: none;
+            margin-bottom: 20px;
+            font-weight: 300;
+font-size: 20px;
+line-height: 23px;
+color: rgba(255, 255, 255, 0.3);
+
+            @include media-medium() {
+                display: block;
+            }
+        }
+
+        input {
+            font-weight: 300;
+font-size: 16px;
+line-height: 19px;
+color: white;
+background-color: transparent;
+border-color: transparent;
+padding: 0;
+margin: 0;
+width: 100%;
+
+@include media-medium() {
+    font-size: 20px;
+line-height: 23px;
+}
+        }
+
+        input:focus,
+        input:focus-visible,
+        input:focus-within {
+            outline: transparent;
+        }
+
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        input[type="date"] {
+            appearance: none;
+            width: 100%;
+        }
+    }
+
+    &__arrow-down {
+        transform: rotate(270deg);
+        transition: .3s ease-in-out;
+    }
+    &__arrow-down.active {
+        transform: rotate(90deg);
+    }
+
+    &__input-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__input-wrapper--date {
+        position: relative;
+    }
+    &__input-wrapper--date::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        background: url(../resources/images/calendar-icon.png) no-repeat center/cover;
+    }
+
+    &__dropdown {
+        background-color: white;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 28px;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        transition: .3s ease-in-out;
+
+        @include media-medium() {
+            top: 75px;
+        }
+    }
+
+    &__dropdown-city-input {
+        display: grid;
+        grid-template-columns: 100px max-content;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 7px 0;
+
+        input {
+            font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: rgba(0, 0, 0, 0.3);
+        }
+
+        input::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    &__dropdown-list {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16px;
+        color: black;
+
+        li {
+            padding: 7px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+        li:hover,
+        li:active,
+        li.active,
+        li:focus {
+            background-color: var(--light-red-color);
+            color: white;
+            font-weight: 700;
+        }
+    }
+
+    &__form-bottom {
+         display: grid;
+         gap: 20px;
+
+         @include media-medium() {
+            grid-template-columns: repeat(2,1fr);
+            gap: 40px;
+         }
+
+         @include media-custom(1920px) {
+            grid-template-columns: repeat(2,max-content);
+         }
+
+         h3 {
+            font-weight: 300;
+font-size: 24px;
+line-height: 28px;
+color: white;
+
+@include media-medium() {
+    grid-column: span 2;
+}
+         }
+
+         .my-data__input-group {
+            @include media-medium() {
+                max-width: 281px;
+            }
+
+            @include media-custom(1440px) {
+                max-width: 221px;
+            }
+
+            @include media-custom(1920px) {
+                max-width: 234px;
+            }
+         }
+    }
+
+    &__form-policy {
+        display: grid;
+        gap: 20px;
+        align-items: flex-start;
+        grid-template-columns: max-content 1fr;
+        position: relative;
+
+        @include media-medium() {
+            grid-column: span 2;
+            align-items: center;
+            gap: 15px;
+        }
+
+        @include media-custom(1920px) {
+            grid-column: 2;
+        }
+
+        input {
+            opacity: 0;
+            visibility: hidden;
+            width: 20px;
+            height: 20px;
+        }
+
+        input:checked + label::after {
+            opacity: 1;
+        }
+
+        label {
+            font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: white;
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+        }
+
+        label::before,
+        label::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            @include media-custom(1920px) {
+                top: unset;
+            }
+        }
+
+        label::before {
+            border: 1px solid white;
+        }
+
+        label::after {
+            background: url(../resources/svgSprites/svgSprite.svg#checkmark-icon) no-repeat center/contain;
+            background-color: white;
+            opacity: 0;
+            transition: .3s ease-in-out;
+        }
+    }
+
+    &__form-submit-btn {
+        background-color: var(--light-red-color);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+text-transform: uppercase;
+color: white;
+width: 100%;
+max-width: 300px;
+height: 50px;
+margin-left: auto;
+margin-right: auto;
+
+@include media-medium() {
+    grid-column: span 2;
+}
+
+@include media-custom(1440px) {
+    height: 60px;
+}
+
+@include media-custom(1920px) {
+    grid-column: 1;
+    grid-row: 3;
+}
+    }
+}

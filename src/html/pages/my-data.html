@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница мои данные"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main class="personal-cabinet-main">
+            <div class="my-data-dropdown" x-data="{dropdown: false}" @click.outside="dropdown = false" x-ref="myDataDropdownList" x-bind:style="dropdown === true ? 'height: ' + $refs.myDataDropdownList.scrollHeight + 'px' : ''" @click.self="dropdown = true">
+                <div class="my-data-dropdown__top" @click="dropdown = true" :class="{'active': dropdown === true}">
+                    <p>Мои данные</p>
+                    <svg width="30" height="30">
+                        <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                    </svg>
+                </div>
+                    <div class="my-data-dropdown__wrapper">
+                   <ul role="list" class="personal-cabinet-list">
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">избранное</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                       </li>
+                   </ul>
+                   <div class="my-data-dropdown__bottom">
+                     <a href="#" class="my-data-dropdown__exit-link">Выход</a>
+                     <button type="button" class="my-data-dropdown__close-btn" @click="dropdown = false">
+                        <span></span>
+                        <span></span>
+                     </button>
+                   </div>
+                   </div>
+            </div>
+            <nav class="breadcrumbs breadcrumbs--personal-cabinet">
+                <div class="container breadcrumbs__container breadcrumbs__container--personal-cabinet">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container container--personal-cabinet my-data-container">
+            <section class="personal-cabinet">
+                <div class="personal-cabinet__top">
+                    <h2 class="personal-cabinet__title">Личный кабинет</h2>
+                    <p class="personal-cabinet__greetings">Приветствуем, <span class="personal-cabinet__greetings-name">vTR</span></p>
+                </div>
+                <ul role="list" class="personal-cabinet-list">
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">избранное</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                    </li>
+                </ul>
+                <div class="last-discounts">
+                    <h4 class="last-discounts__title">Последние акции</h4>
+                   <p class="last-discounts__toast">
+                    Акция: -50% на вторые спортивные штаны
+                   </p>
+                </div>
+            </section>
+           <section class="my-data">
+            <h2 class="personal-cabinet-title my-data__title">Мои данные</h2>
+            <form action="#" class="my-data__form">
+                <fieldset>
+                  <div class="my-data__form-top">
+                    <div class="my-data__input-group">
+                        <label for="name">Имя</label>
+                        <input type="text" name="name" id="name" placeholder="Ваше имя">
+                    </div>
+                    <div class="my-data__input-group">
+                        <label for="surname">Фамилия</label>
+                        <input type="text" name="surname" id="surname" placeholder="Ваше Фамилия">
+                    </div>
+                    <div class="my-data__input-group">
+                        <label for="surname2">Отчество</label>
+                        <input type="text" name="surname2" id="surname2" placeholder="Ваше Отчество">
+                    </div>
+                    <div class="my-data__input-group">
+                        <label for="date">Дата рождения</label>
+                        <div class="my-data__input-wrapper my-data__input-wrapper--date">
+                        <input type="date" name="date" id="date" placeholder="ДД.ММ.ГГГГ">
+                        </div>
+                    </div>
+                    <div class="my-data__input-group" x-data="{toggleDropdown: false, inputValue: 'Екатеринбург'}" @click.outside="toggleDropdown = false">
+                        <label for="city">Город</label>
+                        <div class="my-data__input-wrapper" @click="toggleDropdown = !toggleDropdown">
+                        <input type="text" name="city" id="city" x-model="inputValue" disabled>
+                        <svg class="my-data__arrow-down" :class="{'active': toggleDropdown === true}" width="15" height="15">
+                            <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                        </svg>
+                        </div>
+                        <div class="my-data__dropdown" x-data="{dropdownList: false}" x-ref="cityDropdownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.cityDropdownList.scrollHeight + 'px' : ''">
+                            <div class="my-data__dropdown-city-input"><input type="text" name="cityInput" id="cityInput" placeholder="Введите город">
+                                <svg width="15" height="15">
+                                <use href="../resources/svgSprites/svgSprite.svg#loupe"></use>
+                            </svg></div>
+                            <ul role="list" class="my-data__dropdown-list">
+                                <li @click="inputValue = 'Екатеринбург'" :class="{'active': inputValue === 'Екатеринбург'}">Екатеринбург</li>
+                                <li @click="inputValue = 'Москва'" :class="{'active': inputValue === 'Москва'}">Москва</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="my-data__input-group" x-data="{toggleDropdown: false, inputValue: 'Мужской'}" @click.outside="toggleDropdown = false">
+                        <label for="gender">Пол</label>
+                        <div class="my-data__input-wrapper" @click="toggleDropdown = !toggleDropdown">
+                        <input type="text" name="gender" id="gender" x-model="inputValue" disabled>
+                        <svg class="my-data__arrow-down" :class="{'active': toggleDropdown === true}" width="15" height="15">
+                            <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                        </svg>
+                        </div>
+                        <div class="my-data__dropdown" x-ref="genderDropdownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.genderDropdownList.scrollHeight + 'px' : ''">
+                            <ul role="list" class="my-data__dropdown-list">
+                                <li @click="inputValue = 'Мужской'" :class="{'active': inputValue === 'Мужской'}">Мужской</li>
+                                <li @click="inputValue = 'Женский'" :class="{'active': inputValue === 'Женский'}">Женский</li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="my-data__form-bottom">
+                    <h3>Контакты</h3>
+                    <div class="my-data__input-group">
+                        <label for="email">Email</label>
+                        <div class="my-data__input-wrapper">
+                        <input type="email" name="email" id="email" placeholder="Ваш email">
+                        </div>
+                    </div>
+                    <div class="my-data__input-group">
+                        <label for="phone">Телефон</label>
+                        <div class="my-data__input-wrapper">
+                        <input type="tel" name="phone" id="phone" placeholder="Ваш телефон">
+                        </div>
+                    </div>
+                    <div class="my-data__form-policy">
+                        <input type="checkbox" name="policy" id="policy">
+                        <label for="policy">Соглашаюсь с условиями <a href="#">пользовательского соглашения</a></label>
+                      </div>
+                      <button type="submit" class="my-data__form-submit-btn">подтвердить</button>
+                  </div>
+                </fieldset>
+            </form>
+           </section>
+      </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
