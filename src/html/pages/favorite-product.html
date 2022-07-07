@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница избранного товара"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, telModal: false,verifyTelModal: false}" :class="{'overflow-hidden': telModal === true || verifyTelModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main class="personal-cabinet-main">
+            <div class="my-data-dropdown" x-data="{dropdown: false}" @click.outside="dropdown = false" x-ref="myDataDropdownList" x-bind:style="dropdown === true ? 'height: ' + $refs.myDataDropdownList.scrollHeight + 'px' : ''" @click.self="dropdown = true">
+                <div class="my-data-dropdown__top" @click="dropdown = true" :class="{'active': dropdown === true}">
+                    <p>Мои данные</p>
+                    <svg width="30" height="30">
+                        <use href="../resources/svgSprites/svgSprite.svg#arrow-down"></use>
+                    </svg>
+                </div>
+                    <div class="my-data-dropdown__wrapper">
+                   <ul role="list" class="personal-cabinet-list">
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">избранное</a>
+                       </li>
+                       <li class="personal-cabinet-list__item">
+                        <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                       </li>
+                   </ul>
+                   <div class="my-data-dropdown__bottom">
+                     <a href="#" class="my-data-dropdown__exit-link">Выход</a>
+                     <button type="button" class="my-data-dropdown__close-btn" @click="dropdown = false">
+                        <span></span>
+                        <span></span>
+                     </button>
+                   </div>
+                   </div>
+            </div>
+            <nav class="breadcrumbs breadcrumbs--personal-cabinet">
+                <div class="container breadcrumbs__container breadcrumbs__container--personal-cabinet">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container container--personal-cabinet favorites-container">
+            <section class="personal-cabinet">
+                <div class="personal-cabinet__top">
+                    <h2 class="personal-cabinet__title">Личный кабинет</h2>
+                    <p class="personal-cabinet__greetings">Приветствуем, <span class="personal-cabinet__greetings-name">vTR</span></p>
+                </div>
+                <ul role="list" class="personal-cabinet-list">
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">Мои заказы</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link">мои данные</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="personal-cabinet-list__btn-link personal-cabinet-list__btn-link--active">избранное</a>
+                    </li>
+                    <li class="personal-cabinet-list__item">
+                     <a href="#" class="variant-2-btn personal-cabinet-list__btn-link new-nots-circle">уведомления</a>
+                    </li>
+                </ul>
+                <div class="last-discounts">
+                    <h4 class="last-discounts__title">Последние акции</h4>
+                   <p class="last-discounts__toast">
+                    Акция: -50% на вторые спортивные штаны
+                   </p>
+                </div>
+            </section>
+           <section class="favorite-products">
+            <div class="favorite-products__title-row">
+            <h2 class="personal-cabinet-title favorite-products__title">Избранное</h2>
+            <p class="favorite-products__products-count"><span>15 </span>Товаров в избранном</p>
+            </div>
+            <ul role="list" class="favorite-products__list">
+                <template x-for="i in 3">
+                    <li data-index="i">
+                        <figure class="favorite-products-card" x-data="{colorChoice: 'yellow'}">
+                            <div class="favorite-products-card__img">
+                            <div class="favorite-products-card__top">
+                                <div class="favorite-products-card__badges">
+                                 <div class="favorite-products-card__badges-left">
+                                    <p class="favorite-products-card__badge-new"><span>NEW</span></p>
+                                    <p class="favorite-products-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="favorite-products-card__heart">
+                                    <svg width="30" height="26">
+                                        <use href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <ul role="list" class="favorite-products-card__color-list" x-data="{ colors: ['lightGrey', 'darkGrey', 'green', 'lightRed', 'yellow']}">
+                                    <template x-for="color in colors">
+                                      <li class="favorite-products-card__color-circle" x-bind:data-color="color" :class="{'active': colorChoice === color}" @click="colorChoice = color"></li>
+                                  </template>
+                                  <li class="favorite-products-card__color-active-circle"></li>
+                                  </ul>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/favorite-product-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/favorite-product-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/favorite-product-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/favorite-product-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="335" height="440">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                            <div class="favorite-products-card__bottom">
+                                <div class="favorite-products-card__dropdown-wrapper">
+                                <div class="favorite-products-card__dropdown" x-data="{toggleDropdown: false, sizesChoice: '', sizes: ['s','m','l','xl','2xl','3xl']}" :class="{'active': sizesChoice !== ''}" @click.outside="toggleDropdown = false">
+                                    <div class="favorite-products-card__dropdown-top" @click="toggleDropdown = !toggleDropdown" :class="{'active': toggleDropdown === true}">
+                                        <p x-show="sizesChoice === ''">Выберите размер</p>
+                                        <p x-show="sizesChoice !== ''">Размер: <span x-text="sizesChoice"></span></p>
+                                        <svg width="10" height="10" x-show="sizesChoice=== ''">
+                                            <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                                          </svg>
+                                    </div>
+                                    <nav class="favorite-products-card__dropdown-list-wrapper" x-ref="favoriteProductsDropDownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.favoriteProductsDropDownList.scrollHeight + 'px' : ''">
+                                    <ul role="list" class="favorite-products-card__dropdown-list" :class="{'active': toggleDropdown === true}">
+                                        <template x-for="size in sizes">
+                                            <li x-text="size" :class="{'active': sizesChoice === size}" @click="sizesChoice = size; toggleDropdown = false">XS</li>
+                                        </template>
+                                        <template x-for="size in sizes">
+                                            <li x-text="size" :class="{'active': sizesChoice === size}" @click="sizesChoice = size; toggleDropdown = false">XS</li>
+                                        </template>
+                                    </ul>
+                                    </nav>
+                                </div>
+                                </div>
+                                <p class="favorite-products-card__price"><span>15999 </span>₽</p>
+                            </div>
+                            <button type="button" class="favorite-products-card__btn">Добавить в корзину</button>
+                        </figure>
+                    </li>
+                </template>
+                <template x-for="i in 3">
+                    <li data-index="i">
+                        <figure class="favorite-products-card" x-data="{colorChoice: 'yellow'}">
+                            <div class="favorite-products-card__img">
+                            <div class="favorite-products-card__top">
+                                <div class="favorite-products-card__badges">
+                                 <div class="favorite-products-card__badges-left">
+                                    <p class="favorite-products-card__badge-sale"><span>sale</span></p>
+                                    <p class="favorite-products-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="favorite-products-card__heart">
+                                    <svg width="30" height="26">
+                                        <use href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <ul role="list" class="favorite-products-card__color-list" x-data="{ colors: ['lightGrey', 'darkGrey', 'green', 'lightRed', 'yellow'] }">
+                                    <template x-for="color in colors">
+                                      <li class="favorite-products-card__color-circle" x-bind:data-color="color" :class="{'active': colorChoice === color}" @click="colorChoice = color"></li>
+                                  </template>
+                                  <li class="favorite-products-card__color-active-circle"></li>
+                                  </ul>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/favorite-product-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/favorite-product-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/favorite-product-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/favorite-product-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="335" height="440">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                            <div class="favorite-products-card__bottom">
+                                <div class="favorite-products-card__dropdown-wrapper">
+                                    <div class="favorite-products-card__dropdown" x-data="{toggleDropdown: false, sizesChoice: '', sizes: ['s','m','l','xl','2xl','3xl']}" :class="{'active': sizesChoice !== ''}" @click.outside="toggleDropdown = false">
+                                        <div class="favorite-products-card__dropdown-top" @click="toggleDropdown = !toggleDropdown" :class="{'active': toggleDropdown === true}">
+                                            <p x-show="sizesChoice === ''">Выберите размер</p>
+                                            <p x-show="sizesChoice !== ''">Размер: <span x-text="sizesChoice"></span></p>
+                                            <svg width="10" height="10" x-show="sizesChoice=== ''">
+                                                <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                                              </svg>
+                                        </div>
+                                        <nav class="favorite-products-card__dropdown-list-wrapper" x-ref="favoriteProductsDropDownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.favoriteProductsDropDownList.scrollHeight + 'px' : ''">
+                                        <ul role="list" class="favorite-products-card__dropdown-list" :class="{'active': toggleDropdown === true}">
+                                            <template x-for="size in sizes">
+                                                <li x-text="size" :class="{'active': sizesChoice === size}" @click="sizesChoice = size; toggleDropdown = false">XS</li>
+                                            </template>
+                                            <template x-for="size in sizes">
+                                                <li x-text="size" :class="{'active': sizesChoice === size}" @click="sizesChoice = size; toggleDropdown = false">XS</li>
+                                            </template>
+                                        </ul>
+                                     </nav>
+                                    </div>
+                                </div>
+                                <div class="favorite-products-card__price-wrapper">
+                                <p class="favorite-products-card__price"><span>15999 </span>₽</p>
+                                <del class="favorite-products-card__old-price"><span>15999 </span>₽</del>
+                                </div>
+                            </div>
+                            <a href="#" class="favorite-products-card__btn">В корзине</a>
+                        </figure>
+                    </li>
+                </template>
+            </ul>
+           </section>
+      </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
