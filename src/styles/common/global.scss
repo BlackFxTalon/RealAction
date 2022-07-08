@@ -76,6 +76,7 @@ select {
 --grey-color-2:#414141;
 --pink-color:#E28376;
 --light-grey-color: #D8D8D8;
+--light-grey-color-2:#ECECEC;
 --dark-grey-color:#A5A0A0;
 --green-color: #37A64F;
 --green-color-2: #05FF00;
@@ -335,6 +336,28 @@ main {
 .variant-3-btn.disabled {
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.variant-4-btn {
+  border: 1px solid var(--light-red-color);
+  background-color: var(--light-red-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+  transition: .3s ease-in-out;
+  color: white;
+  text-align: center;
+ }
+
+ .variant-4-btn:hover,
+.variant-4-btn:active,
+.variant-4-btn:focus {
+  color: black;
+  border: 1px solid black;
+  background-color: transparent;
 }
 
 [x-cloak] { display: none !important; }

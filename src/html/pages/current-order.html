@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница текущего заказа"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, cancelProductModal : false }" :class="{'overflow-hidden': cancelProductModal  === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container breadcrumbs__container breadcrumbs__container--current-order">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+        <div class="container current-order-container">
+            <section class="current-order">
+                <div class="current-order__top">
+                    <h2 class="current-order__title">Ваш текущий заказ</h2>
+                    <div class="current-order__top-info">
+                    <p class="current-order__order-number">Заказ №<span>2502422-949047</span></p>
+                    <p class="current-order__order-date">От <time datetime="2022-04-09">09.04.2022</time></p>
+                    </div>
+                </div>
+                    <ul class="current-order__timeline-icons" role="list">
+                     <li><svg width="20" height="20">
+                        <use href="../resources/svgSprites/svgSprite.svg#time-icon"></use>
+                    </svg></li>
+                    <li><svg width="20" height="20">
+                        <use href="../resources/svgSprites/svgSprite.svg#box-icon"></use>
+                    </svg></li>
+                    <li><svg width="30" height="20">
+                        <use href="../resources/svgSprites/svgSprite.svg#car-delivery-icon"></use>
+                    </svg></li>
+                    <li><svg width="20" height="20">
+                        <use href="../resources/svgSprites/svgSprite.svg#ready-shop-icon"></use>
+                    </svg></li>
+                    </ul>
+                    <ul role="list" class="current-order__timeline">
+                        <li class="current-order__timeline-item current-order__timeline-item--active"></li>
+                        <li class="current-order__timeline-line current-order__timeline-line--active"></li>
+                        <li class="current-order__timeline-item current-order__timeline-item--active"></li>
+                        <li class="current-order__timeline-line current-order__timeline-line--active"></li>
+                        <li class="current-order__timeline-item current-order__timeline-item--active"></li>
+                        <li class="current-order__timeline-line current-order__timeline-line--non-active"></li>
+                        <li class="current-order__timeline-item current-order__timeline-item--non-active"></li>
+                    </ul>
+                    <ul class="current-order__timeline-text" role="list">
+                        <li>В ОБРАБОТКЕ
+                        </li>
+                        <li>СОБИРАЕТСЯ
+                        </li>
+                        <li>ОТПРАВЛЕН НА ПУНКТ ВЫДАЧИ</li>
+                        <li class="non-active">ВЫПОЛНЕН</li>
+                    </ul>
+                    <div class="current-order__btn-group">
+                        <a href="#" class="variant-2-btn current-order__previous-link">Вернуться назад</a>
+                        <button type="button" aria-label="button" class="variant-4-btn current-order__order-payment-btn">Оплатить заказ<svg width="20" height="14">
+                            <use href="../resources/svgSprites/svgSprite.svg#order-payment-icon"></use>
+                        </svg></button>
+                        <button type="button" aria-label="button" class="variant-2-btn current-order__order-cancel-btn" @click="cancelProductModal = true">Отменить заказ</button>
+                    </div>
+                    <ul role="list" class="current-order__info">
+                        <li>
+                            <strong>Можно забрать:</strong>
+                            <p>09.04-11.06.2022</p>
+                        </li>
+                        <li>
+                            <strong>Получатель:</strong>
+                            <p>Иван Александрович,+7 (905) 806 48 63, vtrpro@yandex.ru</p>
+                        </li>
+                        <li>
+                            <strong>Способ доставки:</strong>
+                            <p>Магазин RA / Курьеркская доставка / Самовывоз / Пункт выдачи</p>
+                        </li>
+                        <li>
+                            <strong>Адрес доставки:</strong>
+                            <p>г. Екатеринбург, ул. Сулимова, д.50, ТЦ "Парк Хаус", 2 этаж</p>
+                        </li>
+                        <li>
+                            <strong>Часы работы:</strong>
+                            <p>с 10:00 до 22:00</p>
+                        </li>
+                        <li>
+                            <strong>Время доставки:</strong>
+                            <p>Отсутствует</p>
+                        </li>
+                        <li>
+                            <strong>Способ оплаты:</strong>
+                            <p>Наличными или картой при получении</p>
+                        </li>
+                        <li>
+                            <strong>Срок хранения:</strong>
+                            <p>до 11.06.2022 включительно</p>
+                        </li>
+                    </ul>
+            </section>
+            <section class="basket-products">
+                <div class="basket-products__title-row">
+                <h3 class="basket-products__title">Товара в корзине</h3>
+                <p class="basket-products__product-count">[<span>3</span>]</p>
+                </div>
+                <ul role="list" class="basket-products__product-mobile-list">
+                    <template x-for="i in 6">
+                        <li data-index="i" class="basket-products__product-mobile-list-item">
+                            <article class="basket-products-mobile-card">
+                              <figure class="basket-products-mobile-card__left">
+                                <img loading="lazy" decoding="async" src="resources/images/products-mobile-card-img.jpg" alt="image" width="160" height="224">
+                                <figcaption class="basket-products-mobile-card__article">
+                                    Артикул:
+                                    <p>FBC23015</p>
+                                </figcaption>
+                              </figure>
+                              <ul role="list" class="basket-products-mobile-card__list">
+                                <li><h2 class="basket-products-mobile-card__title">Футболка с морским принтом</h2></li>
+                                <li class="basket-products-mobile-card__item basket-products-mobile-card__price-row"><strong class="basket-products-mobile-card__price"><span>1 299</span> ₽</strong><del class="basket-products-mobile-card__old-price"><span>2 299</span> ₽</del></li>
+                                <li class="basket-products-mobile-card__item basket-products-mobile-card__color">
+                                    <span>Цвет:</span>
+                                    <span>Белый</span>
+                                </li>
+                                <li class="basket-products-mobile-card__item basket-products-mobile-card__count"><span>Кол-во:</span><span><strong>1</strong> шт.</span></li>
+                                <li class="basket-products-mobile-card__item basket-products-mobile-card__size"><span>Размер:</span><span>XL</span></li>
+                                <li class="basket-products-mobile-card__item basket-products-mobile-card__discount"><span>Скидка:</span><span>20%</span></li>
+                              </ul>
+                            </article>
+                        </li>
+                    </template>
+                </ul>
+                <ul class="basket-products__titles" role="list">
+                    <li class="basket-products__titles-item basket-products__titles-item--product-count">
+                        <h3 class="basket-products__title">Товар</h3>
+                        <p class="basket-products__product-count">[<span>3</span>]</p>
+                    </li>
+                    <li class="basket-products__titles-item basket-products__titles-item--color">
+                        Цвет
+                    </li>
+                    <li class="basket-products__titles-item basket-products__titles-item--size">
+                        Размер
+                    </li>
+                    <li class="basket-products__titles-item basket-products__titles-item--price">
+                        Цена
+                    </li>
+                    <li class="basket-products__titles-item basket-products__titles-item--count">
+                        Кол-во	
+                    </li>
+                    <li class="basket-products__titles-item basket-products__titles-item--discount">
+                        Скидка
+                    </li>
+                    <li class="basket-products__titles-item basket-products__titles-item--total-sum">
+                        Сумма
+                    </li>
+                </ul>
+                <ul role="list" class="basket-products__product-list">
+                    <template x-for="i in 6">
+                        <li data-index="i" class="basket-products__product-list-item">
+                            <article class="basket-products-card">
+                                <ul role="list" class="basket-products-card__list">
+                                <li>
+                              <figure class="basket-products-card__img">
+                                <img loading="lazy" decoding="async" src="resources/images/products-card-img.jpg" alt="image" width="100" height="140">
+                                <figcaption>
+                                    <h2 class="basket-products-card__title">Футболка с морским принтом</h2>
+                                </figcaption>
+                              </figure>
+                               </li>
+                               <li class="basket-products-card__item basket-products-card__color"><span data-color="lightGrey"></span></li>
+                               <li class="basket-products-card__item basket-products-card__size"><span>XL</span></li>
+                                <li class="basket-products-card__item basket-products-card__price"><p><span>1 299</span>₽</p><del class="basket-products-card__old-price"><span>2 299</span> ₽</del></li>
+                                <li class="basket-products-card__item basket-products-card__count"><span>1</span></li>
+                                <li class="basket-products-card__item basket-products-card__discount"><span>20%</span></li>
+                                <li class="basket-products-card__item basket-products-card__total-sum"><p><span>1 299</span>₽</p></li>
+                              </ul>
+                            </article>
+                        </li>
+                    </template>
+                </ul>
+                <ul role="list" class="basket-products-overall-info">
+                    <li class="basket-products-overall-info__products-sum"><p>Товаров на сумму:
+                    </p><p><span>2 598</span> ₽</p></li>
+                    <li class="basket-products-overall-info__discount"><p>Скидка:
+                    </p><p><span>20</span> %</p></li>
+                    <li class="basket-products-overall-info__delivery"><p>Доставка:
+                    </p><p><span>0</span> ₽</p></li>
+                    <li class="basket-products-overall-info__full-sum"><strong>Итого:
+                    </strong><strong>1039 ₽</strong></li>
+                </ul>
+            </section>
+        </div>
+		</main>
+        <div class="modal cancel-product-modal" :class="{'active': cancelProductModal === true}" @click.self="cancelProductModal = false">
+            <form class="modal-content cancel-product-modal__content">
+                <fieldset>
+                <div class="cancel-product-modal__top">
+                  <p>Вы уверены, что хотите отменить заказ №2503222-902868?</p>
+                  <button class="cancel-product-modal__close" type="button" aria-label="button" @click="cancelProductModal = false">
+                    <span></span>
+                    <span></span>
+                  </button>
+                </div>
+                <strong>Укажите, пожалуйста, причину отмены заказа:</strong>
+                <ul class="cancel-product-modal__list">
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="1" required>
+                            <label for="1">Оформил другой заказ</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="2" required>
+                            <label for="2">Уже купил в розничном магазине</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="3" required>
+                            <label for="3">Не устраивает срок доставки</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="4" required>
+                            <label for="4">Не устраивает способ получения заказа</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="5" required>
+                            <label for="5">Не устраивает стоимость товара</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="6" required>
+                            <label for="6">Не устраивает стоимость доставки</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="7" required>
+                            <label for="7">Не устраивают условия получения</label>
+                        </li>
+                        <li class="cancel-product-modal__list-item">
+                            <input type="radio" name="cancel" id="8" required>
+                            <label for="8">Другое</label>
+                        </li>
+                </ul>
+                <div class="cancel-product-modal__btn-group">
+                    <button type="button" aria-label="button" class="variant-2-btn cancel-product-modal__cancel-product-btn">отменить заказ</button>
+                    <button type="button" aria-label="button" class="variant-2-btn cancel-product-modal__no-cancel-product-btn" @click="cancelProductModal = false">не отменять заказ</button>
+                </div>
+                </fieldset>
+                </form>
+           </div>
+        </div>
+		@@include('../parts/footer.html')
+	</body>
+</html>
