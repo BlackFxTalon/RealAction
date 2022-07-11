@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница каталога"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, filter : false }" :class="{'overflow-hidden': filter  === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <section class="catalog-page" x-data="{showCatalogPageCards: false}">
+             <div class="container catalog-page__container">
+            <div class="catalog-page__desktop-top">
+            <div class="catalog-page__top">
+                <h2 class="catalog-page__category-title">женские футболки</h2>
+                <div class="catalog-page__controls">
+                    <button type="button" aria-label="button" class="catalog-page__filter-btn" @click="filter = true"><p>Фильтр (<span>2</span>)</p><svg width="20" height="20">
+                        <use href="../resources/svgSprites/svgSprite.svg#catalog-page-filter-icon"></use>
+                    </svg></button>
+                    <div class="catalog-page__sort-dropdown" x-data="{sortDropdownTitles:['По популярности','По новизне','По цене(По возрастанию)','По цене(По убыванию)'], toggleDropdown: false}" @click.outside="toggleDropdown = false">
+                       <div class="catalog-page__sort-dropdown-top" @click="toggleDropdown = !toggleDropdown">
+                        <p>отсортировать по</p>
+                        <svg width="20" height="20">
+                            <use href="../resources/svgSprites/svgSprite.svg#catalog-page-sort-icon"></use>
+                        </svg>
+                       </div> 
+                       <ul role="list" class="catalog-page__sort-dropdown-list" x-ref="sortDropdownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.sortDropdownList.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                        <template x-for="sortDropdownTitle in sortDropdownTitles">
+                            <li x-text="sortDropdownTitle" class="catalog-page__sort-dropdown-item"></li>
+                        </template>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+            <nav class="breadcrumbs breadcrumbs--catalog-page">
+                <div class="container breadcrumbs__container breadcrumbs__container--catalog-page">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+           </div>
+            <div class="catalog-page-grid">
+            <aside class="catalog-menu">
+                <nav class="catalog-menu__nav">
+                    <h2><strong>Женская</strong> одежда</h2>
+                    <ul role="list" class="catalog-menu__list">
+                        <li class="catalog-menu__list-item"><a href="#" class="catalog-menu__list-item-link">Рубашки поло</a></li>
+                        <li class="catalog-menu__list-item"><a href="#" class="catalog-menu__list-item-link">Свитеры и кардиганы</a></li>
+                        <li class="catalog-menu__list-item catalog-menu__list-item--active"><a href="#" class="catalog-menu__list-item-link">Футболки</a>
+                            <svg width="10" height="10">
+                                <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                              </svg>
+                        </li>
+                        <li class="catalog-menu__list-item"><a href="#" class="catalog-menu__list-item-link">Джинсы</a></li>
+                        <template x-for="i in 6">
+                            <li class="catalog-menu__list-item" data-index="i"><a href="#" class="catalog-menu__list-item-link">Толстовки</a></li>
+                        </template>
+                    </ul>
+                </nav>
+                <nav class="catalog-menu__nav">
+                    <h2><strong>Детская</strong> одежда для девочек</h2>
+                    <ul role="list" class="catalog-menu__list">
+                        <template x-for="i in 10">
+                            <li class="catalog-menu__list-item" data-index="i"><a href="#" class="catalog-menu__list-item-link">Толстовки</a></li>
+                        </template>
+                    </ul>
+                </nav>
+                <nav class="catalog-menu__nav">
+                    <h2><strong>Женские</strong> аксессуары</h2>
+                    <ul role="list" class="catalog-menu__list">
+                        <template x-for="i in 10">
+                            <li class="catalog-menu__list-item" data-index="i"><a href="#" class="catalog-menu__list-item-link">Толстовки</a></li>
+                        </template>
+                    </ul>
+                </nav>
+            </aside>
+            <div class="catalog-page__right">
+                <h2 class="catalog-page__desktop-title">футболки</h2>
+            <ul role="list" class="catalog-page__card-list">
+                <template x-for="i in 3">
+                  <li data-index="i">
+                    <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                        <a href="#" class="catalog-page-card__card-link"></a>
+                        <div class="catalog-page-card__img">
+                        <div class="catalog-page-card__top">
+                            <div class="catalog-page-card__badges">
+                             <div class="catalog-page-card__badges-left">
+                                <p class="catalog-page-card__badge-sale"><span>sale</span></p>
+                                <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                             </div>
+                             <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                <svg width="20" height="17">
+                                    <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                    <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                  </svg>
+                          </span>
+                            </div>
+                            <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                        </div>
+                        <picture>
+                            <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                            <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                          <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                          <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                        </picture>
+                        </div>
+                        <figcaption>
+                            <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                        </figcaption>
+                    </figure>
+                  </li>
+                </template>
+                <template x-for="i in 3">
+                    <li data-index="i">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                  </template>
+                  <template x-for="i in 4">
+                    <li data-index="i">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn disabled catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                  </template>
+                  <template x-for="i in 4">
+                    <li data-index="i" x-show="showCatalogPageCards === true">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                  </template>
+            </ul>
+            <button type="button" aria-label="button" class="catalog-page__see-more-btn" @click="showCatalogPageCards = true">Смотреть еще</button>
+            <div class="catalog-page__pagination-wrapper">
+             <button class="catalog-page__pagination-btn catalog-page__pagination-btn--left" type="button">
+                <svg width="20" height="20">
+                    <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                </svg>
+             </button>
+            <ul role="list" class="pagination catalog-page__pagination">
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">...</a></li>
+                <li><a href="#">64</a></li>
+            </ul>
+            <button class="catalog-page__pagination-btn catalog-page__pagination-btn--right" type="button">
+                <svg width="20" height="20">
+                    <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                </svg>
+             </button>
+            </div>
+            </div>
+        </div>
+        </div>
+           </section>
+		</main>
+        <div class="filter-wrapper" :class="{'active': filter === true}" @click.self="filter = false">
+        <nav class="filter" :class="{'active': filter === true}">
+            <form action="#" class="filter-form">
+                <fieldset>
+                    <ul role="list" class="filter-form__chars-btn-group" x-data="{charsBtnTitles:['сезон', 'размер', 'красный']}">
+                        <template x-for="charsBtnTitle in charsBtnTitles">
+                          <li x-data="{closeCharsBtn: false}" x-show="closeCharsBtn === false">
+                            <button type="button" class="filter-form__chars-btn">
+                                <span x-text="charsBtnTitle"></span>
+                                <p class="filter-form__chars-btn-close" @click="closeCharsBtn = true">
+                                    <span></span>
+                                    <span></span>
+                                </p>
+                            </button>
+                          </li>
+                        </template>
+                    </ul>
+                    <ul role="list" class="filter-form__list">
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Материал</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList1" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList1.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="1" id="1">
+                                    <label for="1">Весна /Лето 2021</label>
+                                    </div>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="2" id="2">
+                                    <label for="2">Весна /Лето 2021</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Акции</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList2" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList2.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="3" id="3">
+                                    <label for="3">Весна /Лето 2021</label>
+                                    </div>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="4" id="4">
+                                    <label for="4">Весна /Лето 2021</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Сезон</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList3" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList3.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="5" id="5">
+                                    <label for="5">Весна /Лето 2021</label>
+                                    </div>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="6" id="6">
+                                    <label for="6">Весна /Лето 2021</label>
+                                </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Коллекция</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList4" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList4.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="7" id="7">
+                                    <label for="7">Спортивный хребет 2022</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="8" id="8">
+                                    <label for="8">Спортивный хребет 2022</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Размер</p>
+                            </div>
+                            <ul class="filter-form-list-dropdown__sizes-list" x-data="{sizes: ['xs','s','m','l','xl','2xl','3xl'], sizesChoice: ''}" role="list" x-ref="sizesList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.sizesList.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <template x-for="size in sizes">
+                                  <li>
+                                    <button class="filter-form-list-dropdown__sizes-btn" type="button" aria-label="button" :class="{'active': sizesChoice === size}" @click="sizesChoice = size"><span x-text="size"></span></button>
+                                  </li>
+                                </template>
+                              </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Цвет</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList5" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList5.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper filter-form-list-dropdown__input-list-wrapper--color filter-form-list-dropdown__input-list-wrapper--black-color">
+                                    <input type="checkbox" name="9" id="9">
+                                    <label for="9">черный</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper filter-form-list-dropdown__input-list-wrapper--color filter-form-list-dropdown__input-list-wrapper--red-color">
+                                    <input type="checkbox" name="10" id="10">
+                                    <label for="10">красный</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper filter-form-list-dropdown__input-list-wrapper--color filter-form-list-dropdown__input-list-wrapper--pink-color">
+                                    <input type="checkbox" name="11" id="11">
+                                    <label for="11">розовый</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper filter-form-list-dropdown__input-list-wrapper--color filter-form-list-dropdown__input-list-wrapper--blue-color">
+                                    <input type="checkbox" name="12" id="12">
+                                    <label for="12">синий</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Категория одежды</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList6" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList6.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="13" id="13">
+                                    <label for="13">Футболки</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="14" id="14">
+                                    <label for="14">Спортивные костюмы</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-form-list-dropdown" x-data="{toggleDropdown: false}">
+                            <div class="filter-form-list-dropdown__top" @click="toggleDropdown = !toggleDropdown">
+                                <svg width="14" height="14" :class="{'active': toggleDropdown === true}">
+                                    <use href="../resources/svgSprites/svgSprite.svg#filter-dropdown-arrow"></use>
+                                </svg>
+                                <p>Пол</p>
+                            </div>
+                            <ul role="list" class="filter-form-list-dropdown__input-list" x-ref="inputList7" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.inputList7.scrollHeight + 'px' : ''" :class="{'active': toggleDropdown === true}">
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="15" id="15">
+                                    <label for="15">Мужчины</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                                <li class="filter-form-list-dropdown__input-item">
+                                    <div class="filter-form-list-dropdown__input-list-wrapper">
+                                    <input type="checkbox" name="16" id="16">
+                                    <label for="16">Женщины</label>
+                                    </div>
+                                    <p class="filter-form-list-dropdown__input-list-count">[<span>30</span>]</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul role="list" class="filter__bottom-btn-group">
+                        <li x-data="{toggleBtn: false}">
+                            <button type="button" aria-label="button" class="filter__show-btn" @click="toggleBtn = !toggleBtn" :class="{'active': toggleBtn === true}">
+                                <p>показать <span>12</span> товаров</p>
+                            </button>
+                        </li>
+                        <li x-data="{toggleBtn: false}">
+                            <button type="button" aria-label="button" class="filter__reset-btn" @click="toggleBtn = !toggleBtn" :class="{'active': toggleBtn === true}">
+                                <p>сбросить все</p>
+                            </button>
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+            <button type="button" aria-label="button" class="filter__close-btn" @click="filter = false">Закрыть</button>
+        </nav>
+        </div>
+		@@include('../parts/footer.html')
+	</body>
+</html>
