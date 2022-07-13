@@ -163,6 +163,35 @@ const gatherCollectionSlider = new Swiper('.gather-collection-slider', {
   }
 });
 
+const orderMakingForm = new Swiper('.order-making__form', {
+  slidesPerView: 1,
+  autoHeight:true,
+  allowTouchMove:false,
+  navigation: {
+    nextEl: '.order-making__to-next-step-btn',
+    prevEl: '.order-making__return-back-btn',
+  },
+
+});
+
+document.querySelector('.order-making__to-next-step-btn--to-office-data').addEventListener('click', ()=>{
+  orderMakingForm.slideTo(1);
+});
+
+document.querySelector('.order-making__to-next-step-btn--to-delivery-home-data').addEventListener('click', ()=>{
+  orderMakingForm.slideTo(2);
+});
+
+document.querySelector('.order-making__to-next-step-btn--to-slide-3').addEventListener('click', ()=>{
+  orderMakingForm.slideTo(3);
+});
+
+document.querySelector('.order-making__return-back-btn--to-1-slide').addEventListener('click', ()=>{
+  orderMakingForm.slideTo(0);
+});
+
+
+
 const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-btn');
 
 fullScreenBtn.addEventListener('click',()=>{

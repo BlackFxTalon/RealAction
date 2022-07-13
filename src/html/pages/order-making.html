@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница оформления заказа"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, deliveryPointModal: false, verifyPhoneModal: false, verifyOrderModal: false }" :class="{'overflow-hidden': deliveryPointModal === true || verifyPhoneModal === true || verifyOrderModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs breadcrumbs--order-making">
+                <div class="container breadcrumbs__container breadcrumbs__container--order-making">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container order-making-page-container">
+            <section class="order-making" x-data="{step: 1, nextStep: 2, deliveryWay: 'sdakDelivery', contactDataValue: false,deliveryPointListParams:[
+                {id:1,address:'Сыромолотова ул., д. 14'},
+                {id:2,address:'Сыромолотова ул., д. 13'},
+                {id:3,address:'Сыромолотова ул., д. 12'},
+                {id:4,address:'Сыромолотова ул., д. 11'},
+                {id:5,address:'Сыромолотова ул., д. 10'},
+                {id:6,address:'Сыромолотова ул., д. 9'},
+                {id:7,address:'Сыромолотова ул., д. 8'},
+                {id:8,address:'Сыромолотова ул., д. 7'},
+                {id:9,address:'Сыромолотова ул., д. 6'},
+                {id:10,address:'Сыромолотова ул., д. 5'},
+                ], 
+            deliveryPointAddress:'', paymentMethod: 'online', dateTimeValue: false}">
+                <h2 class="order-making__title">Оформление заказа</h2>
+             <ul role="list" class="order-making-steps">
+              <li :class="{'active': step === 1}" class="order-making-steps__item"><span :class="{'active': step === 1}" class="order-making-steps__indicator">1</span></li>
+              <li class="order-making-steps__line" :class="{'active': step === 1}"></li>
+              <li :class="{'active': step === 1, 'next': nextStep === 2}" class="order-making-steps__item"><span :class="{'active': step === 2, 'next': nextStep === 2}" class="order-making-steps__indicator">2</span></li>
+              <li class="order-making-steps__line" :class="{'active': step === 2}"></li>
+              <li :class="{'active': step === 3, 'next': nextStep === 3}" class="order-making-steps__item"><span :class="{'active': step === 3, 'next': nextStep === 3}" class="order-making-steps__indicator">3</span></li>
+              <li class="order-making-steps__line" :class="{'active': step === 3}"></li>
+              <li :class="{'active': step === 4, 'next': nextStep === 4}" class="order-making-steps__item"><span :class="{'active': step === 4, 'next': nextStep === 4}" class="order-making-steps__indicator">4</span></li>
+              <li class="order-making-steps__line" :class="{'active': step === 4}"></li>
+              <li :class="{'active': step === 5, 'next': nextStep === 5}" class="order-making-steps__item"><span :class="{'active': step === 5, 'next': nextStep === 5}" class="order-making-steps__indicator">5</span></li>
+             </ul>
+             <form action="#" class="order-making__form swiper">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                <fieldset class="order-making-step order-making-step-1">
+                    <legend class="order-making-step__title"><span>1</span>Выберите способ доставки</legend>
+                    <ul role="list" class="delivery-ways-list">
+                        <li class="delivery-ways-list__item">
+                        <div class="delivery-ways-list__item-left">
+                         <div class="delivery-ways-list__input-group">
+                            <input type="radio" name="deliveryWays" id="radio1" @change="deliveryWay = 'courierDelivery'">
+                            <label for="radio1">Курьерская доставка</label>
+                         </div>
+                         <p class="delivery-ways-list__info">
+                            Стоимость доставки уточнит менеджер после получения заказа. Бесплатно при заказе от 3000 ₽
+                            <strong>Срок доставки:от 1 до 2 дней</strong>
+                         </p>
+                        </div>
+                        <div class="delivery-ways-list__item-right">
+                            <strong>Срок доставки:
+                                от 1 до 2 дней</strong>
+                        </div>
+                        </li>
+                        <li class="delivery-ways-list__item">
+                            <div class="delivery-ways-list__item-left">
+                            <div class="delivery-ways-list__wrapper">
+                            <div class="delivery-ways-list__input-group delivery-ways-list__input-group--delivery">
+                               <input type="radio" name="deliveryWays" id="radio2" @change="deliveryWay = 'sdakDelivery'" checked="true">
+                               <label for="radio2">Доставка ТК "СДЭК" - <strong>Выберите ПВЗ</strong></label>
+                            </div>
+                            <button type="button" aria-label="button" class="delivery-ways-list__delivery-point-btn" @click="deliveryPointModal = true">
+                                <span></span>
+                                <span></span>
+                            </button>
+                            </div>
+                            <div class="delivery-ways-list__address">
+                                <strong>Пункт выдачи СДЭК:</strong>
+                                <address x-text="deliveryPointAddress"></address>
+                            </div>
+                            <p class="delivery-ways-list__info">
+                                Доставка транспортной компанией СДЭК до пункта выдачи в вашем городе (это дешевле) или до квартиры. После получения заказа наш менеджер рассчитает точную стоимость доставки.
+                               <strong>Срок доставки:
+                                от 2 до 7 дней</strong>
+                            </p>
+                            </div>
+                            <div class="delivery-ways-list__item-right">
+                                <strong>Срок доставки:
+                                    от 2 до 7 дней</strong>
+                            </div>
+                        </li>
+                        <li class="delivery-ways-list__item">
+                            <div class="delivery-ways-list__item-left">
+                            <div class="delivery-ways-list__input-group">
+                               <input type="radio" name="deliveryWays" id="radio3" @change="deliveryWay = 'warrantyDelivery'">
+                               <label for="radio3">Склад - пр. Космонавтов, д.17</label>
+                            </div>
+                            <p class="delivery-ways-list__info">
+                                Вы можете забрать свой заказ самостоятельно из нашего офиса по адресу г. Екатеринбург, пр. Космонавтов, д.17
+                               <strong>Время работы: <time datetime="7:00-22:00">7:00 - 22:00</time> МСК</strong>
+                            </p>
+                          </div>
+                          <div class="delivery-ways-list__item-right delivery-ways-list__item-right--max-width">
+                            <strong>Время работы: 7:00 - 22:00 МСК</strong>
+                        </div>
+                        </li>
+                    </ul>
+                </fieldset>
+                </div>
+                <div class="swiper-slide swiper-slide--office-delivery">
+                    <fieldset class="order-making-step order-making-step-2 order-making-step-2--office-delivery">
+                        <legend class="order-making-step__title"><span>2</span>Контактные данные</legend>
+                        <div class="order-making-step-2__grid order-making-step-2__grid--office-delivery">
+                        <div class="order-making-step-2__input-group">
+                            <label for="name">Ваше имя</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="text" name="name" id="name" placeholder="Иван" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="phone">Ваш номер телефона</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="tel" name="phone" id="phone" placeholder="+79058064863" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <p class="order-making-step-2__phone-info">На указанный номер будет отправлен код подтверждения</p>
+                        <button type="button" aria-label="button" class="order-making-step-2__get-sms-btn"><span>ПОЛУЧИТЬ SMS-КОД</span></button>
+                        <div class="order-making-step-2__input-group order-making-step-2__input-group--email-office-delivery">
+                            <label for="mail">Ваша email почта</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="email" name="mail" id="mail" placeholder="vtrpro@yandex.ru" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <p class="order-making-step-2__verify-toast">
+                            <a @click="verifyPhoneModal = true">Подтвердите номер телефона</a> прежде, чем продолжить оформление заказа, либо пройдите <a href="#">регистрацию</a>.
+                        </p>
+                       </div>
+                    </fieldset>
+                </div>
+                <div class="swiper-slide swiper-slide--courier-delivery">
+                    <fieldset class="order-making-step order-making-step-2 order-making-step-2--courier-delivery">
+                        <legend class="order-making-step__title"><span>2</span>Контактные данные</legend>
+                        <div class="order-making-step-2__grid order-making-step-2__grid--courier-delivery">
+                        <div class="order-making-step-2__input-group">
+                            <label for="name2">Ваше имя</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="text" name="name2" id="name2" placeholder="Иван" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="phone2">Ваш номер телефона</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="tel" name="phone2" id="phone2" placeholder="+79058064863" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="mail2">Ваша email почта</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="email" name="mail2" id="mail2" placeholder="vtrpro@yandex.ru" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <h3>АДРЕС ДОСТАВКИ:</h3>
+                        <div class="order-making-step-2__input-group">
+                        <label for="city2">Город</label>
+                        <div class="order-making-step-2__city-search" x-data="{cities:['Екатеринбург','Москва','Санкт-Петербург'], searchValue: '', closeSearch: null}">
+                            <div class="order-making-step-2__city-search-top">
+                            <input type="text" name="city2" id="city2" placeholder="Екатеринбург" x-model.debounce.300ms="searchValue" @focusout="closeSearch = true" @change="contactDataValue = true">
+                            </div>
+                         <nav x-show="searchValue.length > 1">
+                        <ul role="list" class="order-making-step-2__city-search-list">
+                            <li class="order-making-step-2__city-search-list-title"><strong>Выберите город из списка</strong></li>
+                            <template x-for="city in cities">
+                            <li class="order-making-step-2__city-search-list-item" @click="searchValue = city; closeSearch = true" :class="{'active': searchValue === city}">
+                               <p x-text="city"></p>
+                            </li>
+                            </template>
+                        </ul>
+                       </nav>
+                        </div>
+                       </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="street">Улица<sup>*</sup></label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="text" name="street" id="street" placeholder="Сиреневый бульвар" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="house">Дом<sup>*</sup></label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="number" name="house" id="house" placeholder="7" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="entrance">Подъезд<sup>*</sup></label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="number" name="entrance" id="entrance" placeholder="2" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="floor">Этаж</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="number" name="floor" id="floor" placeholder="7" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                        <div class="order-making-step-2__input-group">
+                            <label for="room">Квартира</label>
+                            <div class="order-making-step-2__input-wrapper">
+                                <input type="number" name="room" id="room" placeholder="311" @change="contactDataValue = true">
+                            </div>
+                        </div>
+                       </div>
+                    </fieldset>
+                </div>
+                <div class="swiper-slide">
+                    <fieldset class="order-making-step order-making-step-3">
+                        <legend class="order-making-step__title"><span>3</span>Оплата и скидки</legend>
+                        <div class="order-making-step-3__grid">
+                         <div class="order-making-step-3__promocode">
+                            <p>ПРОМОКОД:</p>
+                            <div class="order-making-step-3__promocode-wrapper">
+                                <input type="text" name="promocode" id="promocode" placeholder="Введите промокод">
+                            </div>
+                         </div>
+                         <button type="button" aria-label="button" class="order-making-step-3__promocode-btn">
+                            Применить промокод
+                         </button>
+                         <div class="order-making-step-3__payment-method">
+                            <h3>СПОСОБ ОПЛАТЫ:</h3>
+                            <div class="order-making-step-3__payment-method-group order-making-step-3__payment-method-group--online">
+                                <input type="radio" name="payment" id="onlinePayment" @change="paymentMethod = 'online'" checked="true">
+                                <label for="onlinePayment" class="order-making-step-3__payment-method-info">
+                                   <p><span>Оплата онлайн</span><span>Вернём деньги, если товары не подойдут</span></p>
+                                   <ul role="list" class="order-making-step-3__payment-method-list">
+                                    <li>
+                                        <img loading="lazy" decoding="async" src="/resources/images/apple-pay.png" alt="image" width="50" height="25">
+                                    </li>
+                                    <li>
+                                        <img loading="lazy" decoding="async" src="/resources/images/google-pay.png" alt="image" width="50" height="25">
+                                    </li>
+                                    <li>
+                                        <img loading="lazy" decoding="async" src="/resources/images/mir.png" alt="image" width="50" height="25">
+                                    </li>
+                                    <li>
+                                        <img loading="lazy" decoding="async" src="/resources/images/visa.png" alt="image" width="50" height="25">
+                                    </li>
+                                    <li>
+                                        <img loading="lazy" decoding="async" src="/resources/images/mastercard.png" alt="image" width="50" height="25">
+                                    </li>
+                                   </ul>
+                                </label>
+                            </div>
+                            <div class="order-making-step-3__payment-method-group">
+                                <input type="radio" name="payment" id="offlinePayment" @change="paymentMethod = 'offline'">
+                                <label for="offlinePayment" class="order-making-step-3__payment-method-info">
+                                   <p>Наличными или картой при получении</p>
+                                   </ul>
+                                </label>
+                            </div>
+                         </div>
+                       </div>
+                    </fieldset>
+                </div>
+                <div class="swiper-slide">
+                    <fieldset class="order-making-step order-making-step-4">
+                        <legend class="order-making-step__title"><span>4</span>Желаемая дата и время</legend>
+                        <div class="order-making-step-4__grid">
+                            <div class="order-making-step-4__input-group">
+                                <label for="date">Выберите дату</label>
+                                <div class="order-making-step-4__input-wrapper order-making-step-4__input-wrapper--date">
+                                        <input type="date" name="step4date" value="2022-04-18" @change="dateTimeValue = true">
+                                        </div>
+                                </div>
+                                <div class="order-making-step-4__input-group">
+                                    <label for="date">Выберите время</label>
+                                    <div class="order-making-step-4__input-wrapper order-making-step-4__input-wrapper--time">
+                                            <input type="time" name="step4time" @change="dateTimeValue = true" value="09:00">
+                                            </div>
+                                    </div>
+                                    <h3>Примечание к заказу</h3>
+                                    <textarea name="orderAddition" id="orderAddition" @change="dateTimeValue = true">Наберите, когда курьер будет у дома</textarea>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="swiper-slide">
+                    <fieldset class="order-making-step order-making-step-5">
+                        <legend class="order-making-step__title"><span>5</span>Общая стоимость</legend>
+                        <div class="order-making-step-5__list-top">
+                            <strong>Заказ с <span>доставкой курьером</span>: <time datetime="2022-04-18">18.04.2022</time> с <time datetime="09:00-18:00">09:00 до 18:00</time></strong>
+                        </div>
+                        <div class="order-making-step-5__city">
+                            г. Екатеринбург
+                        </div>
+                        <ul role="list" class="order-making-step-5__list">
+                            <li class="order-making-step-5__product-count-price">
+                                <p class="order-making-step-5__product-count"><strong>3 товара</strong> на сумму</p>
+                                <span class="order-making-step-5__dashed-line"></span>
+                                <p class="order-making-step-5__price">
+                                    <span>4 897</span> ₽.
+                                </p>
+                            </li>
+                            <li class="order-making-step-5__delivery">
+                                <p class="order-making-step-5__delivery-way">Доставка курьером</p>
+                                <span class="order-making-step-5__dashed-line"></span>
+                                <p class="order-making-step-5__delivery-price">
+                                    <span>0</span> ₽.
+                                </p>
+                            </li>
+                            <li class="order-making-step-5__discount">
+                                <p>Скидка RA</p>
+                                <span class="order-making-step-5__dashed-line"></span>
+                                <p class="order-making-step-5__discount-price">
+                                    -<span>1200</span> ₽.
+                                </p>
+                            </li>
+                            <li class="order-making-step-5__order-sum">
+                                <p>Сумма заказа</p>
+                                <span class="order-making-step-5__dashed-line"></span>
+                                <p class="order-making-step-5__order-sum-price">
+                                    <span>3 697</span> ₽.
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="order-making-step-5__overall-sum">
+                            <p>Всего к оплате</p>
+                            <p><span>3 697</span> ₽.</p>
+                        </div>
+                    </fieldset>
+                </div>
+               </div>
+               <ul role="list" class="order-making__btn-group" x-show="(step === 1 && deliveryWay === 'sdakDelivery') || (step === 1 && deliveryWay === 'warrantyDelivery')" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-office-data" :class="{'disabled': deliveryWay === ''}" @click="step = 2; nextStep = 3"><span>к следующему пункту</span><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg></button>
+                </li>
+               </ul>
+               <ul role="list" class="order-making__btn-group" x-show="step === 1 && deliveryWay === 'courierDelivery'" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-delivery-home-data" :class="{'disabled': deliveryWay === ''}" @click="step = 2; nextStep = 3"><span>к следующему пункту</span><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg></button>
+                </li>
+               </ul>
+               <ul role="list" class="order-making__btn-group" x-show="(step === 2 && deliveryWay === 'sdakDelivery') || (step === 2 && deliveryWay === 'warrantyDelivery')" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-1-slide" @click="step = 1; nextStep = 2"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-slide-3" :class="{'disabled': contactDataValue === false}" @click="step = 3; nextStep = 4"><span>к следующему пункту</span><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg></button>
+                </li>
+               </ul>
+               <ul role="list" class="order-making__btn-group" x-show="step === 2 && deliveryWay === 'courierDelivery'" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-1-slide" @click="step = 1; nextStep = 2"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': contactDataValue === false}" @click="step = 3; nextStep = 4"><span>к следующему пункту</span><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg></button>
+                </li>
+               </ul>
+               <ul role="list" class="order-making__btn-group" x-show="step === 3" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 2; nextStep = 3"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': paymentMethod === ''}" @click="step = 4; nextStep = 5"><span>к следующему пункту</span><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg></button>
+                </li>
+               </ul>
+               <ul role="list" class="order-making__btn-group" x-show="step === 4" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 3; nextStep = 4"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': dateTimeValue === false}" @click="step = 5; nextStep = 6"><span>к следующему пункту</span><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg></button>
+                </li>
+               </ul>
+               <ul role="list" class="order-making__btn-group" x-show="step === 5" x-cloak>
+                <li>
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 4; nextStep = 5"><svg width="15" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
+                    </svg><span>Вернуться назад</span></button>
+                </li>
+                <li>
+                    <button type="button" aria-label="button" class="order-making__submit-order-btn"  @click="verifyOrderModal = true"><span>Оформить заказ</span></button>
+                </li>
+               </ul>
+             </form>
+             <div class="delivery-point-modal" :class="{'active': deliveryPointModal === true}" @click.self="deliveryPointModal = false">
+                <div class="delivery-point-modal__content">
+                <div class="delivery-point-modal__top-info">
+                 <div class="delivery-point-modal__top">
+                  <legend class="delivery-point-modal__title">Выбор пункта самовывоза</legend>
+                  <button type="button" aria-label="button" class="delivery-point-modal__close delivery-point-modal__close--mobile" @click="deliveryPointModal = false">
+                     <span></span>
+                     <span></span>
+                  </button>
+                 </div>
+                 <div class="delivery-point-modal__city-search" x-data="{cities:['Екатеринбург','Москва','Санкт-Петербург'], searchValue: '', closeSearch: null}">
+                     <div class="delivery-point-modal__city-search-top">
+                     <input type="text" name="city" id="city" placeholder="Поиск по городу" x-model.debounce.300ms="searchValue" @focusout="closeSearch = true">
+                     </div>
+                  <nav x-show="searchValue.length > 1 || closeSearch === true">
+                 <ul role="list" class="delivery-point-modal__city-search-list">
+                     <template x-for="city in cities">
+                     <li @click="searchValue = city; closeSearch = true">
+                        <span>Ленинградская область</span>
+                        <p x-text="city"></p>
+                     </li>
+                     </template>
+                 </ul>
+                </nav>
+                 </div>
+                 <div class="delivery-point-modal__delivery-point-search" x-data="{deliveryPoints:['Сыромолотова д.14','Сыромолотова д.13','Сыромолотова д.12'], searchValue: '', closeSearch: false}" click.outside="closeSearch = true">
+                     <div class="delivery-point-modal__delivery-point-search-top">
+                     <input type="text" placeholder="Поиск по пункту выдачи" name="deliveryPoint" id="deliveryPoint" x-model="searchValue">
+                     </div>
+                 <ul role="list" class="delivery-point-modal__delivery-point-search-list" :class="{'active': searchValue.length >= 4 || closeSearch === true}">
+                     <template x-for="deliveryPoint in deliveryPoints">
+                         <li x-text="deliveryPoint" @click="searchValue = deliveryPoint; closeSearch = true"></li>
+                     </template>
+                 </ul>
+                 </div>
+                 <button type="button" aria-label="button" class="delivery-point-modal__close delivery-point-modal__close--desktop" @click="deliveryPointModal = false">
+                    <span></span>
+                    <span></span>
+                 </button>
+                </div>
+         <ul role="list" class="delivery-point-list">
+             <template x-for="deliveryPointListParam in deliveryPointListParams" :key="deliveryPointListParam.id">
+                 <li class="delivery-point-list__delivery-point-item" @click="deliveryPointAddress = deliveryPointListParam.address" :class="{'active': deliveryPointAddress === deliveryPointListParam.address}">
+                    <ul role="list" class="delivery-point-list__delivery-point-item-list">
+                     <li class="delivery-point-list__delivery-point-top">
+                        <strong>Пункт выдачи СДЭК:</strong> 
+                        <p class="delivery-point-list__distance">1,65 км</p>
+                     </li>
+                     <li class="delivery-point-list__shop-number">
+                         Сыромолотова (6602-170)
+                     </li>
+                     <li class="delivery-point-list__shop-address">
+                         <address x-text="deliveryPointListParam.address">Сыромолотова ул., д. 14</address>
+                     </li>
+                     <li class="delivery-point-list__date">
+                         <span>Можно забрать:</span>
+                         <time datetime="2022-04-25">25 апреля 2022</time>
+                     </li>
+                     <li class="delivery-point-list__payment">
+                         <span>ОПЛАТА ОНЛАЙН ИЛИ ПРИ ПОЛУЧЕНИИ</span>
+                     </li>
+                     <li class="delivery-point-list__schedule">
+                         <span>Часы работы:</span>
+                         <span>Ежедневно:<time datetime="9-21">9-21</time></span>
+                     </li>
+                    </ul>
+                 </li>
+             </template>
+         </ul>
+        </div>
+         </div>
+            <div class="verify-phone-modal" :class="{'active': verifyPhoneModal === true}" @click.self="verifyPhoneModal = false">
+                <form action="#" class="verify-phone-modal__content">
+                <fieldset>
+                <div class="verify-phone-modal__top">
+                    <legend class="verify-phone-modal__title">Подтвердите номер телефона</legend>
+                    <button type="button" aria-label="button" class="verify-phone-modal__close" @click="verifyPhoneModal = false">
+                       <span></span>
+                       <span></span>
+                    </button>
+                </div>  
+                <p class="verify-phone-modal__verify-code-text">На указанный номер будет отправлен код подтверждения</p>  
+                <div class="verify-phone-modal__wrapper">
+                    <input type="number" name="verifyCode" id="verifyCode" placeholder="Введите код" required>
+                </div>
+                <p class="verify-phone-modal__repeat-text">Повторная отправка возможна через 0 мин. 54 с.</p>
+                <button type="submit" class="verify-phone-modal__submit-btn">Подтвердить</button>
+              </fieldset>
+               </form>
+        </div>
+        <div class="verify-order-modal" :class="{'active': verifyOrderModal === true}" @click.self="verifyOrderModal = false">
+            <form action="#" class="verify-order-modal__content">
+            <fieldset>
+                <legend class="verify-order-modal__title">Подтвердите оформление заказа</legend>
+            <p class="verify-order-modal__info">После подтверждения заказа вам придет уведомление на вашу почту номер заказа и, что заказ поступил в обработку. А также, вы можете следить за статусом заказа в вашем личном закибнете.</p>  
+            <div class="verify-order-modal__policy">
+                <input type="checkbox" name="verifyPolicy" id="verifyPolicy" required>
+                <label for="verifyPolicy">Соглашаюсь с условиями <a href="#">пользовательского соглашения</a></label>
+            </div>
+            <ul role="list" class="verify-order-modal__btn-group">
+                <li>
+                    <button type="submit" class="variant-2-btn verify-order-modal__submit-btn">Подтвердить заказ</button>
+                </li>
+                <li>
+                    <button type="button" class="variant-2-btn verify-order-modal__cancel-order-btn" @click="verifyOrderModal = false">Отменить заказ</button>
+                </li>
+            </ul>
+          </fieldset>
+           </form>
+    </div>
+            </section>
+            </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
