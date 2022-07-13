@@ -429,11 +429,11 @@
                      <div class="delivery-point-modal__city-search-top">
                      <input type="text" name="city" id="city" placeholder="Поиск по городу" x-model.debounce.300ms="searchValue" @focusout="closeSearch = true">
                      </div>
-                  <nav x-show="searchValue.length > 1 || closeSearch === true">
+                  <nav x-show="searchValue.length > 1">
                  <ul role="list" class="delivery-point-modal__city-search-list">
+                    <li class="delivery-point-modal__city-search-list-title"><strong>Выберите город из списка</strong></li>
                      <template x-for="city in cities">
-                     <li @click="searchValue = city; closeSearch = true">
-                        <span>Ленинградская область</span>
+                     <li @click="searchValue = city; closeSearch = true" class="delivery-point-modal__city-search-list-item" :class="{'active': searchValue === city}">
                         <p x-text="city"></p>
                      </li>
                      </template>
@@ -444,11 +444,14 @@
                      <div class="delivery-point-modal__delivery-point-search-top">
                      <input type="text" placeholder="Поиск по пункту выдачи" name="deliveryPoint" id="deliveryPoint" x-model="searchValue">
                      </div>
-                 <ul role="list" class="delivery-point-modal__delivery-point-search-list" :class="{'active': searchValue.length >= 4 || closeSearch === true}">
+                <nav x-show="searchValue.length > 1">
+                 <ul role="list" class="delivery-point-modal__delivery-point-search-list" :class="{'active': searchValue.length >= 4 }">
+                    <li class="delivery-point-modal__delivery-point-search-list-title"><strong>Выберите пункт выдачи</strong></li>
                      <template x-for="deliveryPoint in deliveryPoints">
-                         <li x-text="deliveryPoint" @click="searchValue = deliveryPoint; closeSearch = true"></li>
+                         <li x-text="deliveryPoint" @click="searchValue = deliveryPoint; closeSearch = true" class="delivery-point-modal__delivery-point-search-list-item" :class="{'active': searchValue === city}"></li>
                      </template>
                  </ul>
+                </nav>
                  </div>
                  <button type="button" aria-label="button" class="delivery-point-modal__close delivery-point-modal__close--desktop" @click="deliveryPointModal = false">
                     <span></span>
