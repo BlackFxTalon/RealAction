@@ -529,6 +529,172 @@
            </form>
     </div>
             </section>
+            <section class="order-making-products">
+                <div class="order-making-products__title-row">
+                <h3 class="order-making-products__title">Товара в корзине</h3>
+                <p class="order-making-products__product-count">[<span>3</span>]</p>
+                </div>
+                <ul role="list" class="order-making-products__product-mobile-list">
+                    <template x-for="i in 6">
+                        <li data-index="i" class="order-making-products__product-mobile-list-item">
+                            <article class="order-making-products-mobile-card">
+                              <div class="order-making-products-mobile-card__left">
+                                <img loading="lazy" decoding="async" src="resources/images/order-making-products-card.jpg" alt="image" width="160" height="224">
+                              </div>
+                              <ul role="list" class="order-making-products-mobile-card__list">
+                                <li><h2 class="order-making-products-mobile-card__title">Футболка с морским принтом</h2></li>
+                                <li class="order-making-products-mobile-card__item order-making-products-mobile-card__price-row"><strong class="order-making-products-mobile-card__price"><span>1 299</span> ₽</strong><del class="order-making-products-mobile-card__old-price"><span>2 299</span> ₽</del></li>
+                                <li class=" order-making-products-mobile-card__color-dropdown" x-data="{colorChoice: 'white', toggleDropdown: false}" :class="{'active': toggleDropdown === true}">
+                                    <div class="order-making-products-mobile-card__color-dropdown-top" @click="toggleDropdown = !toggleDropdown">
+                                        <span>Цвет:</span>
+                                        <template x-if="colorChoice === 'white'">
+                                        <span>Белый</span>
+                                        </template>
+                                        <template x-if="colorChoice === 'yellow'">
+                                            <span>Желтый</span>
+                                            </template>
+                                        <template x-if="colorChoice === 'lime'">
+                                        <span>Лайм</span>
+                                        </template>
+                                        <template x-if="colorChoice === 'green'">
+                                            <span>Зеленый</span>
+                                            </template>
+                                            <template x-if="colorChoice === 'turquoise'">
+                                                <span>Бирюзовый</span>
+                                                </template>
+                                                <template x-if="colorChoice === 'blue'">
+                                                    <span>Синий</span>
+                                                    </template>
+                                                    <svg class="order-making-products-mobile-card__color-dropdown-arrow" :class="{'active': toggleDropdown === true}" width="15" height="15" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0.143245 0.154589C0.336203 -0.0515298 0.649758 -0.0515298 0.842716 0.154589L6.99323 6.73752L13.1558 0.154589C13.3488 -0.0515298 13.6623 -0.0515298 13.8553 0.154589C14.0482 0.360709 14.0482 0.695653 13.8553 0.901772L7.35503 7.84541C7.25855 7.94847 7.13795 8 7.00529 8C6.8847 8 6.75204 7.94847 6.65556 7.84541L0.155305 0.901772C-0.0497122 0.695653 -0.0497131 0.360709 0.143245 0.154589Z" fill="black"/>
+                                                    </svg>
+                                      </div>
+                                      <nav x-ref="colorDropdownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.colorDropdownList.scrollHeight + 'px' : ''" class="order-making-products-mobile-card__color-dropdown-nav">
+                                        <ul role="list" class="order-making-products-mobile-card__color-dropdown-list" x-data="{colors:['white','yellow','lime','green','turquoise','blue']}" :class="{'active': toggleDropdown === true}">
+                                           <template x-for="color in colors">
+                                            <li :data-color="color" @click="colorChoice = color" class="order-making-products-mobile-card__color-dropdown-circle"></li>
+                                           </template>
+                                        </ul>
+                                       </nav>
+                                    </div>
+                                </li>
+                                <li class="order-making-products-mobile-card__count" x-data="{counter: 1}">
+                                    <div class="order-making-products-mobile-card__count-info">
+                                    <span>Кол-во:</span><span><strong x-text="counter">1</strong> шт.</span>
+                                    </div>
+                                    <div class="order-making-products-mobile-card__counter">
+                                        <span @click="counter--" :class="{'disabled': counter === 1}" class="order-making-products-mobile-card__counter-minus">-</span>
+                                        <p x-text="counter"></p>
+                                        <span @click="counter++" class="order-making-products-mobile-card__counter-plus">+</span>
+                                    </div>
+                                </li>
+                                <li class="order-making-products-mobile-card__size-dropdown" x-data="{sizesChoice: 'xl', toggleDropdown: false}" :class="{'active': toggleDropdown === true}">
+                                    <div class="order-making-products-mobile-card__size-dropdown-top" @click="toggleDropdown = !toggleDropdown">
+                                    <span>Размер:</span><span x-text="sizesChoice" class="order-making-products-mobile-card__size-dropdown-text">XL</span>
+                                    <svg class="order-making-products-mobile-card__size-dropdown-arrow" :class="{'active': toggleDropdown === true}" width="15" height="15" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.143245 0.154589C0.336203 -0.0515298 0.649758 -0.0515298 0.842716 0.154589L6.99323 6.73752L13.1558 0.154589C13.3488 -0.0515298 13.6623 -0.0515298 13.8553 0.154589C14.0482 0.360709 14.0482 0.695653 13.8553 0.901772L7.35503 7.84541C7.25855 7.94847 7.13795 8 7.00529 8C6.8847 8 6.75204 7.94847 6.65556 7.84541L0.155305 0.901772C-0.0497122 0.695653 -0.0497131 0.360709 0.143245 0.154589Z" fill="black"/>
+                                    </svg>
+                                    </div>
+                                    <nav x-ref="sizesList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.sizesList.scrollHeight + 'px' : ''" class="order-making-products-mobile-card__size-dropdown-nav">
+                                    <ul class="order-making-products-mobile-card__sizes-list" x-data="{sizes: ['xs','s','m']}" role="list" :class="{'active': toggleDropdown === true}">
+                                        <template x-for="size in sizes">
+                                          <li>
+                                            <button class="order-making-products-mobile-card__sizes-btn" type="button" aria-label="button" :class="{'active': sizesChoice === size}" @click="sizesChoice = size"><span x-text="size"></span></button>
+                                          </li>
+                                        </template>
+                                      </ul>
+                                    </nav>
+                                </li>
+                                <button class="order-making-products-mobile-card__delete-btn" type="button">удалить</button>
+                              </ul>
+                              <div class="order-making-products-mobile-card__bottom">
+                                <p class="order-making-products-mobile-card__article">
+                                    Артикул:<span>FBC23015</span>
+                                </p>
+                                <p class="order-making-products-mobile-card__date-time">Привезём под заказ <time datetime="2022-04-13">13 апреля</time></p>
+                            </div>
+                            </article>
+                        </li>
+                    </template>
+                </ul>
+                <ul class="order-making-products__titles" role="list">
+                    <li class="order-making-products__titles-item order-making-products__titles-item--product-count">
+                        <h3 class="order-making-products__title">Товар</h3>
+                        <p class="order-making-products__product-count">[<span>3</span>]</p>
+                    </li>
+                    <li class="order-making-products__titles-item order-making-products__titles-item--color">
+                        Цвет
+                    </li>
+                    <li class="order-making-products__titles-item order-making-products__titles-item--size">
+                        Размер
+                    </li>
+                    <li class="order-making-products__titles-item order-making-products__titles-item--price">
+                        Цена
+                    </li>
+                    <li class="order-making-products__titles-item order-making-products__titles-item--count">
+                        Кол-во	
+                    </li>
+                    <li class="order-making-products__titles-item order-making-products__titles-item--total-sum">
+                        Сумма
+                    </li>
+                </ul>
+                <ul role="list" class="order-making-products__product-list">
+                    <template x-for="i in 6">
+                        <li data-index="i" class="order-making-products__product-list-item">
+                            <article class="order-making-products-card">
+                                <ul role="list" class="order-making-products-card__list">
+                                <li>
+                              <figure class="order-making-products-card__img">
+                                <img loading="lazy" decoding="async" src="resources/images/products-card-img.jpg" alt="image" width="100" height="140">
+                                <figcaption>
+                                    <h2 class="order-making-products-card__title">Футболка с морским принтом</h2>
+                                </figcaption>
+                              </figure>
+                               </li>
+                               <li class="order-making-products-card__item order-making-products-card__color-dropdown" x-data="{colorChoice: 'white', toggleDropdown: false}" :class="{'active': toggleDropdown === true}">
+                                <div class="order-making-products-card__color-dropdown-top" @click="toggleDropdown = !toggleDropdown">
+                                    <span :data-color="colorChoice" class="order-making-products-card__color-dropdown-top-circle"></span>
+                                    <svg class="order-making-products-card__color-dropdown-top-arrow" width="15" height="15" :class="{'active': toggleDropdown === true}">
+                                        <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                                    </svg>
+                                </div>
+                                <nav x-ref="colorDesktopDropdownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.colorDesktopDropdownList.scrollHeight + 'px' : ''" class="order-making-products-card__color-dropdown-nav">
+                                    <ul role="list" class="order-making-products-card__color-dropdown-list" x-data="{colors:['white','yellow','lime','green','turquoise','blue']}" :class="{'active': toggleDropdown === true}">
+                                       <template x-for="color in colors">
+                                        <li :data-color="color" @click="colorChoice = color" class="order-making-products-card__color-dropdown-circle" :class="{'active': colorChoice === color}"></li>
+                                       </template>
+                                       <li class="order-making-products-card__color-active-circle"></li>
+                                    </ul>
+                                   </nav>
+                               </li>
+                               <li class="order-making-products-card__item order-making-products-card__size-dropdown"x-data="{sizeChoice: 'xl', toggleDropdown: false}" :class="{'active': toggleDropdown === true}">
+                                <div class="order-making-products-card__size-dropdown-top" @click="toggleDropdown = !toggleDropdown">
+                                    <span x-text="sizeChoice"></span>
+                                    <svg class="order-making-products-card__size-dropdown-top-arrow" width="15" height="15" :class="{'active': toggleDropdown === true}">
+                                        <use href="../resources/svgSprites/svgSprite.svg#arrow-down-white"></use>
+                                    </svg>
+                                </div>
+                                <nav x-ref="sizeDesktopDropdownList" x-bind:style="toggleDropdown === true ? 'height: ' + $refs.sizeDesktopDropdownList.scrollHeight + 'px' : ''" class="order-making-products-card__size-dropdown-nav">
+                                    <ul role="list" class="order-making-products-card__size-dropdown-list" x-data="{sizes: ['xs','s','m']}" :class="{'active': toggleDropdown === true}">
+                                       <template x-for="size in sizes">
+                                        <li @click="sizeChoice = size" class="order-making-products-card__size-dropdown-item" :class="{'active': sizeChoice === size}" x-text="size"></li>
+                                       </template>
+                                    </ul>
+                                   </nav>
+                               </li>
+                                <li class="order-making-products-card__item order-making-products-card__price"><p><span>1 299</span>₽</p><del class="order-making-products-card__old-price"><span>2 299</span> ₽</del></li>
+                                <li class="order-making-products-card__item order-making-products-card__count"><span>1</span></li>
+                                <li class="order-making-products-card__item order-making-products-card__total-sum"><p><span>1 299</span>₽</p></li>
+                              </ul>
+                            </article>
+                        </li>
+                    </template>
+                </ul>
+                <ul role="list" class="order-making-products-overall-info">
+                    <li><strong>Забрать в магазине: </strong> г. Екатеринбург, ул. Сулимова, д.50, ТЦ "Парк Хаус", 2 этаж</li>
+                    <li><strong>Можно забрать: </strong> 13 апреля 2022 после оплаты онлайн</li>
+                </ul>
+            </section>
             </div>
 		</main>
 		@@include('../parts/footer.html')
