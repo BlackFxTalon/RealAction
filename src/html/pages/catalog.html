@@ -47,7 +47,7 @@
             <div class="catalog-page-grid">
             <aside class="catalog-menu">
                 <nav class="catalog-menu__nav">
-                    <h2><strong>Женская</strong> одежда</h2>
+                    <h2 class="padding--25px"><strong>Женская</strong> одежда</h2>
                     <ul role="list" class="catalog-menu__list">
                         <li class="catalog-menu__list-item"><a href="#" class="catalog-menu__list-item-link">Рубашки поло</a></li>
                         <li class="catalog-menu__list-item"><a href="#" class="catalog-menu__list-item-link">Свитеры и кардиганы</a></li>
@@ -63,7 +63,7 @@
                     </ul>
                 </nav>
                 <nav class="catalog-menu__nav">
-                    <h2><strong>Детская</strong> одежда для девочек</h2>
+                    <h2 class="padding--16px"><strong>Детская</strong> одежда для девочек</h2>
                     <ul role="list" class="catalog-menu__list">
                         <template x-for="i in 10">
                             <li class="catalog-menu__list-item" data-index="i"><a href="#" class="catalog-menu__list-item-link">Толстовки</a></li>
@@ -71,7 +71,7 @@
                     </ul>
                 </nav>
                 <nav class="catalog-menu__nav">
-                    <h2><strong>Женские</strong> аксессуары</h2>
+                    <h2 class="padding--25px"><strong>Женские</strong> аксессуары</h2>
                     <ul role="list" class="catalog-menu__list">
                         <template x-for="i in 10">
                             <li class="catalog-menu__list-item" data-index="i"><a href="#" class="catalog-menu__list-item-link">Толстовки</a></li>
@@ -80,10 +80,9 @@
                 </nav>
             </aside>
             <div class="catalog-page__right">
-                <h2 class="catalog-page__desktop-title">футболки</h2>
+                <h1 class="catalog-page__desktop-title">футболки</h1>
             <ul role="list" class="catalog-page__card-list">
-                <template x-for="i in 3">
-                  <li data-index="i">
+                  <li data-index="i" data-aos="fade-in" data-aos-delay="200">
                     <figure class="catalog-page-card" x-data="{toggleHeart:false}">
                         <a href="#" class="catalog-page-card__card-link"></a>
                         <div class="catalog-page-card__img">
@@ -114,9 +113,69 @@
                         </figcaption>
                     </figure>
                   </li>
-                </template>
-                <template x-for="i in 3">
-                    <li data-index="i">
+                  <li data-index="i" data-aos="fade-in" data-aos-delay="400">
+                    <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                        <a href="#" class="catalog-page-card__card-link"></a>
+                        <div class="catalog-page-card__img">
+                        <div class="catalog-page-card__top">
+                            <div class="catalog-page-card__badges">
+                             <div class="catalog-page-card__badges-left">
+                                <p class="catalog-page-card__badge-sale"><span>sale</span></p>
+                                <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                             </div>
+                             <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                <svg width="20" height="17">
+                                    <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                    <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                  </svg>
+                          </span>
+                            </div>
+                            <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                        </div>
+                        <picture>
+                            <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                            <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                          <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                          <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                        </picture>
+                        </div>
+                        <figcaption>
+                            <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                        </figcaption>
+                    </figure>
+                  </li>
+                  <li data-index="i" data-aos="fade-in" data-aos-delay="600">
+                    <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                        <a href="#" class="catalog-page-card__card-link"></a>
+                        <div class="catalog-page-card__img">
+                        <div class="catalog-page-card__top">
+                            <div class="catalog-page-card__badges">
+                             <div class="catalog-page-card__badges-left">
+                                <p class="catalog-page-card__badge-sale"><span>sale</span></p>
+                                <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                             </div>
+                             <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                <svg width="20" height="17">
+                                    <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                    <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                  </svg>
+                          </span>
+                            </div>
+                            <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                        </div>
+                        <picture>
+                            <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                            <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                          <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                          <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                        </picture>
+                        </div>
+                        <figcaption>
+                            <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                        </figcaption>
+                    </figure>
+                  </li>
+                    <li data-index="i" data-aos="fade-in" data-aos-delay="800">
                         <figure class="catalog-page-card" x-data="{toggleHeart:false}">
                             <a href="#" class="catalog-page-card__card-link"></a>
                             <div class="catalog-page-card__img">
@@ -147,9 +206,100 @@
                             </figcaption>
                         </figure>
                     </li>
-                  </template>
-                  <template x-for="i in 4">
-                    <li data-index="i">
+                    <li data-index="i" data-aos="fade-in" data-aos-delay="200">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-index="i" data-aos="fade-in" data-aos-delay="400">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-index="i" data-aos="fade-in" data-aos-delay="600">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link">посмотреть сейчас</a>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-aos="fade-in" data-aos-delay="800">
                         <figure class="catalog-page-card" x-data="{toggleHeart:false}">
                             <a href="#" class="catalog-page-card__card-link"></a>
                             <div class="catalog-page-card__img">
@@ -181,9 +331,103 @@
                             </figcaption>
                         </figure>
                     </li>
-                  </template>
-                  <template x-for="i in 4">
-                    <li data-index="i" x-show="showCatalogPageCards === true">
+                    <li data-aos="fade-in" data-aos-delay="200">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn disabled catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-aos="fade-in" data-aos-delay="400">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn disabled catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-aos="fade-in" data-aos-delay="600">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn disabled catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-index="i" x-show="showCatalogPageCards === true" data-aos="fade-in" data-aos-delay="200">
                         <figure class="catalog-page-card" x-data="{toggleHeart:false}">
                             <a href="#" class="catalog-page-card__card-link"></a>
                             <div class="catalog-page-card__img">
@@ -215,7 +459,102 @@
                             </figcaption>
                         </figure>
                     </li>
-                  </template>
+                    <li data-index="i" x-show="showCatalogPageCards === true" data-aos="fade-in" data-aos-delay="400">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-index="i" x-show="showCatalogPageCards === true" data-aos="fade-in" data-aos-delay="600">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li data-index="i" x-show="showCatalogPageCards === true" data-aos="fade-in" data-aos-delay="800">
+                        <figure class="catalog-page-card" x-data="{toggleHeart:false}">
+                            <a href="#" class="catalog-page-card__card-link"></a>
+                            <div class="catalog-page-card__img">
+                            <div class="catalog-page-card__top">
+                                <div class="catalog-page-card__badges">
+                                 <div class="catalog-page-card__badges-left">
+                                    <p class="catalog-page-card__badge-new"><span>new</span></p>
+                                    <p class="catalog-page-card__badge-discount"><span>-25%</span></p>
+                                 </div>
+                                 <span class="catalog-page-card__heart" @click="toggleHeart = !toggleHeart" :class="{'active': toggleHeart === true}">
+                                    <svg width="20" height="17">
+                                        <use class="catalog-page-card__heart-icon-stroke" href="../resources/svgSprites/svgSprite.svg#heart"></use>
+                                        <use class="catalog-page-card__heart-icon-fill" href="../resources/svgSprites/svgSprite.svg#heart-active"></use>
+                                      </svg>
+                              </span>
+                                </div>
+                                <a href="#" class="variant-1-btn catalog-page-card__link catalog-page-card__link--no-product">товара нет в наличии</a>
+                                <p class="catalog-page-card__no-product-text">ожидайте скорого поступления</p>
+                            </div>
+                            <picture>
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop-2.jpg" media="(min-width:1920px)">
+                                <source type="image/jpg" srcset="resources/images/catalog-page-card-img--desktop.jpg" media="(min-width:1440px)">
+                              <source type="image/jpg" srcset="resources/images/catalog-page-card-img--tablet.jpg" media="(min-width:768px)">
+                              <img src="resources/images/catalog-page-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="172" height="265">
+                            </picture>
+                            </div>
+                            <figcaption>
+                                <h3>CITY CLUB HALF ZIP PERCY JACKET</h3>
+                            </figcaption>
+                        </figure>
+                    </li>
             </ul>
             <button type="button" aria-label="button" class="catalog-page__see-more-btn" @click="showCatalogPageCards = true">Смотреть еще</button>
             <div class="catalog-page__pagination-wrapper">

@@ -99,6 +99,14 @@ width: 100%;
             appearance: none;
             width: 100%;
         }
+
+        input[type="date"]::-webkit-inner-spin-button,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+}
     }
 
     &__arrow-down {
@@ -126,6 +134,8 @@ width: 100%;
         height: 20px;
         background: url(../resources/images/calendar-icon.png) no-repeat center/cover;
     }
+
+    
 
     &__dropdown {
         background-color: white;
@@ -302,8 +312,8 @@ a {
     }
 
     &__form-submit-btn {
-        background-color: var(--light-red-color);
-        border: none;
+        background-color: transparent;
+        border: 1px solid white;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -317,6 +327,7 @@ max-width: 300px;
 height: 50px;
 margin-left: auto;
 margin-right: auto;
+transition: .3s ease-in-out;
 
 @include media-medium() {
     grid-column: span 2;
@@ -330,5 +341,13 @@ margin-right: auto;
     grid-column: 1;
     grid-row: 3;
 }
+    }
+
+    &__form-submit-btn:hover,
+    &__form-submit-btn:active,
+    &__form-submit-btn:focus {
+        background-color: var(--light-red-color);
+        color: white;
+        border-color: var(--light-red-color);
     }
 }
