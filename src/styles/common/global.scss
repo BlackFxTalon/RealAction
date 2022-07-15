@@ -216,6 +216,7 @@ main {
  transition: .3s ease-in-out;
  color: white;
  position: relative;
+ z-index: 0;
 }
 .variant-1-btn::after {
   content: '';
@@ -262,6 +263,7 @@ main {
   color: black;
   text-align: center;
   position: relative;
+  z-index: 0;
  }
 
  .variant-2-btn::after {
@@ -310,6 +312,7 @@ main {
   color: white;
   text-align: center;
   position: relative;
+  z-index: 0;
  }
 
  .variant-3-btn::after {
