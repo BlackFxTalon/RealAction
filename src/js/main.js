@@ -12,11 +12,6 @@ Alpine.start()
 
 AOS.init();
 
-/* swiper.js */
-
-// core version + navigation, pagination modules:
-import Swiper from 'swiper/bundle';
-
 // import Atropos library
 import Atropos from 'atropos';
 
@@ -178,60 +173,3 @@ const gatherCollectionSlider = new Swiper('.gather-collection-slider', {
     }
   }
 });
-
-const orderMakingForm = new Swiper('.order-making__form', {
-  slidesPerView: 1,
-  autoHeight:true,
-  allowTouchMove:false,
-  navigation: {
-    nextEl: '.order-making__to-next-step-btn',
-    prevEl: '.order-making__return-back-btn',
-  },
-
-});
-
-function slideToIndexSlide0() {
-  document.querySelector('.order-making__to-slide-1-btn').addEventListener('click', ()=>{
-    orderMakingForm.slideTo(0);
-  });
-}
-
-slideToIndexSlide0();
-
-function slideToIndexSlide1() {
-  document.querySelector('.order-making__to-next-step-btn--to-office-data').addEventListener('click', ()=>{
-    orderMakingForm.slideTo(1);
-  });
-}
-
-slideToIndexSlide1();
-
-function slideToIndexSlide2() {
-  document.querySelector('.order-making__to-next-step-btn--to-delivery-home-data').addEventListener('click', ()=>{
-    orderMakingForm.slideTo(2);
-  });
-}
-
-slideToIndexSlide2();
-
-function slideToIndexSlide3() {
-  document.querySelector('.order-making__to-next-step-btn--to-slide-3').addEventListener('click', ()=>{
-    orderMakingForm.slideTo(3);
-  });
-}
-
-slideToIndexSlide3();
-
-const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-btn');
-
-fullScreenBtn.addEventListener('click',()=>{
-  document.querySelector('[data-fancybox="productCardSlider"]').click();
-})
-
-function initGatherCollectionScrollBar () {
-  if (window.innerWidth >= 1440) {
-    new SimpleBar(document.querySelector('.gather-collection-list-wrapper'));
-  }
-}
-
-initGatherCollectionScrollBar();

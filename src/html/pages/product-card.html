@@ -407,6 +407,21 @@
         </div>
     </div>
   </div>
+  <script defer>
+const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-btn');
+
+fullScreenBtn.addEventListener('click',()=>{
+  document.querySelector('[data-fancybox="productCardSlider"]').click();
+})
+
+function initGatherCollectionScrollBar () {
+  if (window.innerWidth >= 1440) {
+    new SimpleBar(document.querySelector('.gather-collection-list-wrapper'));
+  }
+}
+
+initGatherCollectionScrollBar();
+  </script>
 		@@include('../parts/footer.html')
 	</body>
 </html>
