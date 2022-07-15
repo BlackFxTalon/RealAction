@@ -1,0 +1,22 @@
+{
+    "name":"Real Action",
+    "short_name":"RA",
+    "start_url":"../html/pages/index.html",
+    "display":"standalone",
+    "background_color":"white",
+    "theme_color":"black",
+    "scope": ".",
+    "description":"Real Action website",
+    "icons":[
+    {
+    "src":"favicon.png",                     
+    "sizes":"192x192",
+    "type":"image/png"
+    },
+    {
+        "src":"favicon.png",
+    "sizes":"512x512",
+    "type":"image/png"
+    }
+  ]
+}

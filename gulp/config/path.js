@@ -13,7 +13,8 @@ export const path = {
 		html: `${srcFolder}/html/pages/*.html`, 
 		files: `${srcFolder}/resources/files/**/*.*`,
 		fonts: `${srcFolder}/resources/fonts/**/*`,
-		svgSprites: `${srcFolder}/resources/svgSprites/*.svg`
+		svgSprites: `${srcFolder}/resources/svgSprites/*.svg`,
+		pwa:`${srcFolder}/pwa/**/*.*`
 	},
 	build: {
 		js: `${buildFolder}/js/`,
@@ -23,14 +24,16 @@ export const path = {
 		favicons:`${buildFolder}/resources/favicons/`,
 		files: `${buildFolder}/files/`,
 		fonts: `${buildFolder}/fonts/`,
-		svgSprites: `${buildFolder}/resources/svgSprites/`
+		svgSprites: `${buildFolder}/resources/svgSprites/`,
+		pwa:`${buildFolder}/pwa/**/*.*`
 	},
 	watch: {
 		js: `${srcFolder}/js/**/*.js`,
 		styles: `${srcFolder}/styles/**/*.{scss,sass}`,
 		html: [`${srcFolder}/html/pages/**/*.html`, `${srcFolder}/html/parts/**/*.html`],
 		images: `${srcFolder}/resources/images/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
-		files: `${srcFolder}/resources/files/**/*.*`
+		files: `${srcFolder}/resources/files/**/*.*`,
+		pwa:`${srcFolder}/pwa/**/*.*`
 	},
 	clean: buildFolder,
 	buildFolder: buildFolder,
