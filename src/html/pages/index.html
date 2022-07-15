@@ -4,6 +4,10 @@
 	"title":"Главная"
 	})
 	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false}">
+		<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 		<script src="js/main.min.js" defer></script>
 		@@include('../parts/header.html')
 		<main>
@@ -217,7 +221,7 @@
 	<div class="collection-gallery__left">
 		<ul class="collection-gallery__img-gallery" role="list">
 			<template x-for="i in 4">
-			<li :class="{'active': activeImage === i}"><picture>
+			<li :class="{'active': activeImage === i, 'animate__animated':activeImage === i,'animate__fadeIn':activeImage === i,'animate__slower':activeImage === i, 'animate__delay':activeImage === i}"><picture>
 				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
 				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
 			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">

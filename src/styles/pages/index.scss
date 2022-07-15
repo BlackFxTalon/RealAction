@@ -1043,32 +1043,32 @@ backdrop-filter: blur(2px);
                 opacity: 1;
                 visibility: visible;
                 z-index: 1;
-            animation-name: fadeUp, transformItem;
-            animation-delay: 200ms, 200ms;
-            animation-duration: 1000ms, 1200ms;
-            animation-fill-mode: backwards;
-            animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+            // animation-name: fadeUp, transformItem;
+            // animation-delay: 200ms, 200ms;
+            // animation-duration: 1000ms, 1200ms;
+            // animation-fill-mode: backwards;
+            // animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
             }
         }
 
-        li::before {
-            content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    opacity: 1;
-    z-index: 1;
-    transform: translateX(101%);
-        }
-        li.active::before {
-            animation-name: fadeUp, transformOverlay;
-            animation-duration: 300ms, 1500ms;
-            animation-fill-mode: backwards;
-            animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-        }
+    //     li::before {
+    //         content: "";
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // background-color: black;
+    // opacity: 1;
+    // z-index: 1;
+    // transform: translateX(101%);
+    //     }
+    //     li.active::before {
+    //         animation-name: fadeUp, transformOverlay;
+    //         animation-duration: 300ms, 1500ms;
+    //         animation-fill-mode: backwards;
+    //         animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+    //     }
     }
 
     &__link {
@@ -1298,6 +1298,7 @@ line-height: 75px;
          height: 30px;
          filter: opacity(30%);
          transition: filter .5s ease-in-out;
+         cursor: pointer;
 
          @include media-medium() {
             width: 40px;
