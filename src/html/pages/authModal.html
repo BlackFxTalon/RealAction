@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"поп-ап окно для авторизации"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, authModal: false}" :class="{'overflow-hidden': authModal === true }">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container-alt breadcrumbs__container">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <button type="button" aria-label="button" class="variant-1-btn" @click="authModal = true">Модалка для авторизации</button>
+		</main>
+        <div class="modal auth-modal" :class="{'active': authModal === true}" @click.self="authModal = false">
+            <div class="modal-content auth-modal__content">
+            <fieldset>
+              <legend class="modal__title auth-modal__title"><h2>Требуется авторизация</h2><button class="modal__close auth-modal__close" type="button" aria-label="button" @click="authModal = false">
+                  <svg width="20" height="20">
+                    <use href="../resources/svgSprites/svgSprite.svg#close-modal-icon"></use>
+                    </svg>
+                </button></legend>
+              <p class="auth-modal__info">Чтобы добавлять товар в избранное, и в дальнейшем совершать покупки, то вам необходимо пройти авторизацию. Если у вас имеются проблемы, то обращайтесь в службу поддержки.</p>
+              <ul role="list" class="auth-modal__btn-group">
+                <li>
+                    <button type="button" class="auth-modal__reg-btn">зарегистрироваться</button>
+                </li>
+                <li>
+                    <button type="button" class="auth-modal__enter-btn">войти</button>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </div>
+		@@include('../parts/footer.html')
+	</body>
+</html>
