@@ -174,23 +174,37 @@ const orderMakingForm = new Swiper('.order-making__form', {
 
 });
 
-document.querySelector('.order-making__to-next-step-btn--to-office-data').addEventListener('click', ()=>{
-  orderMakingForm.slideTo(1);
-});
+function slideToIndexSlide0() {
+  document.querySelector('.order-making__to-slide-1-btn').addEventListener('click', ()=>{
+    orderMakingForm.slideTo(0);
+  });
+}
 
-document.querySelector('.order-making__to-next-step-btn--to-delivery-home-data').addEventListener('click', ()=>{
-  orderMakingForm.slideTo(2);
-});
+slideToIndexSlide0();
 
-document.querySelector('.order-making__to-next-step-btn--to-slide-3').addEventListener('click', ()=>{
-  orderMakingForm.slideTo(3);
-});
+function slideToIndexSlide1() {
+  document.querySelector('.order-making__to-next-step-btn--to-office-data').addEventListener('click', ()=>{
+    orderMakingForm.slideTo(1);
+  });
+}
 
-document.querySelector('.order-making__return-back-btn--to-1-slide').addEventListener('click', ()=>{
-  orderMakingForm.slideTo(0);
-});
+slideToIndexSlide1();
 
+function slideToIndexSlide2() {
+  document.querySelector('.order-making__to-next-step-btn--to-delivery-home-data').addEventListener('click', ()=>{
+    orderMakingForm.slideTo(2);
+  });
+}
 
+slideToIndexSlide2();
+
+function slideToIndexSlide3() {
+  document.querySelector('.order-making__to-next-step-btn--to-slide-3').addEventListener('click', ()=>{
+    orderMakingForm.slideTo(3);
+  });
+}
+
+slideToIndexSlide3();
 
 const fullScreenBtn = document.querySelector('.product-card-slider__fullscreen-btn');
 

@@ -797,20 +797,20 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul role="list" class="filter__bottom-btn-group">
-                        <li x-data="{toggleBtn: false}">
-                            <button type="button" aria-label="button" class="filter__show-btn" @click="toggleBtn = !toggleBtn" :class="{'active': toggleBtn === true}">
-                                <p>показать <span>12</span> товаров</p>
-                            </button>
-                        </li>
-                        <li x-data="{toggleBtn: false}">
-                            <button type="button" aria-label="button" class="filter__reset-btn" @click="toggleBtn = !toggleBtn" :class="{'active': toggleBtn === true}">
-                                <p>сбросить все</p>
-                            </button>
-                        </li>
-                    </ul>
                 </fieldset>
             </form>
+            <ul role="list" class="filter__bottom-btn-group">
+                <li x-data="{toggleBtn: false}">
+                    <button type="button" aria-label="button" class="filter__show-btn" @click="toggleBtn = !toggleBtn" :class="{'active': toggleBtn === true}">
+                        <p>показать <span>12</span> товаров</p>
+                    </button>
+                </li>
+                <li x-data="{toggleBtn: false}">
+                    <button type="button" aria-label="button" class="filter__reset-btn" @click="toggleBtn = !toggleBtn" :class="{'active': toggleBtn === true}">
+                        <p>сбросить все</p>
+                    </button>
+                </li>
+            </ul>
             <button type="button" aria-label="button" class="filter__close-btn" @click="filter = false">Закрыть</button>
         </nav>
         </div>

@@ -358,7 +358,7 @@
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="(step === 2 && deliveryWay === 'sdakDelivery') || (step === 2 && deliveryWay === 'warrantyDelivery')" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-1-slide" @click="step = 1; nextStep = 2"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-slide-1" @click="step = 1; nextStep = 2"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
@@ -370,7 +370,7 @@
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="step === 2 && deliveryWay === 'courierDelivery'" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-1-slide" @click="step = 1; nextStep = 2"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__to-slide-1-btn" @click="step = 1; nextStep = 2"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
