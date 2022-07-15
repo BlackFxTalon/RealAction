@@ -142,12 +142,20 @@
                   <ul class="swiper-wrapper product-descr-slider__wrapper" role="list">
                       <template x-for="i in 3">
                     <li class="swiper-slide product-descr-slider__slide" data-src="resources/images/product-descr-slider-img--gallery.jpg">
+                      <div class="atropos my-atropos product-descr-slider-img-parallax-effect">
+                        <div class="atropos-scale">
+                          <div class="atropos-rotate">
+                            <div class="atropos-inner">
                           <picture>
                             <source src="resources/images/product-descr-slider-img--desktop-2.jpg" media="(min-width:1920px)">
                             <source src="resources/images/product-descr-slider-img--desktop.jpg" media="(min-width:1440px)">
                             <source src="resources/images/product-descr-slider-img--tablet.jpg" media="(min-width:768px)">
                             <img src="resources/images/product-descr-slider-img--mobile.png" loading="lazy" decoding="async" alt="image" width="290" height="372">
                           </picture>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
                     </li>
                     </template>
                   </ul>

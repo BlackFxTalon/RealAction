@@ -17,6 +17,22 @@ AOS.init();
 // core version + navigation, pagination modules:
 import Swiper from 'swiper/bundle';
 
+// import Atropos library
+import Atropos from 'atropos';
+
+function initAtroposEffectOnElems() {
+  document.querySelectorAll('.my-atropos').forEach((element = '.product-descr-slider-img-parallax-effect') => {
+    Atropos({
+      // pass unique element here
+      el: element,
+      // rest of parameters
+      highlight: false,
+      shadowScale: 0,
+    });
+  })
+}
+initAtroposEffectOnElems();
+
 // custom scripts
 
 // init Swiper:
@@ -139,7 +155,7 @@ const productDescrSlider = new Swiper('.product-descr-slider', {
   slidesPerView: 1,
   navigation: {
     nextEl: '.product-descr-slider__button-next',
-    prevEl: '.gather-collection-slider__button-prev',
+    prevEl: '.product-descr-slider__button-prev',
   },
 });
 
