@@ -21,7 +21,7 @@ export const path = {
 		styles: `${buildFolder}/styles/`,
 		html: `${buildFolder}/`,
 		favicons:`${buildFolder}/resources/favicons/`,
-		files: `${buildFolder}/files/`,
+		files: `${buildFolder}`,
 		fonts: `${buildFolder}/fonts/`,
 		svgSprites: `${buildFolder}/resources/svgSprites/`
 	},
