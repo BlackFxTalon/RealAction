@@ -1004,17 +1004,10 @@ backdrop-filter: blur(2px);
     &__img-gallery {
         padding: 0;
         margin: 0;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
 
         picture {
-            position: absolute;
             width: 100%;
             height: 100%;
-            left: 0;
-            top: 0;
         }
 
         img {
@@ -1028,47 +1021,28 @@ backdrop-filter: blur(2px);
         }
 
         li {
-            position: absolute;
-            z-index: 0;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: flex-end;
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            // width: 100%;
+            // height: 100%;
+            // display: flex;
+            // align-items: flex-end;
+            // opacity: 0;
+            // z-index: 0;
+            // transition: .3s ease-in-out;
             opacity: 0;
-            visibility: hidden;
+
+            &.non-active {
+                // opacity: 0;
+                z-index: 0;
+            }
 
             &.active {
-                opacity: 1;
-                visibility: visible;
+                // opacity: 1;
                 z-index: 1;
-            // animation-name: fadeUp, transformItem;
-            // animation-delay: 200ms, 200ms;
-            // animation-duration: 1000ms, 1200ms;
-            // animation-fill-mode: backwards;
-            // animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
             }
         }
-
-    //     li::before {
-    //         content: "";
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // right: 0;
-    // bottom: 0;
-    // background-color: black;
-    // opacity: 1;
-    // z-index: 1;
-    // transform: translateX(101%);
-    //     }
-    //     li.active::before {
-    //         animation-name: fadeUp, transformOverlay;
-    //         animation-duration: 300ms, 1500ms;
-    //         animation-fill-mode: backwards;
-    //         animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-    //     }
     }
 
     &__link {
@@ -1256,12 +1230,13 @@ line-height: 75px;
             }
         }
     }
+
+    &__small-thumbnail-gallery-wrapper {
+        max-width: 525px;
+    }
     &__small-thumbnail-gallery {
        padding: 0;
        margin: 0;
-       display: grid;
-       grid-auto-flow: column;
-       gap: 10px;
 
        picture {
         height: 100%;
@@ -1270,10 +1245,6 @@ line-height: 75px;
 
        @include media-medium() {
         align-items: flex-end;
-       }
-
-       @include media-custom(1440px) {
-        gap: 20px;
        }
 
        img {
@@ -1294,25 +1265,25 @@ line-height: 75px;
        }
 
        li {
-         width: 30px;
+         width: 30px !important;
          height: 30px;
          filter: opacity(30%);
          transition: filter .5s ease-in-out;
          cursor: pointer;
 
          @include media-medium() {
-            width: 40px;
+            width: 40px !important;
             height: 40px;
             transition: .5s ease-in-out;
          }
 
          @include media-custom(1440px) {
-            width: 60px;
+            width: 60px !important;
             height: 60px;
          }
 
          @include media-custom(1920px) {
-            width: 80px;
+            width: 80px !important;
             height: 80px;
          }
 
@@ -1320,17 +1291,17 @@ line-height: 75px;
             filter: opacity(100%);
 
             @include media-medium() {
-                width: 60px;
+                width: 60px !important;
                 height: 63px;
             }
 
             @include media-custom(1440px) {
-                width: 80px;
+                width: 80px !important;
                 height: 85px;
              }
 
              @include media-custom(1920px) {
-                width: 120px;
+                width: 120px !important;
                 height: 125px;
              }
 

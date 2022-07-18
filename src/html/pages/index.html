@@ -214,17 +214,44 @@
 </section>
 <div class="container collection-gallery__container">
 <div class="collection-gallery" x-data="{ activeImage: 1}" data-aos="animate-in-view">
-	<div class="collection-gallery__left">
-		<ul class="collection-gallery__img-gallery" role="list">
-			<template x-for="i in 4">
-			<li :class="{'active': activeImage === i, 'animate__animated':activeImage === i,'animate__fadeIn':activeImage === i,'animate__slower':activeImage === i, 'animate__delay':activeImage === i}"><picture>
+	<div class="collection-gallery__left swiper">
+		<ul class="collection-gallery__img-gallery swiper-wrapper" role="list">
+			<li class="swiper-slide">
+				<picture>
 				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
 				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
 			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
 			</picture>
 		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
-		</li>
-		    </template>
+		    </li>
+			<li class="swiper-slide">
+				<picture>
+					<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop-xl.jpg" media="(min-width:1920px)">
+					<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+					<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+				  <source type="image/jpg" srcset="resources/images/new-collections-card-img--tablet.jpg" media="(min-width:768px)">
+				  <img src="resources/images/new-collections-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="170" height="260">
+				</picture>
+		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
+		    </li>
+			<li class="swiper-slide">
+				<picture>
+				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
+				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
+			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
+			</picture>
+		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
+		    </li>
+			<li class="swiper-slide">
+				<picture>
+					<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop-xl.jpg" media="(min-width:1920px)">
+					<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+					<source type="image/jpg" srcset="resources/images/new-collections-card-img--desktop.jpg" media="(min-width:1440px)">
+				  <source type="image/jpg" srcset="resources/images/new-collections-card-img--tablet.jpg" media="(min-width:768px)">
+				  <img src="resources/images/new-collections-card-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="170" height="260">
+				</picture>
+		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
+		    </li>
 		</ul>
 	</div>
 	<div class="collection-gallery__right">
@@ -244,63 +271,21 @@
 			</li>
 				</template>
 			</ul>
-			<ul class="collection-gallery__small-thumbnail-gallery" role="list">
+			<div class="collection-gallery__small-thumbnail-gallery-wrapper swiper">
+			<ul class="collection-gallery__small-thumbnail-gallery swiper-wrapper" role="list">
 				<template x-for="i in 4">
-				<li :class="{'active': activeImage === i}" @click="activeImage = i"><picture>
+				<li :class="{'active': activeImage === i}" @click="activeImage = i" class="swiper-slide"><picture>
 					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
 					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
 				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
 				</picture>
-			</li>
+			    </li>
 				</template>
 			</ul>
+		</div>
 		</div>
 	</div>
 </div>
-<!-- <div class="collection-gallery collection-gallery--reversed" x-data="{ activeImage: 1}">
-	<div class="collection-gallery__left">
-		<ul class="collection-gallery__img-gallery" role="list">
-			<template x-for="i in 4">
-			<li :class="{'active': activeImage === i}"><picture>
-				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
-				<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
-			  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
-			</picture>
-		    <a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
-		</li>
-		    </template>
-		</ul>
-	</div>
-	<div class="collection-gallery__right">
-		<div class="collection-gallery__right-text">
-			<p>коллекция копченая нога</p>
-			<span>изысканный вкус и устойчивый запах</span>
-		   </div>
-		<a href="#" class="variant-2-btn collection-gallery__link">Посмотреть сейчас</a>
-		<div class="collection-gallery__thumbnail-gallery">
-			<ul class="collection-gallery__detail-thumbnail-gallery" role="list">
-				<template x-for="i in 4">
-				<li :class="{'active': activeImage === i}"><picture>
-					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
-					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
-				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
-				</picture>
-			</li>
-				</template>
-			</ul>
-			<ul class="collection-gallery__small-thumbnail-gallery" role="list">
-				<template x-for="i in 4">
-				<li :class="{'active': activeImage === i}" @click="activeImage = i"><picture>
-					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--desktop-xl.jpg" media="(min-width:1440px)">
-					<source type="image/jpg" srcset="/resources/images/collection-gallery-img--tablet.jpg" media="(min-width:768px)">
-				  <img src="resources/images/collection-gallery-img--mobile.jpg" loading="lazy" decoding="async" alt="image" width="191" height="240">
-				</picture>
-			</li>
-				</template>
-			</ul>
-		</div>
-	</div>
-</div> -->
 </div>
 <section class="season-popular" x-data="{activeSlider: 4}" data-aos="animate-in-view">
 	<div class="container season-popular__container">
@@ -553,6 +538,28 @@
 				}
 			  }
 			}
+
+			const collectionGallerySmallThumbnailGallery = new Swiper(".collection-gallery__small-thumbnail-gallery-wrapper", {
+				slidesPerView: 4,
+				watchSlidesProgress: true,
+				spaceBetween: 10,
+                breakpoints: {
+                1440: {
+                spaceBetween: 20,
+               },
+              },
+            });
+
+			const collectionGalleryLeft = new Swiper(".collection-gallery__left", {
+              effect: "fade",
+			  fadeEffect: {
+               crossFade: true
+               },
+			  thumbs: {
+              swiper: collectionGallerySmallThumbnailGallery,
+              },
+            });
+
 		 </script>
 	</body>
 </html>
