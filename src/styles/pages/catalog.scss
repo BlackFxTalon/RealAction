@@ -1,6 +1,5 @@
 // catalog page styles
 .catalog-page {
-    padding-top: 15px;
 
     &__container {
 
@@ -41,6 +40,10 @@
         text-align: center;
         gap: 26px;
         padding-bottom: 30px;
+
+        @include media-custom-max(769px) {
+            padding-top: 30px;
+        }
 
         @include media-medium() {
             grid-template-columns: repeat(2,max-content);
@@ -672,7 +675,6 @@ line-height: 23px;
 
     &__bottom-btn-group {
         padding: 0;
-        padding-bottom: 15px;
         margin: 0;
         display: grid;
         gap: 15px;

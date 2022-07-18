@@ -213,11 +213,11 @@ line-height: 42px;
         }
     }
 
-    &__item.active {
+    &__item.completed {
         border-color: black;
     }
 
-    &__item.next {
+    &__item.active {
         border-color: rgba(0, 0, 0, 0.3);
     }
 
@@ -237,13 +237,13 @@ line-height: 42px;
         }
     }
 
-    &__indicator.active {
+    &__indicator.completed {
         border-color: var(--green-color-3);
         color: var(--green-color-3);
         background-color: rgba(0, 255, 56, 0.2);
     }
 
-    &__indicator.next {
+    &__indicator.active {
         border-color: black;
         color: black;
         background-color: transparent;
@@ -804,7 +804,7 @@ line-height: 23px;
         margin: 0;
         margin-top: 5px;
         width: 100%;
-        display: none;
+        display: grid;
         gap: 10px;
         font-weight: 300;
 font-size: 12px;
@@ -821,10 +821,6 @@ box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 @include media-custom(1440px) {
     font-size: 14px;
     line-height: 16px;
-}
-
-&.active {
-    display: grid;
 }
 
 &__delivery-point-search-list::-webkit-scrollbar {
@@ -848,6 +844,7 @@ box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
         padding-top: 10px;
         padding-bottom: 10px;
         padding-left: 2rem;
+        cursor: pointer;
     }
 
     &__delivery-point-search-list-item:hover,
@@ -1185,6 +1182,7 @@ color: black;
         padding-top: 10px;
         padding-bottom: 10px;
         padding-left: 2rem;
+        cursor: pointer;
     }
 
     &__city-search-list-item:hover,
@@ -2085,6 +2083,10 @@ line-height: 19px;
         font-size: 20px;
         line-height: 23px;
         color: white;
+
+        span {
+            color: var(--pink-color);
+        }
 
         @include media-medium() {
             font-size: 16px;

@@ -20,7 +20,7 @@
             </div>
             </nav>
             <div class="container order-making-page-container">
-            <section class="order-making" x-data="{step: 1, nextStep: 2, deliveryWay: 'sdakDelivery', contactDataValue: false,deliveryPointListParams:[
+            <section class="order-making" x-data="{step: 1, prevStep: null, deliveryWay: 'sdakDelivery', contactDataValue: false,deliveryPointListParams:[
                 {id:1,address:'Сыромолотова ул., д. 14'},
                 {id:2,address:'Сыромолотова ул., д. 13'},
                 {id:3,address:'Сыромолотова ул., д. 12'},
@@ -35,15 +35,15 @@
             deliveryPointAddress:'', paymentMethod: 'online', dateTimeValue: false}">
                 <h2 class="order-making__title">Оформление заказа</h2>
              <ul role="list" class="order-making-steps">
-              <li :class="{'active': step === 1}" class="order-making-steps__item"><span :class="{'active': step === 1}" class="order-making-steps__indicator">1</span></li>
+              <li :class="{'active': step === 1}" class="order-making-steps__item"><span :class="{'active': step === 1, 'completed': prevStep === 1}" class="order-making-steps__indicator" :class="{'completed': prevStep === 1}">1</span></li>
               <li class="order-making-steps__line" :class="{'active': step === 1}"></li>
-              <li :class="{'active': step === 1, 'next': nextStep === 2}" class="order-making-steps__item"><span :class="{'active': step === 2, 'next': nextStep === 2}" class="order-making-steps__indicator">2</span></li>
+              <li :class="{'active': step === 2, 'completed': prevStep === 2}" class="order-making-steps__item"><span :class="{'active': step === 2, 'completed': prevStep === 2}" class="order-making-steps__indicator">2</span></li>
               <li class="order-making-steps__line" :class="{'active': step === 2}"></li>
-              <li :class="{'active': step === 3, 'next': nextStep === 3}" class="order-making-steps__item"><span :class="{'active': step === 3, 'next': nextStep === 3}" class="order-making-steps__indicator">3</span></li>
+              <li :class="{'active': step === 3, 'completed': prevStep === 3}" class="order-making-steps__item"><span :class="{'active': step === 3, 'completed': prevStep === 3}" class="order-making-steps__indicator">3</span></li>
               <li class="order-making-steps__line" :class="{'active': step === 3}"></li>
-              <li :class="{'active': step === 4, 'next': nextStep === 4}" class="order-making-steps__item"><span :class="{'active': step === 4, 'next': nextStep === 4}" class="order-making-steps__indicator">4</span></li>
+              <li :class="{'active': step === 4, 'completed': prevStep === 4}" class="order-making-steps__item"><span :class="{'active': step === 4, 'completed': prevStep === 4}" class="order-making-steps__indicator">4</span></li>
               <li class="order-making-steps__line" :class="{'active': step === 4}"></li>
-              <li :class="{'active': step === 5, 'next': nextStep === 5}" class="order-making-steps__item"><span :class="{'active': step === 5, 'next': nextStep === 5}" class="order-making-steps__indicator">5</span></li>
+              <li :class="{'active': step === 5, 'completed': prevStep === 5}" class="order-making-steps__item"><span :class="{'active': step === 5, 'completed': prevStep === 5}" class="order-making-steps__indicator">5</span></li>
              </ul>
              <form action="#" class="order-making__form swiper">
                 <div class="swiper-wrapper">
@@ -167,11 +167,11 @@
                         <h3>АДРЕС ДОСТАВКИ:</h3>
                         <div class="order-making-step-2__input-group">
                         <label for="city2">Город</label>
-                        <div class="order-making-step-2__city-search" x-data="{cities:['Екатеринбург','Москва','Санкт-Петербург'], searchValue: '', closeSearch: null}">
+                        <div class="order-making-step-2__city-search" x-data="{cities:['Екатеринбург','Москва','Санкт-Петербург'], searchValue: ''}" @click.outside="searchValue = ''">
                             <div class="order-making-step-2__city-search-top">
-                            <input type="text" name="city2" id="city2" placeholder="Екатеринбург" x-model.debounce.300ms="searchValue" @focusout="closeSearch = true" @change="contactDataValue = true">
+                            <input type="text" name="city2" id="city2" placeholder="Екатеринбург" x-model.debounce.500ms="searchValue">
                             </div>
-                         <nav x-show="searchValue.length > 1">
+                         <nav x-show="searchValue">
                         <ul role="list" class="order-making-step-2__city-search-list">
                             <li class="order-making-step-2__city-search-list-title"><strong>Выберите город из списка</strong></li>
                             <template x-for="city in cities">
@@ -339,7 +339,7 @@
                     </svg><span>Вернуться назад</span></button>
                 </li>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-office-data" :class="{'disabled': deliveryWay === ''}" @click="step = 2; nextStep = 3"><span>к следующему пункту</span><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-office-data" :class="{'disabled': deliveryWay === ''}" @click="step = 2; prevStep = 1"><span>к следующему пункту</span><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg></button>
                 </li>
@@ -351,62 +351,62 @@
                     </svg><span>Вернуться назад</span></button>
                 </li>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-delivery-home-data" :class="{'disabled': deliveryWay === ''}" @click="step = 2; nextStep = 3"><span>к следующему пункту</span><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-delivery-home-data" :class="{'disabled': deliveryWay === ''}" @click="step = 2; prevStep = 1"><span>к следующему пункту</span><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg></button>
                 </li>
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="(step === 2 && deliveryWay === 'sdakDelivery') || (step === 2 && deliveryWay === 'warrantyDelivery')" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-slide-1" @click="step = 1; nextStep = 2"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 1; prevStep = null"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-slide-3" :class="{'disabled': contactDataValue === false}" @click="step = 3; nextStep = 4"><span>к следующему пункту</span><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn order-making__to-next-step-btn--to-slide-3" :class="{'disabled': contactDataValue === false}" @click="step = 3; prevStep = 2"><span>к следующему пункту</span><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg></button>
                 </li>
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="step === 2 && deliveryWay === 'courierDelivery'" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__to-slide-1-btn" @click="step = 1; nextStep = 2"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__to-home-slide-btn" @click="step = 1; prevStep = null"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': contactDataValue === false}" @click="step = 3; nextStep = 4"><span>к следующему пункту</span><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': contactDataValue === false}" @click="step = 3; prevStep = 2"><span>к следующему пункту</span><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg></button>
                 </li>
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="step === 3" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 2; nextStep = 3"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn order-making__return-back-btn--to-office-data" @click="step = 2; prevStep = 1"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': paymentMethod === ''}" @click="step = 4; nextStep = 5"><span>к следующему пункту</span><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': paymentMethod === ''}" @click="step = 4; prevStep = 3"><span>к следующему пункту</span><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg></button>
                 </li>
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="step === 4" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 3; nextStep = 4"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 3; prevStep = 2"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': dateTimeValue === false}" @click="step = 5; nextStep = 6"><span>к следующему пункту</span><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-next order-making__to-next-step-btn" :class="{'disabled': dateTimeValue === false}" @click="step = 5; prevStep = 4"><span>к следующему пункту</span><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg></button>
                 </li>
                </ul>
                <ul role="list" class="order-making__btn-group" x-show="step === 5" x-cloak>
                 <li>
-                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 4; nextStep = 5"><svg width="15" height="18">
+                    <button type="button" aria-label="button" class="swiper-button-prev order-making__return-back-btn" @click="step = 4; prevStep = 3"><svg width="15" height="18">
                         <use href="../resources/svgSprites/svgSprite.svg#cabinet-list-arrow"></use>
                     </svg><span>Вернуться назад</span></button>
                 </li>
@@ -425,30 +425,30 @@
                      <span></span>
                   </button>
                  </div>
-                 <div class="delivery-point-modal__city-search" x-data="{cities:['Екатеринбург','Москва','Санкт-Петербург'], searchValue: '', closeSearch: null}">
+                 <div class="delivery-point-modal__city-search" x-data="{cities:['Екатеринбург','Москва','Санкт-Петербург'], citySearchValue: ''}" @click.outside="citySearchValue = ''">
                      <div class="delivery-point-modal__city-search-top">
-                     <input type="text" name="city" id="city" placeholder="Поиск по городу" x-model.debounce.300ms="searchValue" @focusout="closeSearch = true">
+                     <input type="text" name="city" id="city" placeholder="Поиск по городу" x-model.debounce.500ms="citySearchValue">
                      </div>
-                  <nav x-show="searchValue.length > 1">
+                  <nav x-show="citySearchValue">
                  <ul role="list" class="delivery-point-modal__city-search-list">
                     <li class="delivery-point-modal__city-search-list-title"><strong>Выберите город из списка</strong></li>
                      <template x-for="city in cities">
-                     <li @click="searchValue = city; closeSearch = true" class="delivery-point-modal__city-search-list-item" :class="{'active': searchValue === city}">
+                     <li @click="citySearchValue = city" class="delivery-point-modal__city-search-list-item" :class="{'active': citySearchValue === city}">
                         <p x-text="city"></p>
                      </li>
                      </template>
                  </ul>
                 </nav>
                  </div>
-                 <div class="delivery-point-modal__delivery-point-search" x-data="{deliveryPoints:['Сыромолотова д.14','Сыромолотова д.13','Сыромолотова д.12'], searchValue: '', closeSearch: false}" click.outside="closeSearch = true">
+                 <div class="delivery-point-modal__delivery-point-search" x-data="{deliveryPoints:['Сыромолотова д.14','Сыромолотова д.13','Сыромолотова д.12'], deliveryPointSearchValue: ''}" @click.outside="deliveryPointSearchValue = ''">
                      <div class="delivery-point-modal__delivery-point-search-top">
-                     <input type="text" placeholder="Поиск по пункту выдачи" name="deliveryPoint" id="deliveryPoint" x-model="searchValue">
+                     <input type="text" placeholder="Поиск по пункту выдачи" name="deliveryPoint" id="deliveryPoint" x-model.debounce.500ms="deliveryPointSearchValue">
                      </div>
-                <nav x-show="searchValue.length > 1">
-                 <ul role="list" class="delivery-point-modal__delivery-point-search-list" :class="{'active': searchValue.length >= 4 }">
+                <nav x-show="deliveryPointSearchValue">
+                 <ul role="list" class="delivery-point-modal__delivery-point-search-list">
                     <li class="delivery-point-modal__delivery-point-search-list-title"><strong>Выберите пункт выдачи</strong></li>
                      <template x-for="deliveryPoint in deliveryPoints">
-                         <li x-text="deliveryPoint" @click="searchValue = deliveryPoint; closeSearch = true" class="delivery-point-modal__delivery-point-search-list-item" :class="{'active': searchValue === city}"></li>
+                         <li x-text="deliveryPoint" @click="deliveryPointSearchValue = deliveryPoint" class="delivery-point-modal__delivery-point-search-list-item" :class="{'active': deliveryPointSearchValue === city}"></li>
                      </template>
                  </ul>
                 </nav>
@@ -651,7 +651,7 @@
                                 </figcaption>
                               </figure>
                                </li>
-                               <li class="order-making-products-card__item order-making-products-card__color-dropdown" x-data="{colorChoice: 'white', toggleDropdown: false}" :class="{'active': toggleDropdown === true}">
+                               <li class="order-making-products-card__item order-making-products-card__color-dropdown" x-data="{colorChoice: 'white', toggleDropdown: false}" :class="{'active': toggleDropdown === true}" @click.outside="toggleDropdown = false">
                                 <div class="order-making-products-card__color-dropdown-top" @click="toggleDropdown = !toggleDropdown">
                                     <span :data-color="colorChoice" class="order-making-products-card__color-dropdown-top-circle"></span>
                                     <svg class="order-making-products-card__color-dropdown-top-arrow" width="15" height="15" :class="{'active': toggleDropdown === true}">
@@ -667,7 +667,7 @@
                                     </ul>
                                    </nav>
                                </li>
-                               <li class="order-making-products-card__item order-making-products-card__size-dropdown"x-data="{sizeChoice: 'xl', toggleDropdown: false}" :class="{'active': toggleDropdown === true}">
+                               <li class="order-making-products-card__item order-making-products-card__size-dropdown" x-data="{sizeChoice: 'xl', toggleDropdown: false}" :class="{'active': toggleDropdown === true}" @click.outside="toggleDropdown = false">
                                 <div class="order-making-products-card__size-dropdown-top" @click="toggleDropdown = !toggleDropdown">
                                     <span x-text="sizeChoice"></span>
                                     <svg class="order-making-products-card__size-dropdown-top-arrow" width="15" height="15" :class="{'active': toggleDropdown === true}">
@@ -710,7 +710,7 @@
 });
 
 function slideToIndexSlide0() {
-  document.querySelector('.order-making__to-slide-1-btn').addEventListener('click', ()=>{
+  document.querySelector('.order-making__to-home-slide-btn').addEventListener('click', ()=>{
     orderMakingForm.slideTo(0);
   });
 }
@@ -719,6 +719,9 @@ slideToIndexSlide0();
 
 function slideToIndexSlide1() {
   document.querySelector('.order-making__to-next-step-btn--to-office-data').addEventListener('click', ()=>{
+    orderMakingForm.slideTo(1);
+  });
+  document.querySelector('.order-making__return-back-btn--to-office-data').addEventListener('click', ()=>{
     orderMakingForm.slideTo(1);
   });
 }
