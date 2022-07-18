@@ -27,10 +27,10 @@ import { fonts } from "./gulp/tasks/fonts.js";
 import { svgSprites } from "./gulp/tasks/svgSprites.js";
 import { ftp } from "./gulp/tasks/ftp.js";
 
+
 // task watcher
 function watcher() {
 	gulp.watch(path.watch.files, copy);
-	gulp.watch(path.watch.pwa, copy);
 	gulp.watch(path.watch.html, html); 
 	gulp.watch(path.watch.styles, styles);
 	gulp.watch(path.watch.js, js);
