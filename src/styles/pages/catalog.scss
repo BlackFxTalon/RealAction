@@ -54,6 +54,7 @@
             padding-bottom: 0;
             order: 1;
             justify-content: flex-end;
+            grid-template-columns:unset;
         }
     }
 
@@ -64,15 +65,14 @@
             grid-template-columns: repeat(2,1fr);
             align-items: center;
             justify-content: space-between;
-            max-width: 1420px;
+            max-width: 100%;
             margin: auto;
             padding-bottom: 40px;
             padding-left: 60px;
         }
 
         @include media-custom(1920px) {
-            max-width: 100%;
-            padding-right: 15px;
+            padding-right: 40px;
         }
     }
 
@@ -1082,6 +1082,7 @@ transition: .3s ease-in-out;
 
     @include media-custom(1440px) {
         display: grid;
+        gap: 0;
     }
 
     &__nav {
