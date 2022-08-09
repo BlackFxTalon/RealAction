@@ -2459,11 +2459,28 @@ border-radius: 7px;
 }
 
 &__count {
+    padding-left: 40px;
+}
+
+&__counter {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3,max-content);
+    gap: 10px;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
     color: white;
-    padding-left: 50px;
+}
+
+&__counter-minus,
+&__counter-plus {
+    cursor: pointer;
+}
+&__counter-minus.disabled,
+&__counter-plus.disabled {
+    opacity: .3;
+    pointer-events: none;
 }
 
 &__total-sum {
