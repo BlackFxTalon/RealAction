@@ -33,6 +33,8 @@ initAtroposEffectOnElems();
 // init Swiper:
 const ctaSlider = new Swiper('.cta-slider', {
   slidesPerView:'auto',
+  observe: true,
+  observeParents: true,
   autoplay: {
     delay: 10000,
   },
@@ -60,6 +62,8 @@ ctaSlider.on('slideChangeTransitionEnd', () => {
 const newCollectionsSlider = new Swiper('.new-collections-slider', {
   slidesPerView:'auto',
   spaceBetween:10,
+  observe: true,
+  observeParents: true,
   pagination: {
     el: '.new-collections-slider__pagination',
     clickable: true,
@@ -88,6 +92,8 @@ const newCollectionsSlider = new Swiper('.new-collections-slider', {
 const seasonPopularSlider = new Swiper('.season-popular-slider', {
   slidesPerView:'auto',
   spaceBetween:10,
+  observe: true,
+  observeParents: true,
   pagination: {
     el: '.season-popular-slider__pagination',
     clickable: true,
@@ -118,7 +124,7 @@ const seasonPopularSlider = new Swiper('.season-popular-slider', {
 });
 
 const productCardSlider = new Swiper('.product-card-slider', {
-  slidesPerView:'auto',
+  slidesPerView: 'auto',
   pagination: {
     el: '.product-card-slider__pagination',
     type: "fraction",
@@ -148,6 +154,8 @@ const productCardSlider = new Swiper('.product-card-slider', {
 
 const productDescrSlider = new Swiper('.product-descr-slider', {
   slidesPerView: 1,
+  observe: true,
+  observeParents: true,
   navigation: {
     nextEl: '.product-descr-slider__button-next',
     prevEl: '.product-descr-slider__button-prev',
@@ -156,6 +164,8 @@ const productDescrSlider = new Swiper('.product-descr-slider', {
 
 const gatherCollectionSlider = new Swiper('.gather-collection-slider', {
   slidesPerView: 1,
+  observe: true,
+  observeParents: true,
   navigation: {
     nextEl: '.gather-collection-slider__button-next',
     prevEl: '.gather-collection-slider__button-prev',

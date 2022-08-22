@@ -1,5 +1,4 @@
 import fileInclude from "gulp-file-include";
-import { htmlValidator } from "gulp-w3c-html-validator";
 
 
 export const html = () => {
@@ -10,8 +9,6 @@ export const html = () => {
             message: "Error: <%= error.message %>"
         }))
     )
-        .pipe(htmlValidator.analyzer())
-        .pipe(htmlValidator.reporter())
         .pipe(fileInclude())
         .pipe(app.gulp.dest(app.path.build.html))
         .pipe(app.plugins.browsersync.stream());
