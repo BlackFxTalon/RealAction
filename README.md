@@ -1,15 +1,3 @@
-# ninji-frontend-template-2022
-
-template for frontend development 2022 
-
-## list of techs:
-
-<ul>
-<li>html templates (gulp-file-include)</li>
-<li>SASS(SCSS)</li>
-<li>js (alpine.js)</li>
-<ul>
-
 ## Steps to start developing your new project with this template:
 
 ## clone project
