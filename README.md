@@ -14,7 +14,7 @@ template for frontend development 2022
 
 ## clone project
 
-<code>git clone https://github.com/BlackFxTalon/ninji-frontend-template-2022</code>
+<code>git clone https://github.com/BlackFxTalon/RealAction</code>
 
 ## install dependencies
 
@@ -27,3 +27,6 @@ template for frontend development 2022
 ## launch production
 
 <code>npm run build</code>
+
+## сообщение для других
+<code>клонируем проект через гит клон (git clone https://github.com/BlackFxTalon/RealAction), удаляем папку .git, после этого начинаем работать с проектом</code>
