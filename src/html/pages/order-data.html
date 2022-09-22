@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница оформления заказа"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, deliveryPointModal: false, verifyPhoneModal: false, verifyOrderModal: false }" :class="{'overflow-hidden': deliveryPointModal === true || verifyPhoneModal === true || verifyOrderModal === true}">
+        <script defer src="https://unpkg.com/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main class="order-data-main">
+            <nav class="breadcrumbs breadcrumbs--order-data">
+                <div class="container breadcrumbs__container breadcrumbs__container--order-data">
+                <ul role="list">
+                    <li>
+                        <a href="#">Каталог</a>
+                    </li>
+                    <li class="active"><a href="#">Оформление заказа</a></li>
+                </ul>
+            </div>
+            </nav>
+            <form action="#" class="order-data-form">
+                <div class="container order-data-form__container">
+                <fieldset class="order-data-form__fieldset">
+                <legend class="order-data-form__title">Данные для заказа</legend>
+                <div class="order-data-form__form-control-group-grid">
+                <div class="order-data-form__form-control-group">
+                    <label for="name">Имя<sup>*</sup></label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div class="order-data-form__form-control-group">
+                    <label for="surname">Фамилия<sup>*</sup></label>
+                    <input type="text" name="surname" id="surname" required>
+                </div>
+            </div>
+                <div class="order-data-form__form-control-group">
+                    <label for="country">Страна/регион<sup>*</sup></label>
+                    <select name="country" id="country">
+                        <option value="Россия" selected>Россия</option>
+                        <option value="США">США</option>
+                        <option value="США">Казахстан</option>
+                    </select>
+                </div>
+                <div class="order-data-form__form-control-group">
+                    <label for="livingRegion">Страна/регион<sup>*</sup></label>
+                    <select name="livingRegion" id="livingRegion">
+                        <option value="Россия" selected>Россия</option>
+                        <option value="США">Екатеринбург</option>
+                        <option value="США">Москва</option>
+                    </select>
+                </div>
+                <div class="order-data-form__form-control-group">
+                    <label for="phoneNumber">Телефон<sup>*</sup></label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" x-mask="+7(999)999-99" required>
+                </div>
+                <div class="order-data-form__form-control-group">
+                    <label for="mail">Email<sup>*</sup></label>
+                    <input type="email" name="mail" id="mail" required>
+                </div>
+                <div class="order-data-form__form-control-group">
+                    <label for="orderInfo">ПРИМЕЧАНИЕ К ЗАКАЗУ</label>
+                    <textarea name="orderInfo" id="orderInfo" placeholder="Примечания к вашему заказу, например, особые пожелания отделу доставки.">Примечания к вашему заказу, например, особые пожелания отделу доставки.
+                    </textarea>
+                </div>
+              </fieldset>
+              <fieldset class="order-data-form__fieldset">
+                <legend class="order-data-form__title">Ваш заказ</legend>
+                <ul role="list" class="your-order__list">
+                    <li class="your-order__list-item your-order__caption-list-item">
+                        <strong>Товар</strong>
+                        <strong>Товар</strong>
+                        <strong>Итого</strong>
+                    </li>
+                    <li class="your-order__list-item">
+                        <p>HONOR 20 PRO × 4</p>
+                        <p>XL</p>
+                        <p>139 960 <span>₽</span></p>
+                    </li>
+                    <li class="your-order__list-item">
+                        <p>HONOR 20 PRO × 4</p>
+                        <p>XL</p>
+                        <p>139 960 <span>₽</span></p>
+                    </li>
+                    <li class="your-order__list-item your-order__caption-bottom-list-item">
+                        <strong>Всего товаров на сумму:</strong>
+                        <strong>139 960 ₽</strong>
+                    </li>
+                </ul>
+                <div class="your-order__coupon-wrapper">
+                    <p class="your-order__coupon-text">Если у вас есть код купона, укажите его ниже.</p>
+                    <button type="button" class="variant-2-btn your-order__coupon-apply-btn">Применить купон</button>
+                </div>
+                <div class="your-order__coupon-group">
+                    <div class="your-order__coupon-input-wrapper">
+                    <input type="text" name="couponSubmit" id="couponSubmit" value="FJDJ-DJFJ-XFJF-TUNG" class="your-order__coupon-input">
+                    </div>
+                    <button type="button" class="your-order__coupon-btn your-order__coupon-btn--no-coupon">Купона не существует!</button>
+                    <button type="button" class="your-order__coupon-btn your-order__coupon-btn--active-coupon">Купон активирован!</button>
+                </div>
+                <legend class="order-data-form__title order-data-form__title--no-border">Выбор доставки</legend>
+                <ul role="list" class="order-data-form__delivery-way-list">
+                    <li>
+                        <input type="radio" name="delivery" id="sdak" checked>
+                        <label for="sdak">Посылка склад-постамат (СДЭК): 200 <span>₽</span></label>
+                    </li>
+                    <li>
+                        <input type="radio" name="delivery" id="point">
+                        <label for="point">Самовывоз из пункта выдачи: 200 <span>₽</span></label>
+                    </li>
+                </ul>
+                <div class="delivery-point">
+                    <p class="delivery-point__text">Выберите пункт выдачи СДЭК</p>
+                    <button type="button" aria-label="button" class="delivery-point__choose-point-btn">Выбрать пункт выдачи</button>
+                </div>
+                <div class="chosen-delivery-point">
+                    <strong>Выбранный пункт выдачи:</strong>
+                    <p> ул. Кушелевская дорога, 1 корп.2 стр1, пом 52Н</p>
+                </div>
+                <div class="delivery-overall">
+                    <strong>Итого с учетом доставки</strong>
+                    <strong>139 960 <span>₽</span></strong>
+                </div>
+                <legend class="order-data-form__title order-data-form__title--no-border">Выбор оплаты</legend>
+                <ul class="order-data-form__payment-method-list" role="list">
+                    <li class="order-data-form__payment-method-list-item order-data-form__payment-method-list-item--border">
+                        <input type="radio" name="deliveryPayment" id="deliveryPayment1" checked>
+                        <label for="deliveryPayment1">Оплата при доставке (наложенный платёж)</label>
+                    </li>
+                    <ul role="list" class="order-data-form__payment-method-info-list">
+                        <li>Оплата наличными или картой при получении товара.</li>
+                        <li>При данном виде оплаты учитывается страховка 0.75% от суммы товаров в корзине.</li>
+                    </ul>
+                    <li class="order-data-form__payment-method-list-item">
+                        <input type="radio" name="deliveryPayment" id="cardPayment">
+                        <label for="cardPayment">Оплата картой</label>
+                    </li>
+                </ul>
+                <button type="submit" class="variant-2-btn order-data-form__submit-btn">Подтвердить заказ</button>
+            </fieldset>
+               </div>
+            </form>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>
