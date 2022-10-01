@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	@@include('../parts/head.html',{
-	"title":"Страница оформления заказа"
+	"title":"Страница контакты"
 	})
 	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, deliveryPointModal: false, verifyPhoneModal: false, verifyOrderModal: false }" :class="{'overflow-hidden': deliveryPointModal === true || verifyPhoneModal === true || verifyOrderModal === true}">
 		<script src="js/main.min.js" defer></script>
@@ -17,40 +17,38 @@
                 </ul>
             </div>
             </nav>
-            <section class="contacts-page">
-                <div class="container contacts-page__container">
-                    <div class="contacts-page__grid">
-                    <div class="contacts-page__left">
-                        <div class="contacts-page__contacts">
-                            <h2>Контакты</h2>
-                            <p>Фактический адрес: 620014, г. Екатеринбург, ул. Радищева, д. 4, оф. 204</p>
-                            <p>Электронная почта: <a href="mailto:shop@shop.ru.">shop@shop.ru.</a></p>
-                            <p>Телефоны: <a href="tel:8-800-500-9876">8-800-500-9876</a></p>
-                           </div>
-                            <div class="contacts-page__req">
-                                <h2>Реквизиты</h2>
-                                <ul class="contacts-page__req-list">
-                                   <li>Зарегистрирован как ИП 19.07.2021</li> 
-                                   <li>ИНН: 667101249873</li>
-                                   <li>ОГРНИП: 321665800123720</li>
-                                   <li>БИК: 046577674</li>
-                                   <li>Отделение №7003 ПАО Сбербанк, г. Екатеринбург</li>
-                                   <li>К/С: 30101810500000000674</li>
-                                   <li>Р/С: 40802810316540071371</li>
-                                   <li>620014, г. Екатеринбург, ул. Радищева, д. 4, оф. 204</li>
-                                   <li>Телефон: +7 (343) 211-02-34</li>
-                                   <li>Email: salon@bossage.ru</li>
-                                </ul>
+            <div class="container-alt contacts-page-container">
+                <section class="contacts-page" data-aos="animate-in-view">
+                        <div class="contacts-page__left">
+                            <div class="contacts-page__contacts">
+                                <h2>Контакты</h2>
+                                <p>Фактический адрес: 620014, г. Екатеринбург, ул. Радищева, д. 4, оф. 204</p>
+                                <p>Электронная почта: <a href="mailto:shop@shop.ru.">shop@shop.ru.</a></p>
+                                <p>Телефоны: <a href="tel:8-800-500-9876">8-800-500-9876</a></p>
+                               </div>
+                                <div class="contacts-page__req">
+                                    <h2>Реквизиты</h2>
+                                    <ul class="contacts-page__req-list">
+                                       <li>Зарегистрирован как ИП 19.07.2021</li> 
+                                       <li>ИНН: 667101249873</li>
+                                       <li>ОГРНИП: 321665800123720</li>
+                                       <li>БИК: 046577674</li>
+                                       <li>Отделение №7003 ПАО Сбербанк, г. Екатеринбург</li>
+                                       <li>К/С: 30101810500000000674</li>
+                                       <li>Р/С: 40802810316540071371</li>
+                                       <li>620014, г. Екатеринбург, ул. Радищева, д. 4, оф. 204</li>
+                                       <li>Телефон: +7 (343) 211-02-34</li>
+                                       <li>Email: salon@bossage.ru</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <div class="contacts-page__right">
+                            <div class="contacts-page__map">
+                                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa848494b0839acc14f3997d5751bf2d37604b282396cd67e2adbca44670e85eb&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
                             </div>
                         </div>
-                    <div class="contacts-page__right">
-                        <div class="contacts-page__map">
-                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa848494b0839acc14f3997d5751bf2d37604b282396cd67e2adbca44670e85eb&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
 		</main>
 		@@include('../parts/footer.html')
 	</body>

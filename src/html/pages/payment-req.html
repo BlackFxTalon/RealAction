@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('../parts/head.html',{
+	"title":"Страница соглашения"
+	})
+	<body x-data="{mobileMenu:false, headerSearch: false, headerMegaMenu: false, deliveryPointModal: false, verifyPhoneModal: false, verifyOrderModal: false }" :class="{'overflow-hidden': deliveryPointModal === true || verifyPhoneModal === true || verifyOrderModal === true}">
+		<script src="js/main.min.js" defer></script>
+		@@include('../parts/header.html')
+		<main>
+            <nav class="breadcrumbs">
+                <div class="container breadcrumbs__container">
+                <ul role="list">
+                    <li>
+                        <a href="#" class="breadcrumbs__previous-page-link">Вернутьcя назад</a>
+                        <a href="#">главная</a>
+                    </li>
+                    <li><a href="#">каталог</a></li>
+                    <li class="active"><a href="#">CITY CLUB HALF ZIP PERCY JACKET</a></li>
+                </ul>
+            </div>
+            </nav>
+            <div class="container-alt payment-req-page-container" data-aos="animate-in-view">
+                <section class="payment-req-page">
+                    <h2 class="section-page-title payment-req-page__title">
+                      <span>Условия оплаты</span>
+                    </h2>
+                    <div class="payment-req-page__info">
+                        <h3>Оплатить заказанный товар вы можете следующими способами:</h3>
+                        <div>
+                            <strong>Физические лица</strong>
+                            <p>* Наличными или банковской картой (в Офисе компании).</p>
+                            <p>* Онлайн банковской картой на сайте real-action.ru</p>
+                            <p>* При оформлении покупки вам будет предоставлен необходимый пакет документов (товарный и кассовый чеки).</p>
+                        </div>
+                        <div>
+                            <strong>Юридические лица и индивидуальные предприниматели</strong>
+                            <p>* Наличными или банковской картой (в Офисе компании).</p>
+                            <p>* Перечислением средств по реквизитам указанным в счете. https://real-action.ru/pay</p>
+                            <p>* Онлайн банковской картой на сайте real-action.ru</p>
+                            <p>* При оформлении покупки вам будет предоставлен необходимый пакет документов (приходно-кассовый ордер, кассовый чек, счет-фактура, товарная накладная).</p>
+                        </div>
+                        <h3>Онлайн оплата заказа
+                        </h3>
+                        <div>
+                            <p style="padding-bottom: 20px;">Для оплаты заказа онлайн с помощью банковской карты на соответствующей странице корзины необходимо нажать кнопку «Оплата заказа банковской картой».</p>
+                            <p style="padding-bottom: 20px;">Оплата происходит через ПАО СБЕРБАНК с использованием банковских карт следующих платежных систем:</p>
+                            <ul role="list">
+                          <li><p>Мир</p></li>
+                          <li><p>VISA</p></li>
+                          <li><p>Mastercard Worldwide</p></li>
+                          <li><p>JCB</p></li>
+                            </ul>
+                        </div>
+                        <img loading="lazy" decoding="async" src="/resources/images/payment-req-img.png" alt="image" width="476" height="70">
+                        <h3>Описание процесса оплаты
+                        </h3>
+                        <div>
+                            <p style="padding-bottom: 20px;">После указания способа оплаты и полного оформления заказа с Вами свяжется наш менеджер для уточнения деталей заказа и направит удобным для Вас способом (по электронной почте или смс) ссылку для оплаты заказа. При переходе по ссылке для оплаты (ввода реквизитов Вашей карты) Вы будете перенаправлены на платежный шлюз ПАО СБЕРБАНК. Соединение с платежным шлюзом и передача информации осуществляется в защищенном режиме с использованием протокола шифрования SSL.</p>
+                            <p style="padding-bottom: 20px;">В случае, если Ваш банк поддерживает технологию безопасного проведения интернет-платежей Verified By Visa или MasterCard Secure Code, для проведения платежа также может потребоваться ввод специального пароля. Способы и возможность получения паролей для совершения интернет-платежей Вы можете уточнить в банке, выпустившем карту.</p>
+                            <p style="padding-bottom: 20px;">Настоящий сайт поддерживает 258-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введенная информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платежных систем МИР, Visa Int., MasterCard Europe Sprl., JCB.</p>
+                            <p>До получения успешного подтверждения платежа Ваш заказ будет находиться в режиме ожидания, после пяти дней ожидания получения оплаты заказ будет автоматически аннулирован. После успешного подтверждения платежа Ваш заказ будет переведен в режим доставки по указанному адресу. В случае отказа в авторизации карты Вы сможете повторить процедуру оплаты.</p>
+                        </div>
+                        <h3>При аннулировании заказа
+                        </h3>
+                        <p>При аннулировании позиций из оплаченного заказа (или при аннулировании заказа целиком) Вы можете заказать другой товар на эту сумму, либо вернуть всю сумму на карту, предварительно написав письмо на e-mail, кроме случаев указанных в п 3.8 и 4.7 Пользовательского соглашения.
+                        </p>
+                        <h3>Оплата по банковским картам VISA
+                        </h3>
+                        <p>К оплате принимаются все виды платежных карт VISA, за исключением Visa Electron. В большинстве случаев карта Visa Electron не применима для оплаты через интернет, за исключением карт, выпущенных отдельными банками. О возможности оплаты картой Visa Electron Вам нужно выяснять у банка-эмитента вашей карты.</p>
+                        <img loading="lazy" decoding="async" src="/resources/images/payment-req-img-2.png" alt="image" width="432" height="64">
+                        <h3>Оплата по кредитным картам MasterCard</h3>
+                        <p>На сайте к оплате принимаются все виды MasterCard, за исключением Maestro.</p>
+                        <img loading="lazy" decoding="async" src="/resources/images/payment-req-img-3.png" alt="image" width="542" height="64">
+                        <h3>Что нужно знать:</h3>
+                        <div>
+                        <p>* Номер Вашей кредитной карты.</p>
+                        <p>* Срок окончания действия Вашей кредитной карты, месяц/год.</p>
+                        <p>* CVV код для карт Visa / CVC код для Master Card (3 последние цифры на полосе для подписи на обороте карты).</p>
+                        </div>
+                        <img loading="lazy" decoding="async" src="/resources/images/payment-req-img-4.png" alt="image" width="925" height="333">
+                        <p>Если на вашей карте код CVC / CVV отсутствует, то, возможно, карта не пригодна для CNP транзакций (т.е. таких транзакций, при которых сама карта не присутствует, а используются её реквизиты), и вам следует обратиться в банк для уточнения.</p>
+                    </div>
+             </section>
+             <section class="contacts-page contacts-page--dark-theme">
+                <div class="contacts-page__left">
+                    <div class="contacts-page__contacts">
+                        <h2>Контакты</h2>
+                        <p>Фактический адрес: 620014, г. Екатеринбург, ул. Радищева, д. 4, оф. 204</p>
+                        <p>Электронная почта: <a href="mailto:shop@shop.ru.">shop@shop.ru.</a></p>
+                        <p>Телефоны: <a href="tel:8-800-500-9876">8-800-500-9876</a></p>
+                       </div>
+                        <div class="contacts-page__req">
+                            <h2>Реквизиты</h2>
+                            <ul class="contacts-page__req-list">
+                               <li>Зарегистрирован как ИП 19.07.2021</li> 
+                               <li>ИНН: 667101249873</li>
+                               <li>ОГРНИП: 321665800123720</li>
+                               <li>БИК: 046577674</li>
+                               <li>Отделение №7003 ПАО Сбербанк, г. Екатеринбург</li>
+                               <li>К/С: 30101810500000000674</li>
+                               <li>Р/С: 40802810316540071371</li>
+                               <li>620014, г. Екатеринбург, ул. Радищева, д. 4, оф. 204</li>
+                               <li>Телефон: +7 (343) 211-02-34</li>
+                               <li>Email: salon@bossage.ru</li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="contacts-page__right">
+                    <div class="contacts-page__map">
+                        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa848494b0839acc14f3997d5751bf2d37604b282396cd67e2adbca44670e85eb&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+                    </div>
+                </div>
+             </section>
+            </div>
+		</main>
+		@@include('../parts/footer.html')
+	</body>
+</html>

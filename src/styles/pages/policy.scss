@@ -1,0 +1,62 @@
+// policy page styles
+.breadcrumbs__container--policy-page {
+    --max-width:1024px;
+}
+.policy-page-container {
+    --max-width:1024px;
+    @include media-custom-max(767px) {
+        --padding-left:0;
+        --padding-right:0;
+    }
+}
+.policy-page {
+
+    background-color: white;
+    padding: 20px;
+
+    @include media-medium() {
+        padding-bottom: 30px;
+    }
+    @include media-custom(1440px) {
+        padding: 40px;
+        padding-bottom: 68px;
+    }
+
+    &__title {
+        font-weight: 300;
+font-size: 24px;
+line-height: 28px;
+color: black;
+padding-bottom: 5px;
+margin-bottom: 20px;
+
+@include media-medium() {
+font-size: 32px;
+line-height: 38px;
+padding-bottom: 9px;
+}
+@include media-custom(1440px) {
+    font-size: 36px;
+line-height: 42px;
+padding-bottom: 5px;
+max-width: toRem(650);
+}
+@include media-custom(1920px) {
+    max-width: toRem(800);
+}
+    }
+    &__title::after {
+        background-color: black;
+    }
+
+    p {
+        font-family: 'Roboto',sans-serif;
+font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: black;
+    }
+    p:not(:last-child) {
+        padding-bottom: 5px;
+    }
+}
